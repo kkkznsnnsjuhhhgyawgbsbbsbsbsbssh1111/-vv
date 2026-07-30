@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>未来网页架构师 - 七年级编程工坊</title>
+    
+    <script src="https://metis-online.fbcontent.cn/metis-misc/zgLDUdmazTYc0B4K6Cor.js"></script>
+    
+    <script src="https://metis-online.fbcontent.cn/metis-misc/zZZY40t7WJC7UdQCPACm.js"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: 'var(--color-primary)',
+                        secondary: 'var(--color-secondary)',
+                        accent: 'var(--color-accent)',
+                        dark: '#1e293b',
+                        editor: '#1e1e1e',
+                        sidebar: '#252526',
+                        'sidebar-hover': '#2a2d2e',
+                        'sidebar-active': '#37373d'
+                    },
+                    fontFamily: {
+                        mono: ['"Fira Code"', 'Consolas', 'Monaco', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            /* 默认主题 (森林绿) */
+            --color-primary: #0A4737;
+            --color-secondary: #A7DBA8;
+            --color-accent: #FF6421;
+        }
+
+        .theme-ocean {
+            --color-primary: #0f4c81;
+            --color-secondary: #89c4f4;
+            --color-accent: #f59e0b;
+        }
+
+        .theme-purple {
+            --color-primary: #581c87;
+            --color-secondary: #d8b4fe;
+            --color-accent: #ec4899;
+        }
+
+        /* 自定义滚动条 */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
+
+        /* 编辑器样式 */
+        .editor-container {
+            position: relative;
+            counter-reset: line;
+            background-color: #1e1e1e;
+        }
+        
+        /* 高亮层 */
+        .highlighter {
+            position: absolute;
+            left: 50px;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .highlight-line {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 1.5rem;
+            background-color: rgba(220, 38, 38, 0.3);
+            border-left: 2px solid #ef4444;
+        }
+
+        /* 行号区域 */
+        .line-numbers {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 40px;
+            background-color: #2d2d2d;
+            color: #858585;
+            text-align: right;
+            padding: 1rem 0.5rem;
+            font-family: monospace;
+            line-height: 1.5rem;
+            font-size: 14px;
+            user-select: none;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        /* 文本域 */
+        textarea.code-input {
+            position: relative;
+            z-index: 1;
+            padding-left: 50px;
+            line-height: 1.5rem;
+            font-size: 14px;
+            tab-size: 4;
+            resize: none;
+            background-color: transparent !important;
+        }
+
+        /* 错误提示栏动画 */
+        #error-panel {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* 文件列表项样式 */
+        .file-item {
+            transition: all 0.2s;
+            border-left: 2px solid transparent;
+        }
+        .file-item.active {
+            background-color: #37373d;
+            border-left-color: var(--color-secondary);
+            color: #fff;
+        }
+        .file-item:hover:not(.active) {
+            background-color: #2a2d2e;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 h-screen flex flex-col overflow-hidden font-sans text-gray-800">
+
+    <header class="bg-white border-b border-gray-200 h-16 flex items-center justify-between px-6 shadow-sm z-10">
+        <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white font-bold transition-colors duration-300">
+                &lt;/&gt;
+            </div>
+            <h1 class="text-xl font-bold text-primary tracking-tight transition-colors duration-300">未来网页架构师 <span class="text-sm font-normal text-gray-500 ml-2">七年级版</span></h1>
+        </div>
+        
+        <div class="flex items-center gap-4">
+            <div class="relative">
+                <button onclick="toggleThemeMenu(event)" class="p-2 text-gray-500 hover:text-primary transition-colors rounded-full hover:bg-gray-100" title="更换主题">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                    </svg>
+                </button>
+                <div id="themeMenu" class="absolute right-0 top-full mt-2 w-32 bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden hidden z-50">
+                    <button onclick="setTheme('default')" class="w-full text-left px-4 py-2 text-sm hover:bg-gray-50 text-[#0A4737]">🌲 森林绿</button>
+                    <button onclick="setTheme('theme-ocean')" class="w-full text-left px-4 py-2 text-sm hover:bg-gray-50 text-[#0f4c81]">🌊 深海蓝</button>
+                    <button onclick="setTheme('theme-purple')" class="w-full text-left px-4 py-2 text-sm hover:bg-gray-50 text-[#581c87]">🔮 魔法紫</button>
+                </div>
+            </div>
+
+            <button onclick="exportHTML()" class="text-sm text-gray-600 hover:text-primary flex items-center gap-1 px-3 py-1.5 rounded-md hover:bg-gray-100 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                导出网页
+            </button>
+
+            <div class="h-6 w-px bg-gray-300 mx-2"></div>
+
+            <button id="runBtn" class="bg-accent hover:brightness-110 text-white px-6 py-2 rounded-full font-medium transition-all shadow-md hover:shadow-lg flex items-center gap-2 active:scale-95">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                </svg>
+                运行代码
+            </button>
+        </div>
+    </header>
+
+    <main class="flex-1 flex flex-col md:flex-row overflow-hidden">
+        
+        <section class="w-full md:w-1/2 flex border-r border-gray-200 bg-editor relative group" id="editorSection">
+            
+            <div class="w-48 bg-sidebar flex flex-col border-r border-[#333]">
+                <div class="px-4 py-3 text-xs font-bold text-gray-400 uppercase tracking-wider flex justify-between items-center">
+                    <span>项目文件</span>
+                    <button onclick="createNewFile()" class="hover:text-white" title="新建文件">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </div>
+                <div id="fileList" class="flex-1 overflow-y-auto">
+                    </div>
+            </div>
+
+            <div class="flex-1 flex flex-col min-w-0">
+                <div class="bg-[#252526] text-gray-300 px-4 py-2 text-xs flex justify-between items-center border-b border-[#333]">
+                    <span class="font-mono flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-orange-500" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd" />
+                        </svg>
+                        <span id="currentFileName">index.html</span>
+                    </span>
+                    <span class="text-gray-500">HTML5 编辑器</span>
+                </div>
+                
+                <div class="editor-container flex-[2] relative overflow-hidden border-b border-gray-700">
+                    <div id="highlighter" class="highlighter"></div>
+                    <div class="line-numbers" id="lineNumbers">1</div>
+                    <textarea 
+                        id="codeEditor" 
+                        class="code-input w-full h-full text-gray-100 font-mono p-4 outline-none border-none"
+                        spellcheck="false"
+                        placeholder="在这里输入你的 HTML 代码..."
+                    ></textarea>
+                </div>
+                
+                <div id="imgLibContainer" class="flex-1 bg-[#1e1e1e] flex flex-col min-h-0 transition-all duration-300 ease-in-out">
+                    <div onclick="toggleImageLibrary()" class="px-4 py-2 bg-[#252526] border-b border-[#333] flex justify-between items-center cursor-pointer hover:bg-[#2a2d2e] select-none">
+                        <span class="text-xs text-gray-300 font-bold flex items-center gap-2">
+                            <svg id="imgLibArrow" xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                            🖼️ 图片素材库 
+                            <span class="text-[10px] font-normal text-gray-500">(点击插入代码)</span>
+                        </span>
+                        <label onclick="event.stopPropagation()" class="cursor-pointer text-xs text-secondary hover:text-green-300 flex items-center gap-1 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+                            </svg>
+                            上传图片
+                            <input type="file" id="imgUploadInput" accept="image/*" multiple class="hidden">
+                        </label>
+                    </div>
+                    <div id="imageDropZone" class="flex-1 overflow-y-auto p-3 grid grid-cols-3 gap-3 content-start relative transition-colors duration-200">
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="w-full md:w-1/2 flex flex-col bg-gray-100">
+            <div class="bg-white border-b border-gray-200 px-4 py-2 text-xs flex justify-between items-center text-gray-500">
+                <span>实时预览</span>
+                <div class="flex gap-1">
+                    <div class="w-2 h-2 rounded-full bg-red-400"></div>
+                    <div class="w-2 h-2 rounded-full bg-yellow-400"></div>
+                    <div class="w-2 h-2 rounded-full bg-green-400"></div>
+                </div>
+            </div>
+            <div class="flex-1 p-4 overflow-hidden">
+                <div class="w-full h-full bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200">
+                    <iframe id="previewFrame" class="w-full h-full border-none"></iframe>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="error-panel" class="fixed bottom-0 left-0 right-0 bg-red-50 border-t border-red-200 transform translate-y-full transition-transform duration-300 z-50">
+        <div class="container mx-auto px-6 py-4 flex items-start gap-4">
+            <div class="flex-shrink-0 mt-1">
+                <svg class="h-6 w-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+            </div>
+            <div class="flex-1">
+                <h3 class="text-sm font-bold text-red-800">发现代码错误</h3>
+                <div id="error-content" class="text-sm text-red-600 mt-1"></div>
+            </div>
+            <button id="closeErrorBtn" class="text-red-400 hover:text-red-600">
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L10 8.586 5.707 4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script type="module">
+        // ==========================================
+        // 状态管理
+        // ==========================================
+        const files = {
+            'index.html': `<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { 
+            font-family: sans-serif; 
+            background: #f0f9ff;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 { color: #0A4737; }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>你好，世界！👋</h1>
+        <p>这是我制作的第一个网页。</p>
+        <button onclick="alert('你点击了按钮！')">点击我</button>
+    </div>
+
+</body>
+</html>`,
+            'about.html': `<!DOCTYPE html>
+<html>
+<body>
+    <h1>关于我</h1>
+    <p>我是一名正在学习编程的学生。</p>
+    <p>我喜欢：</p>
+    <ul>
+        <li>编程</li>
+        <li>画画</li>
+        <li>音乐</li>
+    </ul>
+</body>
+</html>`
+        };
+        
+        let currentFileName = 'index.html';
+
+        // 默认图库数据
+        const defaultImages = [];
+
+        // DOM 元素
+        const codeEditor = document.getElementById('codeEditor');
+        const lineNumbers = document.getElementById('lineNumbers');
+        const highlighter = document.getElementById('highlighter');
+        const runBtn = document.getElementById('runBtn');
+        const previewFrame = document.getElementById('previewFrame');
+        const errorPanel = document.getElementById('error-panel');
+        const errorContent = document.getElementById('error-content');
+        const closeErrorBtn = document.getElementById('closeErrorBtn');
+        const editorSection = document.getElementById('editorSection');
+        const fileListEl = document.getElementById('fileList');
+        const currentFileNameEl = document.getElementById('currentFileName');
+        const dropZone = document.getElementById('imageDropZone');
+        const imgInput = document.getElementById('imgUploadInput');
+
+        // ==========================================
+        // 初始化
+        // ==========================================
+        function init() {
+            renderFileList();
+            loadDefaultImages();
+            loadFile(currentFileName);
+            
+            // 绑定全局函数供 HTML 调用
+            window.createNewFile = createNewFile;
+            window.setTheme = setTheme;
+            window.exportHTML = exportHTML;
+        }
+
+        // ==========================================
+        // 文件管理系统
+        // ==========================================
+        function renderFileList() {
+            fileListEl.innerHTML = '';
+            Object.keys(files).forEach(fileName => {
+                const div = document.createElement('div');
+                div.className = `file-item px-4 py-2 text-sm cursor-pointer flex items-center gap-2 ${fileName === currentFileName ? 'active' : 'text-gray-400'}`;
+                div.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 opacity-70" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="truncate">${fileName}</span>
+                `;
+                div.onclick = () => switchFile(fileName);
+                fileListEl.appendChild(div);
+            });
+        }
+
+        function switchFile(fileName) {
+            // 保存当前文件
+            files[currentFileName] = codeEditor.value;
+            // 切换
+            currentFileName = fileName;
+            loadFile(fileName);
+            renderFileList();
+        }
+
+        function loadFile(fileName) {
+            codeEditor.value = files[fileName];
+            currentFileNameEl.textContent = fileName;
+            updateLineNumbers();
+            runCode(); // 切换文件时自动运行预览
+        }
+
+        function createNewFile() {
+            const name = prompt('请输入文件名 (例如: page2.html):', 'new_page.html');
+            if (name) {
+                if (files[name]) {
+                    alert('文件已存在！');
+                    return;
+                }
+                // 简单的 HTML 模板
+                files[name] = '<!DOCTYPE html>\n<html>\n<body>\n    <h1>新页面</h1>\n</body>\n</html>';
+                switchFile(name);
+            }
+        }
+
+        function exportHTML() {
+            // 保存当前状态
+            files[currentFileName] = codeEditor.value;
+            
+            const content = files[currentFileName];
+            const blob = new Blob([content], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = currentFileName;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // ==========================================
+        // 主题系统
+        // ==========================================
+        window.toggleThemeMenu = function(e) {
+            e.stopPropagation();
+            const menu = document.getElementById('themeMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // 点击外部关闭菜单
+        window.addEventListener('click', () => {
+            const menu = document.getElementById('themeMenu');
+            if (!menu.classList.contains('hidden')) {
+                menu.classList.add('hidden');
+            }
+        });
+
+        function setTheme(themeName) {
+            document.body.className = document.body.className.replace(/theme-\w+/g, '');
+            if (themeName !== 'default') {
+                document.body.classList.add(themeName);
+            }
+            // 关闭菜单
+            document.getElementById('themeMenu').classList.add('hidden');
+        }
+
+        // ==========================================
+        // 编辑器核心逻辑
+        // ==========================================
+        codeEditor.addEventListener('input', () => {
+            updateLineNumbers();
+            hideError();
+            // 自动保存到内存
+            files[currentFileName] = codeEditor.value;
+        });
+        
+        codeEditor.addEventListener('scroll', () => {
+            const scrollTop = codeEditor.scrollTop;
+            lineNumbers.scrollTop = scrollTop;
+            highlighter.scrollTop = scrollTop;
+        });
+
+        runBtn.addEventListener('click', () => {
+            anime({ targets: runBtn, scale: [0.95, 1], duration: 200, easing: 'easeOutQuad' });
+            
+            const code = codeEditor.value;
+            const errorObj = checkCode(code);
+
+            if (errorObj) {
+                showError(errorObj);
+            } else {
+                hideError();
+                runCode();
+            }
+        });
+
+        closeErrorBtn.addEventListener('click', hideError);
+
+        function updateLineNumbers() {
+            const lines = codeEditor.value.split('\n').length;
+            lineNumbers.innerHTML = Array(lines).fill(0).map((_, i) => i + 1).join('<br>');
+        }
+
+        function runCode() {
+            const code = codeEditor.value;
+            const frameDoc = previewFrame.contentDocument || previewFrame.contentWindow.document;
+            
+            const scriptToInject = `
+                <script>
+                    window.onerror = function(msg, url, lineNo, columnNo, error) {
+                        window.parent.postMessage({type: 'error', message: msg, line: lineNo}, '*');
+                        return false;
+                    };
+                <\/script>
+            `;
+            
+            frameDoc.open();
+            frameDoc.write(scriptToInject + code);
+            frameDoc.close();
+        }
+
+        // ==========================================
+        // 错误检查逻辑 (保持原有逻辑)
+        // ==========================================
+        window.addEventListener('message', (event) => {
+            if (event.data && event.data.type === 'error') {
+                const correctedLine = Math.max(1, event.data.line - 7);
+                showError({
+                    line: correctedLine,
+                    message: event.data.message,
+                    suggestion: '请检查 JavaScript 语法，如拼写错误或漏掉的符号。'
+                });
+            }
+        });
+
+        function checkCode(html) {
+            const tagsToCheck = ['div', 'p', 'span', 'h1', 'h2', 'h3', 'ul', 'ol', 'li', 'button', 'a', 'script', 'style'];
+            const stack = [];
+            const tagRegex = /<\/?([a-z1-6]+)[^>]*>/gi;
+            let match;
+            
+            while ((match = tagRegex.exec(html)) !== null) {
+                const fullTag = match[0];
+                const tagName = match[1].toLowerCase();
+                const index = match.index;
+                const lineNumber = html.substring(0, index).split('\n').length;
+                
+                if (!tagsToCheck.includes(tagName)) continue;
+
+                if (fullTag.startsWith('</')) {
+                    if (stack.length === 0) {
+                        return { line: lineNumber, message: `发现多余的闭合标签 &lt;/${tagName}&gt;`, suggestion: `第 ${lineNumber} 行有一个 &lt;/${tagName}&gt;，但前面没有对应的开始标签。` };
+                    }
+                    const lastTagInfo = stack.pop();
+                    if (lastTagInfo.name !== tagName) {
+                        return { line: lineNumber, message: `标签不匹配`, suggestion: `第 ${lineNumber} 行的 &lt;/${tagName}&gt; 与第 ${lastTagInfo.line} 行的 &lt;${lastTagInfo.name}&gt; 不匹配。` };
+                    }
+                } else {
+                    if (!fullTag.endsWith('/>')) {
+                        stack.push({ name: tagName, line: lineNumber });
+                    }
+                }
+            }
+
+            if (stack.length > 0) {
+                const lastTagInfo = stack[stack.length - 1];
+                return { line: lastTagInfo.line, message: `标签 &lt;${lastTagInfo.name}&gt; 没有闭合`, suggestion: `第 ${lastTagInfo.line} 行有一个 &lt;${lastTagInfo.name}&gt; 标签，但直到文件结束都没有找到对应的 &lt;/${lastTagInfo.name}&gt;。` };
+            }
+
+            if (!html.includes('<body') && !html.includes('<BODY')) {
+                return { line: 1, message: '缺少 body 标签', suggestion: '你的代码似乎缺少 &lt;body&gt; 标签，这是网页的主体部分。' };
+            }
+            return null;
+        }
+
+        function showError(errorObj) {
+            errorContent.innerHTML = `<div class="font-medium">第 <span class="font-bold text-red-700">${errorObj.line}</span> 行：${errorObj.message}</div><div class="text-gray-600 mt-1">💡 建议：${errorObj.suggestion}</div>`;
+            errorPanel.classList.remove('translate-y-full');
+            highlightErrorLine(errorObj.line);
+            anime({ targets: editorSection, translateX: [{ value: -10, duration: 100 }, { value: 10, duration: 100 }, { value: -10, duration: 100 }, { value: 10, duration: 100 }, { value: 0, duration: 100 }], easing: 'easeInOutQuad' });
+            anime({ targets: editorSection, borderColor: ['#e5e7eb', '#ef4444', '#e5e7eb'], duration: 1000, easing: 'linear' });
+        }
+
+        function highlightErrorLine(line) {
+            highlighter.innerHTML = '';
+            const div = document.createElement('div');
+            div.className = 'highlight-line';
+            const lineHeight = 24; 
+            const paddingTop = 16;
+            div.style.top = `${(line - 1) * lineHeight + paddingTop}px`;
+            highlighter.appendChild(div);
+        }
+
+        function hideError() {
+            errorPanel.classList.add('translate-y-full');
+            highlighter.innerHTML = '';
+        }
+
+        // ==========================================
+        // 图片库逻辑
+        // ==========================================
+        let isImgLibOpen = true;
+        window.toggleImageLibrary = function() {
+            const container = document.getElementById('imgLibContainer');
+            const arrow = document.getElementById('imgLibArrow');
+            const dropZone = document.getElementById('imageDropZone');
+            
+            isImgLibOpen = !isImgLibOpen;
+            
+            if (isImgLibOpen) {
+                container.classList.add('flex-1');
+                container.style.height = 'auto';
+                dropZone.classList.remove('hidden');
+                arrow.style.transform = 'rotate(0deg)';
+            } else {
+                container.classList.remove('flex-1');
+                container.style.height = '33px';
+                dropZone.classList.add('hidden');
+                arrow.style.transform = 'rotate(-90deg)';
+            }
+        };
+
+        function loadDefaultImages() {
+            defaultImages.forEach(img => createImageItem(img.url, img.name));
+        }
+
+        function handleFiles(files) {
+            Array.from(files).forEach(file => {
+                if (!file.type.startsWith('image/')) return;
+                const url = URL.createObjectURL(file);
+                createImageItem(url, file.name);
+            });
+        }
+
+        function createImageItem(url, name) {
+            const div = document.createElement('div');
+            div.className = 'relative group aspect-square bg-black/20 rounded-lg overflow-hidden border border-gray-700 hover:border-secondary transition-all cursor-pointer shadow-sm';
+            div.title = '点击插入代码: ' + name;
+            div.innerHTML = `
+                <img src="${url}" class="w-full h-full object-cover" />
+                <div class="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center transition-opacity duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                    </svg>
+                    <span class="text-[10px] text-white font-bold">插入代码</span>
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 bg-black/80 text-[10px] text-gray-300 px-2 py-1 truncate">${name}</div>
+            `;
+            div.addEventListener('click', () => {
+                const imgTag = `<img src="${url}" alt="${name}" width="200">`;
+                insertAtCursor(imgTag);
+                anime({ targets: div, scale: [0.9, 1], duration: 300, easing: 'easeOutElastic(1, .8)' });
+            });
+            dropZone.appendChild(div);
+            anime({ targets: div, opacity: [0, 1], translateY: [10, 0], duration: 400, easing: 'easeOutQuad' });
+        }
+
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('bg-[#2d2d2d]', 'border-secondary', 'border-dashed', 'border-2');
+            dropZone.classList.remove('border-gray-700');
+        });
+        
+        dropZone.addEventListener('dragleave', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('bg-[#2d2d2d]', 'border-secondary', 'border-dashed', 'border-2');
+            dropZone.classList.add('border-gray-700');
+        });
+        
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('bg-[#2d2d2d]', 'border-secondary', 'border-dashed', 'border-2');
+            dropZone.classList.add('border-gray-700');
+            handleFiles(e.dataTransfer.files);
+        });
+
+        imgInput.addEventListener('change', (e) => {
+            handleFiles(e.target.files);
+            imgInput.value = '';
+        });
+
+        function insertAtCursor(text) {
+            const start = codeEditor.selectionStart;
+            const end = codeEditor.selectionEnd;
+            const value = codeEditor.value;
+            codeEditor.value = value.substring(0, start) + text + value.substring(end);
+            codeEditor.selectionStart = codeEditor.selectionEnd = start + text.length;
+            codeEditor.focus();
+            codeEditor.dispatchEvent(new Event('input'));
+        }
+
+        // 启动
+        init();
+    </script>
+</body>
+</html>
