@@ -1,0 +1,10 @@
+{
+  "name": "ai-nav-crawler",
+  "version": "1.0.0",
+  "description": "AI 导航站爬虫：抓取 HuggingFace 开源模型并与策展基线合并",
+  "type": "module",
+  "scripts": {
+    "crawl": "node crawl.js"
+  },
+  "license": "MIT"
+}

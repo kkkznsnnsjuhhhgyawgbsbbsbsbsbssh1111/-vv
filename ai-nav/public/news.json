@@ -1,0 +1,425 @@
+{
+  "updated": "2026-07-30",
+  "items": [
+    {
+      "title": "Claude Code之父：Harness保质期只有半年，解开缰绳吧",
+      "source": "量子位",
+      "url": "https://www.qbitai.com/2026/07/463433.html",
+      "date": "2026-07-30",
+      "summary": "Claude code之父：大模型是有机生物，做好AI产品疏胜于堵"
+    },
+    {
+      "title": "终端市场的下一个增长点，高通押在了“个人AI”上",
+      "source": "量子位",
+      "url": "https://www.qbitai.com/2026/07/463204.html",
+      "date": "2026-07-30",
+      "summary": "靠“堆参数换销量\"的逻辑，不再管用了"
+    },
+    {
+      "title": "GPT-5.6自己优化自己实锤了，新的左脚踩右脚已经出现",
+      "source": "量子位",
+      "url": "https://www.qbitai.com/2026/07/463297.html",
+      "date": "2026-07-30",
+      "summary": "OpenAI的RSI焚诀，它来了！"
+    },
+    {
+      "title": "李飞飞的世界模型，终于开始训练机器人了",
+      "source": "量子位",
+      "url": "https://www.qbitai.com/2026/07/463217.html",
+      "date": "2026-07-30",
+      "summary": "李飞飞老师的World Labs，补了块关键拼图"
+    },
+    {
+      "title": "“接力跑”盘活全国算力，PD分离终于破局：延迟砍半、成本直降近40%！",
+      "source": "量子位",
+      "url": "https://www.qbitai.com/2026/07/463012.html",
+      "date": "2026-07-30",
+      "summary": "最新完整技术报告出炉"
+    },
+    {
+      "title": "传奇AlphaFold团队全员解散！诺奖得主投奔Anthropic，资源转向Gemini",
+      "source": "量子位",
+      "url": "https://www.qbitai.com/2026/07/463123.html",
+      "date": "2026-07-30",
+      "summary": "嚯，诺奖团队也被砍了"
+    },
+    {
+      "title": "一年连融三轮数亿元！字节+清华姚班，重构企业软件工程",
+      "source": "量子位",
+      "url": "https://www.qbitai.com/2026/07/463013.html",
+      "date": "2026-07-30",
+      "summary": "要做硬核的事情，而非摘低垂的果实"
+    },
+    {
+      "title": "WorkBuddy重大升级，AI时代的Office来了",
+      "source": "量子位",
+      "url": "https://www.qbitai.com/2026/07/462979.html",
+      "date": "2026-07-30",
+      "summary": "WorkBuddy已成为国内最受欢迎的效率智能体工具之一"
+    },
+    {
+      "title": "这这这…翁荔光速回OpenAI上班了",
+      "source": "量子位",
+      "url": "https://www.qbitai.com/2026/07/462947.html",
+      "date": "2026-07-30",
+      "summary": "6位联合创始人——只剩2名。"
+    },
+    {
+      "title": "Show HN: Memsprout – share AI context with your teammates",
+      "source": "Hacker News",
+      "url": "https://memsprout.com/docs",
+      "date": "2026-07-30",
+      "summary": "I’m an architect at my company and everyone on my team is now using Claude/Codex agents for their work. Managing context in claude.md/agents.md files is fine but so much of the kno"
+    },
+    {
+      "title": "Is open-weight AI banned yet?",
+      "source": "Hacker News",
+      "url": "https://isopenweightaibannedyet.com/",
+      "date": "2026-07-30",
+      "summary": "Article URL: https://isopenweightaibannedyet.com/ Comments URL: https://news.ycombinator.com/item?id=49108978 Points: 4 # Comments: 1"
+    },
+    {
+      "title": "EU Icons for labelling AI-generated content",
+      "source": "Hacker News",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/eu-icons-labelling-ai-generated-content",
+      "date": "2026-07-30",
+      "summary": "Article URL: https://digital-strategy.ec.europa.eu/en/policies/eu-icons-labelling-ai-generated-content Comments URL: https://news.ycombinator.com/item?id=49108919 Points: 2 # Comme"
+    },
+    {
+      "title": "Show HN: HuPow – Proof-of-Work to stop AI bots in your inbox",
+      "source": "Hacker News",
+      "url": "https://hupow.app",
+      "date": "2026-07-30",
+      "summary": "Article URL: https://hupow.app Comments URL: https://news.ycombinator.com/item?id=49108879 Points: 2 # Comments: 0"
+    },
+    {
+      "title": "Who's suing AI, and who's signing",
+      "source": "Hacker News",
+      "url": "https://pressgazette.co.uk/platforms/news-publisher-ai-deals-lawsuits-openai-google/",
+      "date": "2026-07-30",
+      "summary": "Article URL: https://pressgazette.co.uk/platforms/news-publisher-ai-deals-lawsuits-openai-google/ Comments URL: https://news.ycombinator.com/item?id=49108843 Points: 2 # Comments: "
+    },
+    {
+      "title": "Meta's AI spending reduces quarterly free cash flow by 91%",
+      "source": "Hacker News",
+      "url": "https://www.reuters.com/business/retail-consumer/metas-ai-splurge-lays-bare-its-compute-conundrum-2026-07-30/",
+      "date": "2026-07-30",
+      "summary": "Article URL: https://www.reuters.com/business/retail-consumer/metas-ai-splurge-lays-bare-its-compute-conundrum-2026-07-30/ Comments URL: https://news.ycombinator.com/item?id=491088"
+    },
+    {
+      "title": "AI coding agents should optimize for less owned code",
+      "source": "Hacker News",
+      "url": "https://www.openenergytransition.org/posts/ai-coding-agents-should-optimize-for-less-owned-code",
+      "date": "2026-07-30",
+      "summary": "Article URL: https://www.openenergytransition.org/posts/ai-coding-agents-should-optimize-for-less-owned-code Comments URL: https://news.ycombinator.com/item?id=49108826 Points: 1 #"
+    },
+    {
+      "title": "Go LLM SDK for streaming, tool-calling AI backends (plus frontend React lib)",
+      "source": "Hacker News",
+      "url": "https://github.com/grafana/ai-sdk",
+      "date": "2026-07-30",
+      "summary": "Article URL: https://github.com/grafana/ai-sdk Comments URL: https://news.ycombinator.com/item?id=49108778 Points: 9 # Comments: 0"
+    },
+    {
+      "title": "AI and the Enshittification Era W Cory Doctorow – Weekly Show with Jon Stewart [video]",
+      "source": "Hacker News",
+      "url": "https://www.youtube.com/watch?v=-dAIJRjb-Bw",
+      "date": "2026-07-30",
+      "summary": "Article URL: https://www.youtube.com/watch?v=-dAIJRjb-Bw Comments URL: https://news.ycombinator.com/item?id=49108775 Points: 1 # Comments: 0"
+    },
+    {
+      "title": "HSIP – a self-hosted identity and audit trail for AI agents",
+      "source": "Hacker News",
+      "url": "https://github.com/rewired89/HSIP-1PHASE",
+      "date": "2026-07-30",
+      "summary": "Article URL: https://github.com/rewired89/HSIP-1PHASE Comments URL: https://news.ycombinator.com/item?id=49108750 Points: 1 # Comments: 0"
+    },
+    {
+      "title": "Copatch- The shared workspace for teams building with AI coding agents",
+      "source": "Hacker News",
+      "url": "https://copatch.ai/",
+      "date": "2026-07-30",
+      "summary": "Article URL: https://copatch.ai/ Comments URL: https://news.ycombinator.com/item?id=49108738 Points: 1 # Comments: 0"
+    },
+    {
+      "title": "Malloy semantic modeling lang gets 'Credible' backing to build out AI context",
+      "source": "Hacker News",
+      "url": "https://venturebeat.com/data/57-of-enterprises-traced-a-wrong-ai-answer-to-missing-business-context-credible-bets-portable-open-source-semantic-code-beats-proprietary-metadata",
+      "date": "2026-07-30",
+      "summary": "Article URL: https://venturebeat.com/data/57-of-enterprises-traced-a-wrong-ai-answer-to-missing-business-context-credible-bets-portable-open-source-semantic-code-beats-proprietary-"
+    },
+    {
+      "title": "GCC steering committee announces AI policy",
+      "source": "Hacker News",
+      "url": "https://lwn.net/Articles/1086041/",
+      "date": "2026-07-30",
+      "summary": "Article URL: https://lwn.net/Articles/1086041/ Comments URL: https://news.ycombinator.com/item?id=49108685 Points: 63 # Comments: 21"
+    },
+    {
+      "title": "Amazon finds cases of AI causing runaway spending on tech projects",
+      "source": "Hacker News",
+      "url": "https://www.ft.com/content/77baac40-d803-4084-94f3-a133653072cf",
+      "date": "2026-07-30",
+      "summary": "Article URL: https://www.ft.com/content/77baac40-d803-4084-94f3-a133653072cf Comments URL: https://news.ycombinator.com/item?id=49108581 Points: 3 # Comments: 2"
+    },
+    {
+      "title": "Lean 4 Bug Found Incidentally by AI, \"Proving\" Collatz",
+      "source": "Hacker News",
+      "url": "https://twitter.com/gro_tsen/status/2082483878480977959",
+      "date": "2026-07-30",
+      "summary": "Article URL: https://twitter.com/gro_tsen/status/2082483878480977959 Comments URL: https://news.ycombinator.com/item?id=49108547 Points: 2 # Comments: 0"
+    },
+    {
+      "title": "'My life's screwed': Korean investors stress out after AI bubble bursts",
+      "source": "Hacker News",
+      "url": "https://www.ft.com/content/23f388eb-e8ab-4fb1-b1ca-8e04eb4561a1",
+      "date": "2026-07-30",
+      "summary": "Article URL: https://www.ft.com/content/23f388eb-e8ab-4fb1-b1ca-8e04eb4561a1 Comments URL: https://news.ycombinator.com/item?id=49108480 Points: 7 # Comments: 2"
+    },
+    {
+      "title": "Show HN: A minimalist proxy for your local LLM cluster (~1100 lines)",
+      "source": "Hacker News",
+      "url": "https://github.com/robolamp/smol-llm-proxy",
+      "date": "2026-07-30",
+      "summary": "Hi all! I made this small proxy when I built a small GPU cluster at home and wanted to share it with friends while keeping speed limits and token accounting. I also put a lot of ef"
+    },
+    {
+      "title": "Coinbase moved to open models. Cut AI spend in half while increasing token usage",
+      "source": "Hacker News",
+      "url": "https://twitter.com/brian_armstrong/status/2070670644577280109",
+      "date": "2026-07-30",
+      "summary": "Article URL: https://twitter.com/brian_armstrong/status/2070670644577280109 Comments URL: https://news.ycombinator.com/item?id=49108109 Points: 3 # Comments: 1"
+    },
+    {
+      "title": "In AI arms race, Swiss neutrality is double-edged sword",
+      "source": "Hacker News",
+      "url": "https://www.swissinfo.ch/eng/foreign-affairs/swiss-neutrality-is-double-edged-sword-in-ai-arms-race/91784797",
+      "date": "2026-07-30",
+      "summary": "Article URL: https://www.swissinfo.ch/eng/foreign-affairs/swiss-neutrality-is-double-edged-sword-in-ai-arms-race/91784797 Comments URL: https://news.ycombinator.com/item?id=4910808"
+    },
+    {
+      "title": "GPT-5.6 SOL pushing 25h towards a goal",
+      "source": "Hacker News",
+      "url": "https://testflight.apple.com/join/vWrJPqk5",
+      "date": "2026-07-30",
+      "summary": "Article URL: https://testflight.apple.com/join/vWrJPqk5 Comments URL: https://news.ycombinator.com/item?id=49108024 Points: 2 # Comments: 3"
+    },
+    {
+      "title": "中科院院士对话北电数智AI专家：以 AI 与数学 “乘法效应” 开辟产业落地新路径",
+      "source": "量子位",
+      "url": "https://www.qbitai.com/2026/07/462943.html",
+      "date": "2026-07-29",
+      "summary": "中科院、北电数智等专家共探数学与AI边界"
+    },
+    {
+      "title": "How enabling two settings tripled our scores on the ARC-AGI-3 benchmark",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/how-two-settings-tripled-our-arc-agi-3-scores",
+      "date": "2026-07-29",
+      "summary": "How two API settings improved GPT-5.6 performance on ARC-AGI-3, boosting scores and efficiency by retaining reasoning and enabling compaction."
+    },
+    {
+      "title": "Accelerating scientific discovery with ChatGPT for Academic Researchers",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/chatgpt-for-academic-researchers",
+      "date": "2026-07-29",
+      "summary": "OpenAI is giving 100,000 academic researchers free access to ChatGPT's most advanced AI models to accelerate scientific research, collaboration, and discovery."
+    },
+    {
+      "title": "How GPT-5.6 fuses frontier intelligence with frontier efficiency",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/gpt-5-6-frontier-intelligence-efficiency",
+      "date": "2026-07-29",
+      "summary": "GPT-5.6 improves AI efficiency across models, inference, and agentic workflows, helping deliver more useful intelligence per dollar."
+    },
+    {
+      "title": "We’re launching Lyria 3.5 in Google Flow Music, with advances across musicality, lyrics, vocals, and creative control",
+      "source": "Google DeepMind",
+      "url": "https://deepmind.google/blog/were-launching-lyria-35-in-google-flow-music-with-advances-across-musicality-lyrics-vocals-and-creative-control/",
+      "date": "2026-07-29",
+      "summary": ""
+    },
+    {
+      "title": "Scientific computing in the age of agentic AI",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/scientific-computing-agentic-ai",
+      "date": "2026-07-28",
+      "summary": "A new field report shows how scientists use AI coding agents to modernize scientific computing, accelerating software development and discovery in genomics and beyond."
+    },
+    {
+      "title": "How AI is expanding what people do at work",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/how-ai-is-expanding-what-people-do-at-work",
+      "date": "2026-07-27",
+      "summary": "New OpenAI research shows how AI is expanding what workers do, with ChatGPT users taking on tasks across roles and reshaping job boundaries."
+    },
+    {
+      "title": "Launching Health in ChatGPT",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/health-in-chatgpt",
+      "date": "2026-07-23",
+      "summary": "Health in ChatGPT now lets eligible U.S. users securely connect medical records and Apple Health to get more personalized insights and better understand their health."
+    },
+    {
+      "title": "Building AI infrastructure with the Effingham County community",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/building-ai-infrastructure-with-the-effingham-county-community",
+      "date": "2026-07-22",
+      "summary": "OpenAI announces Project Camellia in Effingham County, Georgia, with commitments to responsible energy, community investment, jobs, and access to Codex."
+    },
+    {
+      "title": "How news organizations are using AI to advance their vital missions",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/how-news-organizations-are-using-ai",
+      "date": "2026-07-22",
+      "summary": "News organizations are using AI to strengthen reporting, grow audiences, and improve business operations, with OpenAI tools supporting journalists and publishers worldwide."
+    },
+    {
+      "title": "Advancing the next era of national science",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/advancing-the-next-era-of-national-science",
+      "date": "2026-07-22",
+      "summary": "OpenAI outlines its commitment to advancing American science working with the U.S. Department of Energy and national labs to use frontier AI to accelerate discovery."
+    },
+    {
+      "title": "Introducing OpenAI Presence",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/introducing-openai-presence",
+      "date": "2026-07-22",
+      "summary": "Introducing OpenAI Presence, a proven enterprise AI agent platform that helps organizations deploy trusted voice and chat agents for customer and internal workflows."
+    },
+    {
+      "title": "NTT DATA Group cuts incident analysis to 30 minutes with Codex",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/ntt-data",
+      "date": "2026-07-22",
+      "summary": "NTT DATA Group uses ChatGPT Enterprise and Codex to help 9,000 employees automate work, cut incident analysis to 30 minutes, and scale secure AI adoption."
+    },
+    {
+      "title": "Accelerating the frontiers of scientific discovery: Google’s $40M commitment to the Genesis Mission",
+      "source": "Google DeepMind",
+      "url": "https://deepmind.google/blog/accelerating-the-frontiers-of-scientific-discovery-googles-40m-commitment-to-the-genesis-mission/",
+      "date": "2026-07-22",
+      "summary": "Google commits $40M in AI tokens and credits for the Genesis Mission"
+    },
+    {
+      "title": "Introducing the ChatGPT for small business program",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/introducing-chatgpt-small-business-program",
+      "date": "2026-07-21",
+      "summary": "OpenAI launches the ChatGPT for Small Businesses program, helping entrepreneurs build AI skills, automate work, and grow with ChatGPT Work."
+    },
+    {
+      "title": "OpenAI and Hugging Face partner to address security incident during model evaluation",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/hugging-face-model-evaluation-security-incident",
+      "date": "2026-07-21",
+      "summary": "OpenAI and Hugging Face share early findings from a security incident during AI model evaluation, highlighting advanced cyber capabilities and lessons for defenders."
+    },
+    {
+      "title": "David Vélez and Robin Vince join the boards of the OpenAI Foundation and OpenAI Group PBC",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/david-velez-robin-vince-join-openai-boards",
+      "date": "2026-07-21",
+      "summary": "David Vélez and Robin Vince join the boards of the OpenAI Foundation and OpenAI Group PBC, bringing global leadership in finance, technology, and governance."
+    },
+    {
+      "title": "Introducing Gemini 3.6 Flash, 3.5 Flash-Lite, and 3.5 Flash Cyber",
+      "source": "Google DeepMind",
+      "url": "https://deepmind.google/blog/introducing-gemini-3-6-flash-3-5-flash-lite-and-3-5-flash-cyber/",
+      "date": "2026-07-21",
+      "summary": "We’re introducing new Gemini models, including Gemini 3.6 Flash, 3.5 Flash-Lite and 3.5 Flash Cyber."
+    },
+    {
+      "title": "Safety and alignment in an era of long-horizon models",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/safety-alignment-long-horizon-models",
+      "date": "2026-07-20",
+      "summary": "OpenAI shares lessons from deploying long-running AI models, highlighting new safety risks, observed failures, and improved safeguards through iterative deployment."
+    },
+    {
+      "title": "A scorecard for the AI age",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/a-scorecard-for-the-ai-age",
+      "date": "2026-07-17",
+      "summary": "Sarah Friar, CFO of OpenAI, introduces a practical AI scorecard to measure ROI through useful work, cost per successful task, dependability, and return on compute."
+    },
+    {
+      "title": "Introducing Gemini 3.5 Flash Cyber",
+      "source": "Google DeepMind",
+      "url": "https://deepmind.google/blog/introducing-gemini-3-5-flash-cyber/",
+      "date": "2026-07-17",
+      "summary": "Google introduces Gemini 3.5 Flash Cyber, a lightweight cybersecurity model to find and patch vulnerabilities."
+    },
+    {
+      "title": "Why teens deserve access to safe AI",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/why-teens-deserve-access-safe-ai",
+      "date": "2026-07-16",
+      "summary": "Learn how OpenAI is making ChatGPT safer for teens with age-appropriate protections, learning tools, parental controls, and expert partnerships."
+    },
+    {
+      "title": "How Codex became a collaborator for OpenAI’s creative team",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/codex-collaborator-creative-team",
+      "date": "2026-07-16",
+      "summary": "How OpenAI’s creative team uses Codex to build custom creative tools, accelerate ideation, and prototype faster with context-aware AI."
+    },
+    {
+      "title": "How Cars24 scales conversations and builds faster with OpenAI",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/cars24",
+      "date": "2026-07-16",
+      "summary": "Cars24 uses OpenAI-powered voice and chat agents to handle 1M+ monthly conversation minutes, recover 12% of lost leads, and bring agentic workflows to teams across the company."
+    },
+    {
+      "title": "Our approach to bioresilience",
+      "source": "Google DeepMind",
+      "url": "https://deepmind.google/blog/our-approach-to-bioresilience/",
+      "date": "2026-07-16",
+      "summary": "Google DeepMind and Isomorphic Labs are sharing our joint approach to bioresilience and AI models."
+    },
+    {
+      "title": "The US is advancing AI safety through state and federal action",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/advancing-ai-safety-through-state-and-federal-action",
+      "date": "2026-07-15",
+      "summary": "OpenAI outlines a “reverse federalism” approach to AI governance, where state laws help build a national framework for safe, democratic AI."
+    },
+    {
+      "title": "GPT-Red: Unlocking Self-Improvement for Robustness",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/unlocking-self-improvement-gpt-red",
+      "date": "2026-07-15",
+      "summary": "Explore GPT-Red, OpenAI’s automated red teaming system that uses self-play to improve AI safety, alignment, and prompt injection robustness."
+    },
+    {
+      "title": "How to manage AI investments in the agentic era",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/managing-ai-investments-in-agentic-era",
+      "date": "2026-07-14",
+      "summary": "Learn how enterprises can manage AI investments in the agentic era by measuring useful work per dollar, improving efficiency, and scaling high-value workflows."
+    },
+    {
+      "title": "How sales teams use ChatGPT Work",
+      "source": "OpenAI",
+      "url": "https://openai.com/academy/codex-for-work/how-sales-teams-use-codex",
+      "date": "2026-07-14",
+      "summary": "See how sales teams can use ChatGPT Work to create pipeline briefs, meeting prep packets, forecast reviews, account plans, and stalled-deal diagnoses from real work inputs."
+    },
+    {
+      "title": "How data science teams use ChatGPT Work",
+      "source": "OpenAI",
+      "url": "https://openai.com/academy/codex-for-work/how-data-science-teams-use-codex",
+      "date": "2026-07-14",
+      "summary": "See how data science teams can use ChatGPT Work to build root-cause briefs, impact readouts, KPI memos, scoped analyses, and dashboard specs from real work inputs."
+    },
+    {
+      "title": "Empowering India’s next generation of innovators with ATL Saathi",
+      "source": "Google DeepMind",
+      "url": "https://deepmind.google/blog/empowering-indias-next-generation-of-innovators-with-atl-saathi/",
+      "date": "2026-07-13",
+      "summary": "Google and AIM launched ATL Saathi, a Gemini-powered AI tool empowering Indian educators in robotics labs."
+    }
+  ]
+}

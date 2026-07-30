@@ -1,0 +1,28 @@
+{
+  "events": [
+    { "date": "2017-06", "title": "Transformer 架构提出", "desc": "Google 论文《Attention Is All You Need》奠定现代大模型基础。", "region": "global", "category": "model" },
+    { "date": "2018-06", "title": "GPT-1 发布", "desc": "OpenAI 首个生成式预训练模型，开启 GPT 系列。", "region": "global", "category": "model" },
+    { "date": "2018-10", "title": "BERT 发布", "desc": "Google 双向理解模型，长期统治 NLP 理解类任务。", "region": "global", "category": "model" },
+    { "date": "2020-05", "title": "GPT-3 登场", "desc": "1750 亿参数，首次展现强大的少样本学习能力。", "region": "global", "category": "model" },
+    { "date": "2022-01", "title": "InstructGPT(RLHF)", "desc": "引入人类反馈强化学习，模型回答更符合人类期望。", "region": "global", "category": "model" },
+    { "date": "2022-09", "title": "Stable Diffusion 开源", "desc": "AI 绘图开源浪潮爆发，扩散模型走入大众。", "region": "global", "category": "tool" },
+    { "date": "2022-11", "title": "ChatGPT 上线", "desc": "5 天破百万用户，大模型真正引爆全球关注。", "region": "global", "category": "model" },
+    { "date": "2023-02", "title": "中国大模型元年", "desc": "文心一言、通义、Kimi、智谱 GLM 等密集涌现。", "region": "china", "category": "model" },
+    { "date": "2023-02", "title": "LLaMA 开源", "desc": "Meta 开放权重，催生开源微调生态。", "region": "global", "category": "model" },
+    { "date": "2023-03", "title": "GPT-4 发布", "desc": "多模态能力登场，长期占据综合能力榜首。", "region": "global", "category": "model" },
+    { "date": "2023-07", "title": "Llama 2 商用开源", "desc": "Meta 开放商用许可，企业自建模型成为可能。", "region": "global", "category": "model" },
+    { "date": "2023-10", "title": "文心一言 4.0", "desc": "百度旗舰模型对标 GPT-4，国内闭源代表。", "region": "china", "category": "model" },
+    { "date": "2024-03", "title": "Claude 3 Opus", "desc": "Anthropic 首次在多项基准超越 GPT-4。", "region": "global", "category": "model" },
+    { "date": "2024-04", "title": "Llama 3 发布", "desc": "Meta 开源 8B/70B，性能与生态双突破。", "region": "global", "category": "model" },
+    { "date": "2024-05", "title": "GPT-4o 多模态", "desc": "原生支持图文语音实时交互，延迟近人类。", "region": "global", "category": "model" },
+    { "date": "2024-06", "title": "Claude 3.5 Sonnet", "desc": "编码能力登顶，性价比极高，开发者首选。", "region": "global", "category": "model" },
+    { "date": "2024-09", "title": "OpenAI o1 推理模型", "desc": "专注复杂推理，数学编程大幅突破，开启推理范式。", "region": "global", "category": "model" },
+    { "date": "2024-12", "title": "DeepSeek-V3 / Gemini 2.0", "desc": "低成本 MoE 开源 + Google 多模态低延迟。", "region": "global", "category": "model" },
+    { "date": "2025-01", "title": "DeepSeek-R1 震惊行业", "desc": "开源推理模型以极低成本对标 o1，引发全球关注。", "region": "china", "category": "model" },
+    { "date": "2025-03", "title": "Manus 通用 Agent", "desc": "通用智能体火爆出圈，2025 成“Agent 元年”。", "region": "china", "category": "agent" },
+    { "date": "2025-04", "title": "Qwen3 / Llama 4 / GPT-4.1", "desc": "开源混合推理 + 多模态开源 + Agent 优化齐发。", "region": "global", "category": "model" },
+    { "date": "2025-05", "title": "Claude Opus 4 发布", "desc": "Anthropic 旗舰，长时 Agent 与代码工程能力突出。", "region": "global", "category": "model" },
+    { "date": "2025-07", "title": "GLM-4.5 / Kimi K2 开源", "desc": "国内开源推理与 Agent 模型持续进化。", "region": "china", "category": "model" },
+    { "date": "2025-07", "title": "Agent 全面落地", "desc": "WorkBuddy、Operator、Devin、Codex 等编程/通用 Agent 涌现。", "region": "global", "category": "agent" }
+  ]
+}

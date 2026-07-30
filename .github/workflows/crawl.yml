@@ -1,0 +1,40 @@
+name: AI 导航站定时爬取
+
+on:
+  schedule:
+    # 每天 UTC 18:00（北京时间次日 02:00）跑一次爬虫
+    - cron: "0 18 * * *"
+  workflow_dispatch: # 支持手动触发
+
+permissions:
+  contents: write # 允许提交 data.json 变更
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v4
+
+      - name: 安装 Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: 运行爬虫
+        working-directory: ai-nav/crawler
+        run: node crawl.js --limit 40
+
+      - name: 提交数据更新
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ai-nav/public/data.json
+          if git diff --cached --quiet; then
+            echo "无数据变更，跳过提交。"
+          else
+            git commit -m "chore: 自动更新 AI 导航数据 $(date -u +%Y-%m-%d)"
+            git push
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
