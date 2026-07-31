@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-30",
+  "updated": "2026-07-31",
   "items": [
     {
       "id": "gpt-4o",
@@ -1197,6 +1197,21 @@
       "tags": [
         "开源",
         "text-ranking"
+      ],
+      "auto": true
+    },
+    {
+      "id": "hf-unsloth-qwen3-coder-30b-a3b-instruct-gguf",
+      "name": "Qwen3-Coder-30B-A3B-Instruct-GGUF",
+      "vendor": "unsloth",
+      "region": "global",
+      "category": "model",
+      "released": "2026-01-30",
+      "description": "开源模型 · 2.9M 下载 · 846 喜欢",
+      "url": "https://huggingface.co/unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+      "tags": [
+        "开源",
+        "text-generation"
       ],
       "auto": true
     }
