@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-31",
+  "updated": "2026-08-03",
   "items": [
     {
       "id": "gpt-4o",
@@ -1209,6 +1209,21 @@
       "released": "2026-01-30",
       "description": "开源模型 · 2.9M 下载 · 846 喜欢",
       "url": "https://huggingface.co/unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+      "tags": [
+        "开源",
+        "text-generation"
+      ],
+      "auto": true
+    },
+    {
+      "id": "hf-farbodtavakkoli-otel-2-0-llm-31b-it",
+      "name": "OTel-2.0-LLM-31B-IT",
+      "vendor": "farbodtavakkoli",
+      "region": "global",
+      "category": "model",
+      "released": "2026-08-03",
+      "description": "开源模型 · 3.0M 下载 · 4 喜欢",
+      "url": "https://huggingface.co/farbodtavakkoli/OTel-2.0-LLM-31B-IT",
       "tags": [
         "开源",
         "text-generation"
