@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-03",
+  "updated": "2026-08-04",
   "items": [
     {
       "id": "gpt-4o",
@@ -1224,6 +1224,21 @@
       "released": "2026-08-03",
       "description": "开源模型 · 3.0M 下载 · 4 喜欢",
       "url": "https://huggingface.co/farbodtavakkoli/OTel-2.0-LLM-31B-IT",
+      "tags": [
+        "开源",
+        "text-generation"
+      ],
+      "auto": true
+    },
+    {
+      "id": "hf-deepreinforce-ai-ornith-1-0-35b",
+      "name": "Ornith-1.0-35B",
+      "vendor": "deepreinforce-ai",
+      "region": "global",
+      "category": "model",
+      "released": "2026-06-25",
+      "description": "开源模型 · 2.8M 下载 · 467 喜欢",
+      "url": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-35B",
       "tags": [
         "开源",
         "text-generation"
