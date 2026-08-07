@@ -1,6 +1,7 @@
 // AI 导航站爬虫
 // 1) 以 public/data.json 为策展基线，抓 HuggingFace 热门开源模型合并回写
-// 2) 抓取多家 AI 资讯 RSS/Atom，生成 public/news.json
+// 2) 接入 models.dev API，自动补全 pricing/context/license/modal 等精确字段
+// 3) 抓取多家 AI 资讯 RSS/Atom，生成 public/news.json
 // 全程无第三方依赖，使用 Node 18+ 内置 fetch。
 // 运行：node crawl.js            （默认 limit 40）
 // 用法：node crawl.js --limit 40
@@ -45,6 +46,127 @@ function writeJSON(p, data) {
   fs.writeFileSync(p, JSON.stringify(data, null, 2) + "\n", "utf8");
 }
 
+// ---------- 名称规范化（用于模糊匹配） ----------
+function normalizeName(s) {
+  return (s || "")
+    .toLowerCase()
+    .replace(/[\s\-_.]/g, "")
+    .replace(/^(openai|anthropic|google|meta|mistral|xai|cohere|deepseek|qwen|zhipu|zhipuai|moonshot|baidu|bytedance|minimax|tencent|01ai|baichuan|stepfun)/g, "")
+    .replace(/[（）()]/g, "");
+}
+
+// ---------- 格式化上下文长度 ----------
+function formatContext(n) {
+  if (!n || n <= 0) return "—";
+  if (n >= 1_000_000) return (n / 1_000_000) + "M";
+  if (n >= 1000) return Math.round(n / 1000) + "K";
+  return String(n);
+}
+
+// ---------- 格式化模态 ----------
+function formatModalities(mods) {
+  if (!mods) return "—";
+  const map = { text: "文本", image: "图像", audio: "音频", video: "视频", pdf: "PDF" };
+  const inputs = (mods.input || []).map((m) => map[m] || m);
+  return inputs.length ? inputs.join("+") : "—";
+}
+
+// ---------- 格式化价格 ----------
+function formatCost(cost) {
+  if (!cost) return "—";
+  if (cost.input === 0 && cost.output === 0) return "免费";
+  return `输入 $${cost.input} / 输出 $${cost.output}`;
+}
+
+// ---------- models.dev API：补全策展数据 ----------
+async function fetchModelsDev() {
+  const url = "https://models.dev/api.json";
+  const res = await fetch(url, { headers: { Accept: "application/json" } });
+  if (!res.ok) throw new Error(`models.dev API ${res.status}`);
+  return res.json();
+}
+
+function buildModelIndex(apiData) {
+  const index = new Map();
+  for (const [providerId, provider] of Object.entries(apiData || {})) {
+    for (const [modelId, model] of Object.entries(provider?.models || {})) {
+      const fullId = `${providerId}/${modelId}`;
+      const normKey = normalizeName(model.name || modelId);
+      index.set(normKey, { fullId, providerId, model });
+    }
+  }
+  return index;
+}
+
+function matchModel(item, index) {
+  const keys = [
+    normalizeName(item.name),
+    normalizeName(item.vendor + item.name),
+    normalizeName(item.id),
+  ].filter(Boolean);
+  for (const key of keys) {
+    if (index.has(key)) return index.get(key);
+  }
+  // 尝试子串匹配
+  for (const [key, val] of index) {
+    for (const k of keys) {
+      if (k.length > 3 && (key.includes(k) || k.includes(key))) return val;
+    }
+  }
+  return null;
+}
+
+async function enrichFromModelsDev() {
+  const data = readJSON(DATA_FILE);
+  const items = data.items || [];
+  try {
+    const apiData = await fetchModelsDev();
+    const index = buildModelIndex(apiData);
+    console.log(`[models.dev] 收到 ${index.size} 个模型`);
+    let enriched = 0;
+    for (const item of items) {
+      const match = matchModel(item, index);
+      if (!match) continue;
+      const m = match.model;
+      let changed = false;
+
+      if ((!item.pricing || item.pricing === "—") && m.cost) {
+        item.pricing = formatCost(m.cost);
+        changed = true;
+      }
+      if ((!item.context || item.context === "—") && m.limit?.context) {
+        item.context = formatContext(m.limit.context);
+        changed = true;
+      }
+      if ((!item.license || item.license === "—") && m.license) {
+        item.license = m.license;
+        changed = true;
+      } else if ((!item.license || item.license === "—") && m.open_weights !== undefined) {
+        item.license = m.open_weights ? "开源" : "闭源";
+        changed = true;
+      }
+      if ((!item.modal || item.modal === "—") && m.modalities) {
+        item.modal = formatModalities(m.modalities);
+        changed = true;
+      }
+      if (item.api === undefined && m.tool_call !== undefined) {
+        item.api = !!m.tool_call;
+        changed = true;
+      }
+      if (changed) enriched++;
+    }
+    if (enriched) {
+      data.updated = today();
+      writeJSON(DATA_FILE, data);
+      console.log(`[models.dev] ✓ 补全 ${enriched} 条模型字段`);
+    } else {
+      console.log("[models.dev] 无需补全");
+    }
+  } catch (e) {
+    console.warn(`[models.dev] ⚠ 抓取失败，跳过补全：${e.message}`);
+  }
+}
+
 // ---------- HuggingFace 开源模型 ----------
 async function fetchHF(limit) {
   const url = `https://huggingface.co/api/models?sort=downloads&direction=-1&limit=${limit}&filter=text-generation&full=true`;
@@ -72,6 +194,11 @@ function hfToItem(m) {
     description: `开源模型 · ${formatNum(m.downloads || 0)} 下载 · ${m.likes || 0} 喜欢`,
     url: "https://huggingface.co/" + m.id,
     tags: ["开源", m.pipeline_tag || "text-generation"].filter(Boolean),
+    pricing: "—",
+    context: "—",
+    license: m.tags?.find((t) => t.startsWith("license:"))?.replace("license:", "") || "开源",
+    api: false,
+    modal: "文本",
     auto: true,
   };
 }
@@ -188,7 +315,11 @@ async function main() {
     process.argv.includes("--limit") ? process.argv[process.argv.indexOf("--limit") + 1] : "40",
     10
   );
+  // 1) 先用 models.dev 补全策展数据字段
+  await enrichFromModelsDev();
+  // 2) 抓 HuggingFace 新模型
   await crawlModels(limit);
+  // 3) 抓资讯
   await crawlNews();
   console.log("爬虫完成。");
 }

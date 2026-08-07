@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-30",
+  "updated": "2026-08-07",
   "items": [
     {
       "id": "gpt-4o",
@@ -10,11 +10,13 @@
       "released": "2024-05-13",
       "description": "OpenAI 多模态旗舰模型，支持图文语音实时交互，响应延迟近人类。",
       "url": "https://openai.com/gpt-4o",
-      "tags": [
-        "多模态",
-        "闭源"
-      ],
-      "hot": true
+      "tags": ["多模态", "闭源"],
+      "hot": true,
+      "pricing": "输入 $2.5 / 输出 $10",
+      "context": "128K",
+      "license": "闭源",
+      "api": true,
+      "modal": "文本+图像+音频"
     },
     {
       "id": "gpt-4.1",
@@ -25,10 +27,12 @@
       "released": "2025-04-14",
       "description": "编码与指令遵循显著提升，面向开发者与 Agent 场景优化。",
       "url": "https://openai.com",
-      "tags": [
-        "闭源",
-        "Agent优化"
-      ]
+      "tags": ["闭源", "Agent优化"],
+      "pricing": "输入 $2 / 输出 $8",
+      "context": "1M",
+      "license": "闭源",
+      "api": true,
+      "modal": "文本"
     },
     {
       "id": "o3",
@@ -39,11 +43,13 @@
       "released": "2024-12-20",
       "description": "强推理模型，在数学与编程基准上大幅突破，擅长复杂多步推理。",
       "url": "https://openai.com/o3",
-      "tags": [
-        "推理",
-        "闭源"
-      ],
-      "hot": true
+      "tags": ["推理", "闭源"],
+      "hot": true,
+      "pricing": "输入 $15 / 输出 $60",
+      "context": "200K",
+      "license": "闭源",
+      "api": true,
+      "modal": "文本"
     },
     {
       "id": "claude-3.5-sonnet",
@@ -54,10 +60,12 @@
       "released": "2024-06-20",
       "description": "编码与逻辑能力出色，性价比高，长期占据编码榜单前列。",
       "url": "https://www.anthropic.com/claude",
-      "tags": [
-        "闭源",
-        "编码强"
-      ]
+      "tags": ["闭源", "编码强"],
+      "pricing": "输入 $3 / 输出 $15",
+      "context": "200K",
+      "license": "闭源",
+      "api": true,
+      "modal": "文本+图像"
     },
     {
       "id": "claude-opus-4",
@@ -68,11 +76,13 @@
       "released": "2025-05-22",
       "description": "Anthropic 旗舰推理与编码模型，支持长时 Agent 任务与代码工程。",
       "url": "https://www.anthropic.com",
-      "tags": [
-        "推理",
-        "闭源"
-      ],
-      "hot": true
+      "tags": ["推理", "闭源"],
+      "hot": true,
+      "pricing": "输入 $15 / 输出 $75",
+      "context": "200K",
+      "license": "闭源",
+      "api": true,
+      "modal": "文本+图像"
     },
     {
       "id": "gemini-2.5-pro",
@@ -83,11 +93,13 @@
       "released": "2025-03-25",
       "description": "Google 旗舰多模态推理模型，原生支持超长上下文与工具调用。",
       "url": "https://deepmind.google",
-      "tags": [
-        "多模态",
-        "长上下文"
-      ],
-      "hot": true
+      "tags": ["多模态", "长上下文"],
+      "hot": true,
+      "pricing": "输入 $1.25 / 输出 $10",
+      "context": "1M",
+      "license": "闭源",
+      "api": true,
+      "modal": "文本+图像+音频+视频"
     },
     {
       "id": "gemini-2.0-flash",
@@ -98,10 +110,12 @@
       "released": "2024-12-11",
       "description": "低延迟多模态模型，速度快成本低，适合高并发实时场景。",
       "url": "https://deepmind.google",
-      "tags": [
-        "多模态",
-        "低延迟"
-      ]
+      "tags": ["多模态", "低延迟"],
+      "pricing": "输入 $0.075 / 输出 $0.30",
+      "context": "1M",
+      "license": "闭源",
+      "api": true,
+      "modal": "文本+图像+音频"
     },
     {
       "id": "llama-3.3-70b",
@@ -112,9 +126,12 @@
       "released": "2024-12-06",
       "description": "开源权重模型，性能对标 405B 但参数更小，社区生态最活跃。",
       "url": "https://llama.meta.com",
-      "tags": [
-        "开源"
-      ]
+      "tags": ["开源"],
+      "pricing": "权重免费 / API 按量",
+      "context": "128K",
+      "license": "Llama Community License",
+      "api": true,
+      "modal": "文本"
     },
     {
       "id": "llama-4",
@@ -125,10 +142,12 @@
       "released": "2025-04-05",
       "description": "Meta 多模态原生开源模型，引入早期融合架构与 MoE。",
       "url": "https://llama.meta.com",
-      "tags": [
-        "开源",
-        "多模态"
-      ]
+      "tags": ["开源", "多模态"],
+      "pricing": "权重免费 / API 按量",
+      "context": "10M",
+      "license": "Llama Community License",
+      "api": true,
+      "modal": "文本+图像"
     },
     {
       "id": "mistral-large-2",
@@ -139,10 +158,12 @@
       "released": "2024-07-24",
       "description": "欧洲旗舰开源权重模型，128K 上下文，多语言与编码能力强。",
       "url": "https://mistral.ai",
-      "tags": [
-        "开源",
-        "长上下文"
-      ]
+      "tags": ["开源", "长上下文"],
+      "pricing": "输入 $2 / 输出 $6",
+      "context": "128K",
+      "license": "Mistral Research License",
+      "api": true,
+      "modal": "文本"
     },
     {
       "id": "grok-3",
@@ -153,11 +174,13 @@
       "released": "2025-02-18",
       "description": "xAI 旗舰模型，接入 X 实时数据，推理与数学表现突出。",
       "url": "https://x.ai",
-      "tags": [
-        "闭源",
-        "实时数据"
-      ],
-      "hot": true
+      "tags": ["闭源", "实时数据"],
+      "hot": true,
+      "pricing": "输入 $3 / 输出 $15",
+      "context": "128K",
+      "license": "闭源",
+      "api": true,
+      "modal": "文本"
     },
     {
       "id": "command-r-plus",
@@ -168,10 +191,12 @@
       "released": "2024-08-22",
       "description": "面向企业 RAG 与工具调用的模型，多语言检索能力强。",
       "url": "https://cohere.com",
-      "tags": [
-        "企业",
-        "RAG"
-      ]
+      "tags": ["企业", "RAG"],
+      "pricing": "输入 $2.5 / 输出 $10",
+      "context": "128K",
+      "license": "CC-BY-NC-4.0",
+      "api": true,
+      "modal": "文本"
     },
     {
       "id": "deepseek-r1",
@@ -182,11 +207,13 @@
       "released": "2025-01-20",
       "description": "开源推理模型，以极低成本对标 o1，引发行业震动。",
       "url": "https://www.deepseek.com",
-      "tags": [
-        "开源",
-        "推理"
-      ],
-      "hot": true
+      "tags": ["开源", "推理"],
+      "hot": true,
+      "pricing": "输入 ¥1 / 输出 ¥4",
+      "context": "64K",
+      "license": "MIT",
+      "api": true,
+      "modal": "文本"
     },
     {
       "id": "deepseek-v3",
@@ -197,10 +224,12 @@
       "released": "2024-12-26",
       "description": "671B 参数 MoE 开源模型，训练成本极低，性能对标闭源旗舰。",
       "url": "https://www.deepseek.com",
-      "tags": [
-        "开源",
-        "MoE"
-      ]
+      "tags": ["开源", "MoE"],
+      "pricing": "输入 ¥0.5 / 输出 ¥2",
+      "context": "64K",
+      "license": "MIT",
+      "api": true,
+      "modal": "文本"
     },
     {
       "id": "qwen3",
@@ -211,11 +240,13 @@
       "released": "2025-04-29",
       "description": "开源混合推理模型，支持思考模式切换，全尺寸开源。",
       "url": "https://tongyi.aliyun.com",
-      "tags": [
-        "开源",
-        "推理"
-      ],
-      "hot": true
+      "tags": ["开源", "推理"],
+      "hot": true,
+      "pricing": "权重免费 / API 按量",
+      "context": "128K",
+      "license": "Apache-2.0",
+      "api": true,
+      "modal": "文本"
     },
     {
       "id": "qwen2.5",
@@ -226,9 +257,12 @@
       "released": "2024-09-19",
       "description": "开源全尺寸模型族，中英与编码能力均衡，社区部署广泛。",
       "url": "https://tongyi.aliyun.com",
-      "tags": [
-        "开源"
-      ]
+      "tags": ["开源"],
+      "pricing": "权重免费 / API 按量",
+      "context": "128K",
+      "license": "Apache-2.0",
+      "api": true,
+      "modal": "文本"
     },
     {
       "id": "glm-4.5",
@@ -239,11 +273,13 @@
       "released": "2025-07-02",
       "description": "开源混合推理模型，思考与非思考模式统一，Agent 能力强。",
       "url": "https://www.zhipuai.cn",
-      "tags": [
-        "开源",
-        "推理"
-      ],
-      "hot": true
+      "tags": ["开源", "推理"],
+      "hot": true,
+      "pricing": "输入 $0.5 / 输出 $2",
+      "context": "128K",
+      "license": "MIT",
+      "api": true,
+      "modal": "文本"
     },
     {
       "id": "glm-4",
@@ -254,9 +290,12 @@
       "released": "2024-01-15",
       "description": "智谱基座模型，支持长上下文与工具调用，开源生态活跃。",
       "url": "https://www.zhipuai.cn",
-      "tags": [
-        "开源"
-      ]
+      "tags": ["开源"],
+      "pricing": "输入 ¥0.1 / 输出 ¥0.1",
+      "context": "128K",
+      "license": "开源",
+      "api": true,
+      "modal": "文本"
     },
     {
       "id": "kimi-k2",
@@ -267,11 +306,13 @@
       "released": "2025-07-10",
       "description": "开源 Agent 模型，专为工具调用与自主任务设计。",
       "url": "https://kimi.moonshot.cn",
-      "tags": [
-        "开源",
-        "Agent"
-      ],
-      "hot": true
+      "tags": ["开源", "Agent"],
+      "hot": true,
+      "pricing": "输入 $0.15 / 输出 $2.50",
+      "context": "128K",
+      "license": "Modified MIT",
+      "api": true,
+      "modal": "文本"
     },
     {
       "id": "kimi",
@@ -282,9 +323,12 @@
       "released": "2023-10-09",
       "description": "以超长上下文著称的对话助手，支持百万字文档解析。",
       "url": "https://kimi.moonshot.cn",
-      "tags": [
-        "长上下文"
-      ]
+      "tags": ["长上下文"],
+      "pricing": "免费 / API 按量",
+      "context": "2M",
+      "license": "闭源",
+      "api": true,
+      "modal": "文本"
     },
     {
       "id": "ernie-4",
@@ -295,10 +339,12 @@
       "released": "2023-10-17",
       "description": "百度旗舰大模型，深度集成搜索与知识增强。",
       "url": "https://yiyan.baidu.com",
-      "tags": [
-        "闭源",
-        "知识增强"
-      ]
+      "tags": ["闭源", "知识增强"],
+      "pricing": "输入 ¥8 / 输出 ¥24",
+      "context": "8K",
+      "license": "闭源",
+      "api": true,
+      "modal": "文本+图像"
     },
     {
       "id": "doubao",
@@ -309,9 +355,12 @@
       "released": "2023-08-17",
       "description": "字节大模型，主打低价格高吞吐，内置多模态能力。",
       "url": "https://www.doubao.com",
-      "tags": [
-        "多模态"
-      ]
+      "tags": ["多模态"],
+      "pricing": "输入 ¥0.8 / 输出 ¥2",
+      "context": "128K",
+      "license": "闭源",
+      "api": true,
+      "modal": "文本+图像+语音"
     },
     {
       "id": "spark-4",
@@ -322,9 +371,12 @@
       "released": "2023-10-24",
       "description": "讯飞认知大模型，语音与教育场景优势明显。",
       "url": "https://xinghuo.xfyun.cn",
-      "tags": [
-        "语音"
-      ]
+      "tags": ["语音"],
+      "pricing": "定制报价",
+      "context": "8K",
+      "license": "闭源",
+      "api": true,
+      "modal": "文本+语音"
     },
     {
       "id": "baichuan",
@@ -335,9 +387,12 @@
       "released": "2023-06-15",
       "description": "王小川创立，中文理解与搜索增强为特色。",
       "url": "https://www.baichuan-ai.com",
-      "tags": [
-        "中文"
-      ]
+      "tags": ["中文"],
+      "pricing": "输入 ¥6 / 输出 ¥6",
+      "context": "32K",
+      "license": "闭源",
+      "api": true,
+      "modal": "文本"
     },
     {
       "id": "yi",
@@ -348,9 +403,12 @@
       "released": "2023-11-04",
       "description": "李开复创立，开源权重模型族，性能与效率兼顾。",
       "url": "https://www.01.ai",
-      "tags": [
-        "开源"
-      ]
+      "tags": ["开源"],
+      "pricing": "权重免费 / API 按量",
+      "context": "32K",
+      "license": "Apache-2.0",
+      "api": true,
+      "modal": "文本"
     },
     {
       "id": "minimax-01",
@@ -361,10 +419,12 @@
       "released": "2025-01-15",
       "description": "456B MoE 模型，原生支持百万 token 超长上下文。",
       "url": "https://www.minimax.io",
-      "tags": [
-        "长上下文",
-        "MoE"
-      ]
+      "tags": ["长上下文", "MoE"],
+      "pricing": "输入 ¥0.8 / 输出 ¥8",
+      "context": "1M",
+      "license": "开源",
+      "api": true,
+      "modal": "文本"
     },
     {
       "id": "hunyuan",
@@ -375,9 +435,12 @@
       "released": "2023-09-07",
       "description": "腾讯全链路自研大模型，开源多个尺寸权重。",
       "url": "https://hunyuan.tencent.com",
-      "tags": [
-        "开源"
-      ]
+      "tags": ["开源"],
+      "pricing": "输入 ¥0.5 / 输出 ¥0.5",
+      "context": "256K",
+      "license": "开源",
+      "api": true,
+      "modal": "文本+图像"
     },
     {
       "id": "step",
@@ -388,9 +451,12 @@
       "released": "2023-11-15",
       "description": "多模态为特色，主打图像理解与视频生成能力。",
       "url": "https://platform.stepfun.com",
-      "tags": [
-        "多模态"
-      ]
+      "tags": ["多模态"],
+      "pricing": "定制报价",
+      "context": "32K",
+      "license": "闭源",
+      "api": true,
+      "modal": "文本+图像+视频"
     },
     {
       "id": "workbuddy",
@@ -401,11 +467,13 @@
       "released": "2025-01-01",
       "description": "腾讯出品的 AI 智能体助手，可读文件、跑命令、接 MCP，国内 Agent 代表。",
       "url": "https://www.codebuddy.cn",
-      "tags": [
-        "Agent",
-        "国内热门"
-      ],
-      "hot": true
+      "tags": ["Agent", "国内热门"],
+      "hot": true,
+      "pricing": "免费 / 订阅制",
+      "context": "—",
+      "license": "闭源",
+      "api": false,
+      "modal": "文本+代码+文件"
     },
     {
       "id": "coze",
@@ -416,10 +484,12 @@
       "released": "2024-02-01",
       "description": "可视化 Bot 搭建平台，低代码构建专属 AI 智能体并多平台发布。",
       "url": "https://www.coze.cn",
-      "tags": [
-        "低代码",
-        "Agent"
-      ]
+      "tags": ["低代码", "Agent"],
+      "pricing": "免费 / 按量",
+      "context": "—",
+      "license": "闭源",
+      "api": false,
+      "modal": "—"
     },
     {
       "id": "dify",
@@ -430,11 +500,13 @@
       "released": "2023-05-01",
       "description": "开源 LLMOps 平台，可视化编排工作流、RAG 与 Agent。",
       "url": "https://dify.ai",
-      "tags": [
-        "开源",
-        "LLMOps"
-      ],
-      "hot": true
+      "tags": ["开源", "LLMOps"],
+      "hot": true,
+      "pricing": "开源免费 / 云版按量",
+      "context": "—",
+      "license": "Apache-2.0",
+      "api": true,
+      "modal": "—"
     },
     {
       "id": "fastgpt",
@@ -445,10 +517,12 @@
       "released": "2023-08-01",
       "description": "开源知识库问答系统，基于工作流编排，国内部署广泛。",
       "url": "https://fastgpt.in",
-      "tags": [
-        "开源",
-        "知识库"
-      ]
+      "tags": ["开源", "知识库"],
+      "pricing": "开源免费 / 商用授权",
+      "context": "—",
+      "license": "Apache-2.0",
+      "api": true,
+      "modal": "—"
     },
     {
       "id": "langchain",
@@ -459,10 +533,12 @@
       "released": "2022-10-25",
       "description": "最流行的 LLM 应用开发框架，串联模型、记忆与工具。",
       "url": "https://www.langchain.com",
-      "tags": [
-        "框架",
-        "开源"
-      ]
+      "tags": ["框架", "开源"],
+      "pricing": "开源免费 / 云版订阅",
+      "context": "—",
+      "license": "MIT",
+      "api": false,
+      "modal": "—"
     },
     {
       "id": "langgraph",
@@ -473,10 +549,12 @@
       "released": "2024-01-08",
       "description": "基于状态图的 Agent 编排框架，支持复杂多步与多智能体。",
       "url": "https://www.langchain.com/langgraph",
-      "tags": [
-        "框架",
-        "Agent"
-      ]
+      "tags": ["框架", "Agent"],
+      "pricing": "开源免费 / 云版订阅",
+      "context": "—",
+      "license": "MIT",
+      "api": false,
+      "modal": "—"
     },
     {
       "id": "llamaindex",
@@ -487,10 +565,12 @@
       "released": "2022-11-08",
       "description": "专注数据连接与 RAG 的框架，企业知识检索首选。",
       "url": "https://www.llamaindex.ai",
-      "tags": [
-        "框架",
-        "RAG"
-      ]
+      "tags": ["框架", "RAG"],
+      "pricing": "开源免费 / 云版按量",
+      "context": "—",
+      "license": "MIT",
+      "api": false,
+      "modal": "—"
     },
     {
       "id": "autogen",
@@ -501,10 +581,12 @@
       "released": "2023-09-01",
       "description": "微软开源多智能体对话框架，擅长角色协作与任务分解。",
       "url": "https://microsoft.github.io/autogen",
-      "tags": [
-        "开源",
-        "多Agent"
-      ]
+      "tags": ["开源", "多Agent"],
+      "pricing": "开源免费",
+      "context": "—",
+      "license": "MIT",
+      "api": false,
+      "modal": "—"
     },
     {
       "id": "crewai",
@@ -515,10 +597,12 @@
       "released": "2024-01-15",
       "description": "以角色驱动多智能体协作的轻量框架，上手简单。",
       "url": "https://www.crewai.com",
-      "tags": [
-        "开源",
-        "多Agent"
-      ]
+      "tags": ["开源", "多Agent"],
+      "pricing": "开源免费 / 云版订阅",
+      "context": "—",
+      "license": "MIT",
+      "api": false,
+      "modal": "—"
     },
     {
       "id": "n8n",
@@ -529,10 +613,12 @@
       "released": "2019-06-01",
       "description": "可自托管的工作流自动化平台，已深度集成 AI 节点。",
       "url": "https://n8n.io",
-      "tags": [
-        "开源",
-        "自动化"
-      ]
+      "tags": ["开源", "自动化"],
+      "pricing": "自托管免费 / 云版订阅",
+      "context": "—",
+      "license": "Apache-2.0",
+      "api": true,
+      "modal": "—"
     },
     {
       "id": "flowise",
@@ -543,10 +629,12 @@
       "released": "2023-04-01",
       "description": "拖拽式 LLM 应用构建器，可视化编排链与 Agent。",
       "url": "https://flowiseai.com",
-      "tags": [
-        "开源",
-        "可视化"
-      ]
+      "tags": ["开源", "可视化"],
+      "pricing": "开源免费 / 云版按量",
+      "context": "—",
+      "license": "Apache-2.0",
+      "api": true,
+      "modal": "—"
     },
     {
       "id": "manus",
@@ -557,10 +645,13 @@
       "released": "2025-03-06",
       "description": "通用自主智能体，能自主规划并执行复杂任务，火爆出圈。",
       "url": "https://manus.im",
-      "tags": [
-        "通用Agent"
-      ],
-      "hot": true
+      "tags": ["通用Agent"],
+      "hot": true,
+      "pricing": "免费 / 邀请制",
+      "context": "—",
+      "license": "闭源",
+      "api": false,
+      "modal": "—"
     },
     {
       "id": "operator",
@@ -571,9 +662,12 @@
       "released": "2025-01-23",
       "description": "OpenAI 浏览器操作 Agent，可代你完成网页交互任务。",
       "url": "https://openai.com",
-      "tags": [
-        "浏览器Agent"
-      ]
+      "tags": ["浏览器Agent"],
+      "pricing": "ChatGPT Pro 订阅",
+      "context": "—",
+      "license": "闭源",
+      "api": false,
+      "modal": "—"
     },
     {
       "id": "devin",
@@ -584,9 +678,12 @@
       "released": "2024-03-12",
       "description": "号称首个 AI 软件工程师，可端到端完成开发任务。",
       "url": "https://devin.ai",
-      "tags": [
-        "编程Agent"
-      ]
+      "tags": ["编程Agent"],
+      "pricing": "$500/月起",
+      "context": "—",
+      "license": "闭源",
+      "api": false,
+      "modal": "—"
     },
     {
       "id": "codex",
@@ -597,9 +694,12 @@
       "released": "2025-05-16",
       "description": "OpenAI 编码 Agent，支持 CLI 与云端并行执行多任务。",
       "url": "https://openai.com",
-      "tags": [
-        "编程Agent"
-      ]
+      "tags": ["编程Agent"],
+      "pricing": "ChatGPT 订阅",
+      "context": "—",
+      "license": "闭源",
+      "api": false,
+      "modal": "—"
     },
     {
       "id": "claude-code",
@@ -610,10 +710,13 @@
       "released": "2025-02-24",
       "description": "终端编码 Agent，自主读写文件、改代码、跑测试。",
       "url": "https://www.anthropic.com",
-      "tags": [
-        "编程Agent"
-      ],
-      "hot": true
+      "tags": ["编程Agent"],
+      "hot": true,
+      "pricing": "按量计费 / 订阅制",
+      "context": "—",
+      "license": "闭源",
+      "api": false,
+      "modal": "—"
     }
   ]
 }
