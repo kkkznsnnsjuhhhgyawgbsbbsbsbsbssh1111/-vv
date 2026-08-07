@@ -46,6 +46,8 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
+/* 兜底：CSS 中显式 display 会覆盖 [hidden] 默认值，必须强制 */
+[hidden]{display:none !important}
 body{
   margin:0;
   background:var(--bg);
