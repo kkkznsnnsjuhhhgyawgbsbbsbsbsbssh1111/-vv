@@ -2,12 +2,15 @@ const REGION_LABEL = { global: "全球", china: "国内" };
 const CATEGORY_LABEL = { model: "大模型", agent: "Agent", tool: "工具" };
 const MAX_COMPARE = 6;
 const TABS = ["nav", "news", "glossary", "timeline", "compare"];
+const GLOSSARY_CATS = ["架构基础", "训练方法", "部署优化", "应用范式", "AI安全"];
+const TL_TYPES = ["论文", "产品", "开源", "里程碑", "政策"];
 
 const DB = { models: [], updated: "", news: [], newsUpdated: "", terms: [], events: [], picks: null };
 const state = {
   region: "all", category: "all", q: "", sort: "recent",
-  glevel: "all", gq: "",
+  glevel: "all", gq: "", gcat: "all", gsort: "level",
   cq: "", compare: new Set(),
+  ttype: "all",
   tab: "nav",
 };
 
@@ -18,6 +21,23 @@ const debounce = (fn, ms = 160) => {
   return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), ms); };
 };
 const avatarText = (it) => (it.vendor || it.name || "?").slice(0, 1);
+
+/* ---------- Favicon 头像 ---------- */
+function faviconURL(it) {
+  try {
+    const h = new URL(it.url).hostname;
+    return `https://www.google.com/s2/favicons?domain=${h}&sz=64`;
+  } catch {
+    return "";
+  }
+}
+
+function avatarHTML(it, size) {
+  const letter = esc(avatarText(it));
+  const fav = faviconURL(it);
+  const cls = size ? `avatar c-${it.category} ${size}` : `avatar c-${it.category}`;
+  return `<div class="${cls}">${fav ? `<img class="avatar-img" src="${fav}" alt="" loading="lazy" onerror="this.style.display='none'">` : ""}<span class="avatar-letter">${letter}</span></div>`;
+}
 
 /* ---------- 数据加载 + 骨架屏 ---------- */
 function loadAll() {
@@ -38,7 +58,6 @@ function loadAll() {
       DB.picks = picks || null;
       $("#statTotal").textContent = DB.models.length;
       $("#statUpdated").textContent = DB.updated || "—";
-      // 隐藏骨架屏，显示内容
       $("#skeletonGrid").hidden = true;
       $("#grid").hidden = false;
       renderNav();
@@ -79,7 +98,7 @@ function cardHTML(it) {
   return `
   <article class="card" data-id="${esc(it.id)}" tabindex="0">
     <div class="card-head">
-      <div class="avatar c-${it.category}">${esc(avatarText(it))}</div>
+      ${avatarHTML(it)}
       <div class="card-titles">
         <div class="card-name">${esc(it.name)}${it.hot ? ' <span class="hot">🔥</span>' : ""}</div>
         <div class="card-vendor">${esc(it.vendor)}</div>
@@ -106,7 +125,7 @@ function renderPicks() {
   if (!items.length) { box.classList.remove("show"); return; }
   const cards = items.map((it) => `
     <a class="pick-card" href="${esc(it.url)}" target="_blank" rel="noopener">
-      <span class="pa c-${it.category}" style="background:var(--${it.category})">${esc(avatarText(it))}</span>
+      ${avatarHTML(it)}
       <span><span class="pn">${esc(it.name)}</span><br><span class="pv">${esc(it.vendor)}</span></span>
     </a>`).join("");
   box.innerHTML = `<div class="picks-label">本周精选<span class="note">${esc(DB.picks.note || "")}</span></div><div class="pick-row">${cards}</div>`;
@@ -162,7 +181,7 @@ function openModal(id) {
 
   $("#modalBody").innerHTML = `
     <div class="modal-head">
-      <div class="avatar c-${it.category}">${esc(avatarText(it))}</div>
+      ${avatarHTML(it, "modal-avatar")}
       <div>
         <div class="modal-name">${esc(it.name)}${it.hot ? ' <span class="hot">🔥</span>' : ""}</div>
         <div class="modal-vendor">${esc(it.vendor)} · ${REGION_LABEL[it.region] || it.region} · ${CATEGORY_LABEL[it.category] || it.category}</div>
@@ -210,37 +229,63 @@ function renderNews() {
 /* ---------- 术语词典 ---------- */
 function filteredTerms() {
   const q = state.gq.trim().toLowerCase();
-  return DB.terms.filter((t) => {
+  let list = DB.terms.filter((t) => {
     if (state.glevel !== "all" && t.level !== state.glevel) return false;
+    if (state.gcat !== "all" && t.category !== state.gcat) return false;
     if (q) {
-      const hay = [t.term, t.en, t.explain].join(" ").toLowerCase();
+      const hay = [t.term, t.en, t.explain, t.analogy || ""].join(" ").toLowerCase();
       if (!hay.includes(q)) return false;
     }
     return true;
   });
+  if (state.gsort === "year") {
+    list.sort((a, b) => (a.year || "").localeCompare(b.year || ""));
+  }
+  return list;
 }
 
 function renderGlossary() {
   const list = filteredTerms();
   const box = $("#glossaryList");
+  $("#glossaryMeta") && ($("#glossaryMeta").textContent = `${DB.terms.length} 条术语 · 显示 ${list.length} 条`);
   if (!list.length) { box.innerHTML = `<div class="empty">没有匹配的术语。</div>`; return; }
   box.innerHTML = list.map((t) => `
     <article class="glossary-item">
-      <div class="g-term"><b>${esc(t.term)}</b><span class="g-en">${esc(t.en || "")}</span><span class="g-level" data-l="${esc(t.level)}">${esc(t.level)}</span></div>
+      <div class="g-term">
+        <b>${esc(t.term)}</b>
+        <span class="g-en">${esc(t.en || "")}</span>
+        <span class="g-level" data-l="${esc(t.level)}">${esc(t.level)}</span>
+        ${t.year ? `<span class="g-year">${esc(t.year)}</span>` : ""}
+        ${t.category ? `<span class="g-category g-cat-${esc(t.category)}">${esc(t.category)}</span>` : ""}
+      </div>
       <div class="g-explain">${esc(t.explain)}</div>
+      ${t.analogy ? `<div class="g-analogy"><span class="g-analogy-label">教学类比</span>${esc(t.analogy)}</div>` : ""}
     </article>`).join("");
 }
 
 /* ---------- 时间线 ---------- */
+function filteredEvents() {
+  let list = DB.events.filter((e) => {
+    if (state.ttype !== "all" && e.type !== state.ttype) return false;
+    return true;
+  });
+  list.sort((a, b) => (a.date || "").localeCompare(b.date || ""));
+  return list;
+}
+
 function renderTimeline() {
-  const events = [...DB.events].sort((a, b) => (a.date || "").localeCompare(b.date || ""));
+  const events = filteredEvents();
   const box = $("#timeline");
-  if (!events.length) { box.innerHTML = `<div class="empty">暂无时间线数据。</div>`; return; }
+  const meta = $("#timelineMeta");
+  if (meta) meta.textContent = `${DB.events.length} 个事件 · 显示 ${events.length} 个`;
+  if (!events.length) { box.innerHTML = `<div class="empty">没有匹配的事件。</div>`; return; }
   box.innerHTML = events.map((e) => `
-    <div class="tl-item r-${e.region}">
+    <div class="tl-item r-${e.region} ${e.milestone ? "milestone" : ""}">
       <div class="tl-date">${esc(e.date)}</div>
       <div class="tl-title">${esc(e.title)}</div>
       <div class="tl-desc">${esc(e.desc)}</div>
+      ${e.type ? `<div class="tl-meta"><span class="tl-type" data-t="${esc(e.type)}">${esc(e.type)}</span>${e.link ? `<a class="tl-link" href="${esc(e.link)}" target="_blank" rel="noopener">查看来源 ↗</a>` : ""}</div>` : ""}
+      ${e.impact ? `<div class="tl-impact">${esc(e.impact)}</div>` : ""}
     </div>`).join("");
 }
 
@@ -310,14 +355,12 @@ function switchTab(tab) {
 }
 
 /* ---------- 事件绑定 ---------- */
-// Tab 切换
 $("#tabs").addEventListener("click", (e) => {
   const btn = e.target.closest(".tab");
   if (!btn) return;
   switchTab(btn.dataset.tab);
 });
 
-// hash 变化
 window.addEventListener("hashchange", () => {
   const tab = (location.hash || "#nav").slice(1);
   switchTab(tab);
@@ -355,16 +398,33 @@ $("#modalClose").addEventListener("click", closeModal);
 $("#modalOverlay").addEventListener("click", (e) => { if (e.target === $("#modalOverlay")) closeModal(); });
 document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
 
-// 术语筛选
-$("#view-glossary .seg-group").addEventListener("click", (e) => {
-  const btn = e.target.closest(".seg");
-  if (!btn) return;
-  $("#view-glossary .seg-group").querySelectorAll(".seg").forEach((b) => b.classList.remove("active"));
-  btn.classList.add("active");
-  state.glevel = btn.dataset.val;
-  renderGlossary();
+// 术语筛选（难度 + 分类）
+document.querySelectorAll("#view-glossary .seg-group").forEach((group) => {
+  const filter = group.dataset.filter;
+  group.addEventListener("click", (e) => {
+    const btn = e.target.closest(".seg");
+    if (!btn) return;
+    group.querySelectorAll(".seg").forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+    state[filter] = btn.dataset.val;
+    renderGlossary();
+  });
 });
 $("#glossarySearch").addEventListener("input", debounce((e) => { state.gq = e.target.value; renderGlossary(); }));
+$("#glossarySort") && $("#glossarySort").addEventListener("change", (e) => { state.gsort = e.target.value; renderGlossary(); });
+
+// 时间线筛选（类型）
+document.querySelectorAll("#view-timeline .seg-group").forEach((group) => {
+  const filter = group.dataset.filter;
+  group.addEventListener("click", (e) => {
+    const btn = e.target.closest(".seg");
+    if (!btn) return;
+    group.querySelectorAll(".seg").forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+    state[filter] = btn.dataset.val;
+    renderTimeline();
+  });
+});
 
 // 对比
 $("#compareSearch").addEventListener("input", debounce((e) => { state.cq = e.target.value; renderCompare(); }));

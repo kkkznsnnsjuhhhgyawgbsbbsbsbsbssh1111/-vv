@@ -103,11 +103,23 @@
           <button class="seg" data-val="进阶">进阶</button>
           <button class="seg" data-val="前沿">前沿</button>
         </div>
+        <div class="seg-group" data-filter="gcat">
+          <button class="seg active" data-val="all">全部分类</button>
+          <button class="seg" data-val="架构基础">架构基础</button>
+          <button class="seg" data-val="训练方法">训练方法</button>
+          <button class="seg" data-val="部署优化">部署优化</button>
+          <button class="seg" data-val="应用范式">应用范式</button>
+          <button class="seg" data-val="AI安全">AI安全</button>
+        </div>
         <div class="search-sort">
           <div class="search">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
             <input id="glossarySearch" type="search" placeholder="搜索术语…" autocomplete="off">
           </div>
+          <select class="select" id="glossarySort">
+            <option value="level">按难度</option>
+            <option value="year">按年份</option>
+          </select>
         </div>
       </div>
       <div class="glossary-list" id="glossaryList"></div>
@@ -117,7 +129,17 @@
     <section class="view" id="view-timeline">
       <div class="view-head">
         <h2>AI 发展时间线</h2>
-        <span class="view-sub">从 Transformer 到 Agent 元年</span>
+        <span class="view-sub" id="timelineMeta">从 Transformer 到 Agent 元年</span>
+      </div>
+      <div class="controls">
+        <div class="seg-group" data-filter="ttype">
+          <button class="seg active" data-val="all">全部</button>
+          <button class="seg" data-val="论文">论文</button>
+          <button class="seg" data-val="产品">产品</button>
+          <button class="seg" data-val="开源">开源</button>
+          <button class="seg" data-val="里程碑">里程碑</button>
+          <button class="seg" data-val="政策">政策</button>
+        </div>
       </div>
       <div class="timeline" id="timeline"></div>
     </section>
