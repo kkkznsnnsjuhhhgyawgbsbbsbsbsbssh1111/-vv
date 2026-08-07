@@ -114,6 +114,27 @@ body{
 .refresh-btn:hover{border-color:var(--brand);color:var(--brand)}
 .refresh-btn:disabled{opacity:.5;cursor:not-allowed}
 
+/* 资讯时间范围筛选 */
+.news-range-filter{display:inline-flex;gap:2px;background:var(--bg-soft);border:1px solid var(--border);border-radius:8px;padding:2px}
+.range-btn{font-size:12.5px;padding:4px 12px;border:none;border-radius:6px;background:transparent;color:var(--text-3);cursor:pointer;transition:all .15s}
+.range-btn:hover{color:var(--text-2)}
+.range-btn.active{background:var(--brand);color:#fff;font-weight:600}
+
+/* 资讯筛选工具栏 */
+.news-toggles{display:inline-flex;align-items:center;gap:8px}
+.ai-toggle{font-size:12.5px;font-weight:600;padding:4px 14px;border:1px solid var(--border);border-radius:20px;background:var(--bg-soft);color:var(--text-3);cursor:pointer;transition:all .15s;white-space:nowrap}
+.ai-toggle.active{background:var(--brand);color:#fff;border-color:var(--brand)}
+.ai-toggle:hover{border-color:var(--brand)}
+.sort-toggle{font-size:12.5px;font-weight:600;padding:4px 14px;border:1px solid var(--border);border-radius:20px;background:var(--bg-soft);color:var(--text-3);cursor:pointer;transition:all .15s;white-space:nowrap}
+.sort-toggle.active{background:var(--brand);color:#fff;border-color:var(--brand)}
+.sort-toggle:hover{border-color:var(--brand)}
+.source-select{font-size:12.5px;padding:4px 10px;border:1px solid var(--border);border-radius:8px;background:var(--bg-soft);color:var(--text-2);cursor:pointer;outline:none}
+.source-select:focus{border-color:var(--brand)}
+
+/* 资讯标签 */
+.news-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:2px}
+.news-tag{font-size:11px;font-weight:600;padding:2px 8px;border-radius:4px;background:color-mix(in srgb,var(--brand) 12%,var(--bg-soft));color:var(--brand)}
+
 /* picks (本周精选) */
 .picks{display:none;flex-direction:column;gap:10px;margin-bottom:24px}
 .picks.show{display:flex}
@@ -189,8 +210,6 @@ body{
 .g-cat-部署优化{background:var(--agent-soft);color:var(--agent)}
 .g-cat-应用范式{background:var(--tool-soft);color:var(--tool)}
 .g-cat-AI安全{background:var(--china-soft);color:var(--china)}
-.g-analogy{margin-top:8px;padding:10px 12px;border-radius:8px;background:var(--bg);border:1px solid var(--border);font-size:12.5px;color:var(--text-2);line-height:1.55}
-.g-analogy-label{font-size:11px;font-weight:600;color:var(--brand);margin-right:4px}
 
 /* 时间线 */
 .timeline{position:relative;padding-left:24px}

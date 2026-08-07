@@ -1,64 +1,592 @@
 {
   "updated": "2026-08-08",
   "terms": [
-    { "term": "Transformer", "en": "Transformer", "level": "入门", "year": "2017", "category": "架构基础", "analogy": "像翻译团队：每个人同时看到全部原文再分工翻译，比逐字传递快得多", "explain": "2017 年提出的注意力架构，几乎所有现代大模型的底层结构。", "related": [] },
-    { "term": "自注意力", "en": "Self-attention", "level": "进阶", "year": "2017", "category": "架构基础", "analogy": "像开会时每个人同时听所有人发言，自己判断谁的话更重要", "explain": "模型内部让每个词关注句子中所有其他词，计算彼此关联度。", "related": [] },
-    { "term": "注意力机制", "en": "Attention", "level": "进阶", "year": "2014", "category": "架构基础", "analogy": "像看照片时眼睛自动聚焦重点区域，而非平均扫全图", "explain": "让模型在处理时动态分配权重，聚焦重要信息而非等量对待。", "related": [] },
-    { "term": "预训练", "en": "Pre-training", "level": "入门", "year": "2018", "category": "架构基础", "analogy": "像学生先通读课本打基础（预训练），再针对性刷题（微调）", "explain": "用海量无标注文本训练模型理解语言规律，是所有大模型的起点。", "related": ["gpt-4o", "bert"] },
-    { "term": "Token", "en": "Token", "level": "入门", "year": "2020", "category": "架构基础", "analogy": "像乐高积木：一篇文章拆成一块块小积木，模型逐块处理", "explain": "模型处理文本的最小单位，约 1 个汉字或 0.75 个英文单词。", "related": [] },
-    { "term": "参数量", "en": "Parameters", "level": "入门", "year": "2020", "category": "架构基础", "analogy": "像大脑突触：突触越多记忆力越强，但消耗能量也越多", "explain": "模型里可学习的权重数量，B=十亿。参数越多通常能力越强但越贵。", "related": [] },
-    { "term": "上下文长度", "en": "Context length", "level": "入门", "year": "2020", "category": "架构基础", "analogy": "像书桌大小：桌子越大能同时摊开的资料越多", "explain": "模型一次能读入的最大 token 数，决定能处理多长的文档/对话。", "related": ["kimi", "gemini-2.5-pro"] },
-    { "term": "嵌入", "en": "Embedding", "level": "进阶", "year": "2013", "category": "架构基础", "analogy": "像给每张照片打坐标：内容相近的照片坐标也近", "explain": "把文本/图像转成一组数字向量，让机器能量化相似度。", "related": [] },
-    { "term": "位置编码", "en": "Positional encoding", "level": "进阶", "year": "2017", "category": "架构基础", "analogy": "像给队伍里每人发号码牌，让模型知道词的先后顺序", "explain": "Transformer 没有顺序概念，位置编码告诉模型每个词在句中的位置。", "related": [] },
-    { "term": "规模法则", "en": "Scaling laws", "level": "前沿", "year": "2020", "category": "架构基础", "analogy": "像发现公式：只要按比例放大，效果就能预测性提升", "explain": "OpenAI 发现模型能力与参数量、数据量、算力呈幂律关系，指导了后续大模型发展。", "related": [] },
-    { "term": "涌现能力", "en": "Emergent abilities", "level": "前沿", "year": "2022", "category": "架构基础", "analogy": "像水量到一定水位突然能浮起船——能力不是渐变而是突变", "explain": "模型规模超过某阈值后突然出现小模型完全没有的能力，如复杂推理。", "related": ["gpt-4o"] },
-    { "term": "大语言模型", "en": "LLM", "level": "入门", "year": "2020", "category": "应用范式", "analogy": "像读过整个图书馆的超级学霸，问什么都能答上来一些", "explain": "用海量文本训练、能理解和生成人类语言的神经网络，GPT/文心一言都是。", "related": ["gpt-4o", "ernie-4"] },
-    { "term": "多模态", "en": "Multimodal", "level": "入门", "year": "2023", "category": "应用范式", "analogy": "像人同时用眼看图、耳听声、嘴说话，多通道协同理解", "explain": "模型能同时处理文本、图像、音频、视频等多种输入。", "related": ["gpt-4o", "gemini-2.5-pro"] },
-    { "term": "提示词工程", "en": "Prompt engineering", "level": "入门", "year": "2022", "category": "应用范式", "analogy": "像跟聪明但死板的助手沟通：你说得越精确，结果越好", "explain": "通过设计输入文本，引导模型给出更好的回答。", "related": [] },
-    { "term": "系统提示词", "en": "System prompt", "level": "入门", "year": "2022", "category": "应用范式", "analogy": "像给新员工定岗位说明书：你是谁、该怎么做、不该做什么", "explain": "在对话开始前给模型设定的角色和规则，影响后续所有回答的风格和边界。", "related": [] },
-    { "term": "温度", "en": "Temperature", "level": "入门", "year": "2020", "category": "应用范式", "analogy": "像旋钮：低温=保守稳定，高温=天马行空更有创意", "explain": "控制模型输出随机性的参数。0=最确定，1=更随机多样。", "related": [] },
-    { "term": "Top-p 采样", "en": "Top-p sampling", "level": "进阶", "year": "2020", "category": "应用范式", "analogy": "像考试只从高概率答案里选，过滤掉不靠谱的小概率选项", "explain": "只从累计概率达到 p 的候选词中采样，平衡多样性和质量。", "related": [] },
-    { "term": "幻觉", "en": "Hallucination", "level": "入门", "year": "2022", "category": "应用范式", "analogy": "像一个人梦游时侃侃而谈：说得很自信但全是编的", "explain": "模型一本正经地编造不存在的事实，是当前大模型的常见问题。", "related": [] },
-    { "term": "智能体", "en": "Agent", "level": "进阶", "year": "2023", "category": "应用范式", "analogy": "像一个能自己上网查资料、写代码、提交任务的数字实习生", "explain": "能自主规划、调用工具、多步执行任务完成目标的 AI 系统。", "related": ["manus", "operator"] },
-    { "term": "工具调用", "en": "Function calling", "level": "进阶", "year": "2023", "category": "应用范式", "analogy": "像模型长出了手：需要算数就用计算器，需要查资料就开浏览器", "explain": "模型根据需要调用外部函数/工具（搜索、计算、代码执行等）。", "related": ["kimi-k2", "glm-4.5"] },
-    { "term": "RAG 检索增强", "en": "RAG", "level": "进阶", "year": "2023", "category": "应用范式", "analogy": "像开卷考试：先翻书找到相关段落，再基于书上的内容回答", "explain": "先从知识库检索相关内容，再让模型基于检索结果回答，降低幻觉。", "related": ["command-r-plus", "llamaindex"] },
-    { "term": "向量数据库", "en": "Vector database", "level": "进阶", "year": "2023", "category": "部署优化", "analogy": "像按颜色排列的调色板：找相近颜色一查就到", "explain": "存储文本/图片的向量表示，支持相似度检索，是 RAG 的基础。", "related": [] },
-    { "term": "思维链", "en": "Chain-of-thought", "level": "进阶", "year": "2022", "category": "应用范式", "analogy": "像数学老师要求写出解题过程：一步步推理比直接猜答案准得多", "explain": "让模型把推理过程一步步写出来，能显著提升复杂题准确率。", "related": ["o3", "deepseek-r1"] },
-    { "term": "推理模型", "en": "Reasoning model", "level": "进阶", "year": "2024", "category": "应用范式", "analogy": "像棋手先在脑中推演十几步再落子，而非凭直觉走", "explain": "专门强化多步推理的模型，如 o3、DeepSeek-R1，擅长数学/编程。", "related": ["o3", "deepseek-r1", "glm-4.5"] },
-    { "term": "MCP 协议", "en": "Model Context Protocol", "level": "进阶", "year": "2024", "category": "应用范式", "analogy": "像 USB 接口标准：不管什么设备，插上就能用", "explain": "Anthropic 提出的模型连接外部工具/数据的开放标准。", "related": ["workbuddy"] },
-    { "term": "ReAct", "en": "ReAct", "level": "前沿", "year": "2022", "category": "应用范式", "analogy": "像边查字典边做题：想一步→做一步→看结果→再想下一步", "explain": "让模型交替推理(Reason)和行动(Act)的 Agent 范式，边想边用工具。", "related": ["langgraph"] },
-    { "term": "多智能体", "en": "Multi-agent", "level": "前沿", "year": "2023", "category": "应用范式", "analogy": "像一个项目组：产品经理定需求、程序员写代码、测试验质量", "explain": "多个分工不同的 Agent 协作完成复杂任务，如 CrewAI/AutoGen。", "related": ["crewai", "autogen"] },
-    { "term": "视觉语言模型", "en": "VLM", "level": "进阶", "year": "2023", "category": "应用范式", "analogy": "像一个既能看图又能读说明书的质检员", "explain": "能理解图像并生成文字描述的模型，GPT-4o/Gemini 都属于此类。", "related": ["gpt-4o", "qwen-vl"] },
-    { "term": "扩散模型", "en": "Diffusion", "level": "前沿", "year": "2020", "category": "应用范式", "analogy": "像从一团雾气中慢慢雕出清晰雕像：逐步去噪变出图片", "explain": "通过逐步去噪生成图像/视频的模型，Stable Diffusion 即是。", "related": [] },
-    { "term": "文生图", "en": "Text-to-image", "level": "入门", "year": "2022", "category": "应用范式", "analogy": "像对画师口述画面：你说一段话，它画出来", "explain": "输入文字描述，AI 自动生成对应图片，如 Midjourney/DALL-E。", "related": [] },
-    { "term": "文生视频", "en": "Text-to-video", "level": "前沿", "year": "2024", "category": "应用范式", "analogy": "像给导演一段剧本，它直接拍出完整短片", "explain": "输入文字描述，AI 生成动态视频，如 Sora/可灵。", "related": ["sora"] },
-    { "term": "语音合成", "en": "TTS", "level": "入门", "year": "2023", "category": "应用范式", "analogy": "像配音演员模仿任何人的声音说话", "explain": "将文字转成自然语音的技术，现代 TTS 已接近真人水平。", "related": [] },
-    { "term": "思维树", "en": "Tree of thoughts", "level": "前沿", "year": "2023", "category": "应用范式", "analogy": "像下棋时同时推演多条路线，最后选胜率最高那条", "explain": "让模型探索多条推理路径再选最优，比线性思维链更强。", "related": [] },
-    { "term": "微调", "en": "Fine-tuning", "level": "进阶", "year": "2018", "category": "训练方法", "analogy": "像通用司机专学山路驾驶：基础能力不变，但更擅长特定场景", "explain": "在基础模型上用特定数据继续训练，使其更擅长某类任务。", "related": [] },
-    { "term": "SFT 监督微调", "en": "Supervised fine-tuning", "level": "进阶", "year": "2022", "category": "训练方法", "analogy": "像老师手把手教：给标准问答对让模型模仿", "explain": "用高质量问答对直接训练模型模仿回答风格，RLHF 的前置步骤。", "related": [] },
-    { "term": "RLHF 人类反馈强化学习", "en": "RLHF", "level": "进阶", "year": "2022", "category": "训练方法", "analogy": "像训练宠物：做对了给奖励做错了不给，慢慢学会正确行为", "explain": "用人类对回答的偏好做奖励信号训练模型，使其更符合期望。", "related": [] },
-    { "term": "奖励模型", "en": "Reward model", "level": "前沿", "year": "2022", "category": "训练方法", "analogy": "像裁判：学习人类的偏好后，自动给回答打分", "explain": "用人类标注训练的打分模型，替代人工对模型输出进行批量评估。", "related": [] },
-    { "term": "DPO 直接偏好优化", "en": "DPO", "level": "前沿", "year": "2023", "category": "训练方法", "analogy": "像跳过裁判直接让学生对比好坏答案自学", "explain": "不需要单独训练奖励模型，直接用偏好数据优化模型，更简单高效。", "related": [] },
-    { "term": "GRPO", "en": "Group Relative Policy Optimization", "level": "前沿", "year": "2024", "category": "训练方法", "analogy": "像让一组学生互相比较成绩排名来激励进步", "explain": "DeepSeek 提出的强化学习算法，无需奖励模型，用组内相对优势训练推理能力。", "related": ["deepseek-r1"] },
-    { "term": "LoRA 低秩微调", "en": "LoRA", "level": "前沿", "year": "2021", "category": "训练方法", "analogy": "像不重装整栋楼，只换几块关键电路板就能改功能", "explain": "只训练极少量参数就能高效微调大模型，显存友好。", "related": [] },
-    { "term": "量化", "en": "Quantization", "level": "前沿", "year": "2022", "category": "部署优化", "analogy": "像把高清图压缩成标清：细节少了一点但文件小很多", "explain": "把模型参数从高精度压成低精度，显存占用大降，便于本地跑。", "related": [] },
-    { "term": "蒸馏", "en": "Distillation", "level": "前沿", "year": "2015", "category": "训练方法", "analogy": "像名师带徒弟：大模型当老师，小模型学它的思维方式", "explain": "用大模型教小模型，让小模型接近大模型能力，成本更低。", "related": [] },
-    { "term": "少样本学习", "en": "Few-shot", "level": "入门", "year": "2020", "category": "训练方法", "analogy": "像给厨师看两三道菜的照片就能做出类似的菜", "explain": "在提示词中给几个示例，模型就能模仿格式完成任务，无需训练。", "related": [] },
-    { "term": "零样本", "en": "Zero-shot", "level": "入门", "year": "2020", "category": "训练方法", "analogy": "像让厨师凭菜名直接做菜，不给任何参考", "explain": "不给任何示例，直接让模型完成任务，靠预训练知识应对。", "related": [] },
-    { "term": "MoE 混合专家", "en": "Mixture of Experts", "level": "前沿", "year": "2024", "category": "架构基础", "analogy": "像医院分诊：病人来了先判断看哪个科，只激活对应科室", "explain": "模型由多个专家子网组成，每次只激活一部分，用更少算力达到更强效果。", "related": ["deepseek-v3", "llama-4"] },
-    { "term": "数据增强", "en": "Data augmentation", "level": "进阶", "year": "2018", "category": "训练方法", "analogy": "像同一道菜用不同摆盘拍照，让模型见过更多变体", "explain": "通过对训练数据做变换（同义替换、回译等）扩充数据量，提升泛化能力。", "related": [] },
-    { "term": "开源权重", "en": "Open weights", "level": "入门", "year": "2022", "category": "部署优化", "analogy": "像开源软件：源代码公开，谁都能下载、修改、本地运行", "explain": "模型参数公开可下载，可本地部署和修改，如 Llama、DeepSeek。", "related": ["llama-3.3-70b", "deepseek-v3"] },
-    { "term": "API", "en": "API", "level": "入门", "year": "2020", "category": "部署优化", "analogy": "像餐厅外卖窗口：不用进后厨，下单就能拿到菜", "explain": "应用程序接口，开发者通过它调用模型能力，按用量计费。", "related": [] },
-    { "term": "推理优化", "en": "Inference optimization", "level": "前沿", "year": "2023", "category": "部署优化", "analogy": "像优化快递路线：同样的货用更少时间送达", "explain": "通过算子融合、批处理等技术加速模型推理速度，降低延迟和成本。", "related": [] },
-    { "term": "KV Cache", "en": "KV Cache", "level": "前沿", "year": "2023", "category": "部署优化", "analogy": "像考试时把已算步骤写在草稿纸上，后面的题直接引用，不重算", "explain": "缓存已处理 token 的键值对，避免重复计算，大幅加速自回归生成。", "related": [] },
-    { "term": "投机解码", "en": "Speculative decoding", "level": "前沿", "year": "2023", "category": "部署优化", "analogy": "像先让实习生快速写初稿，导师只审核修改，比导师从头写快", "explain": "用小模型快速生成草稿，大模型并行验证，减少大模型计算次数。", "related": [] },
-    { "term": "模型压缩", "en": "Model compression", "level": "前沿", "year": "2022", "category": "部署优化", "analogy": "像把厚行李箱用真空袋压缩：东西没少但体积大减", "explain": "通过剪枝、量化、蒸馏等技术缩小模型体积，适配资源受限设备。", "related": [] },
-    { "term": "本地部署", "en": "Local deployment", "level": "进阶", "year": "2022", "category": "部署优化", "analogy": "像在自己厨房做饭：食材自己控制，不依赖外卖平台", "explain": "把模型下载到本地机器运行，数据不出本地，隐私可控。", "related": ["ollama"] },
-    { "term": "GGUF 格式", "en": "GGUF", "level": "前沿", "year": "2023", "category": "部署优化", "analogy": "像通用安装包：一个文件适配不同硬件配置", "explain": "llama.cpp 使用的模型文件格式，支持量化，方便在消费级 GPU/CPU 上运行。", "related": ["ollama"] },
-    { "term": "对齐", "en": "Alignment", "level": "前沿", "year": "2022", "category": "AI安全", "analogy": "像给员工做合规培训：能力很强但必须守规矩", "explain": "让模型行为符合人类价值观和安全要求，是 AI 安全的核心议题。", "related": [] },
-    { "term": "红队测试", "en": "Red teaming", "level": "前沿", "year": "2023", "category": "AI安全", "analogy": "像请黑客来攻击自己的系统，提前发现漏洞", "explain": "专门团队模拟恶意用户攻击模型，找出安全漏洞和有害输出。", "related": [] },
-    { "term": "水印", "en": "Watermarking", "level": "前沿", "year": "2023", "category": "AI安全", "analogy": "像纸币上的防伪标记：肉眼看不出但能检测真伪", "explain": "在 AI 生成内容中嵌入不可见标记，便于后续检测是否为 AI 生成。", "related": [] },
-    { "term": "Constitutional AI", "en": "Constitutional AI", "level": "前沿", "year": "2022", "category": "AI安全", "analogy": "像给模型一部宪法：自己对照原则审查自己的回答", "explain": "Anthropic 提出的方法，让模型根据预设原则自我评估和改进回答。", "related": ["claude-opus-4"] },
-    { "term": "有用性·无害性·诚实性", "en": "HHH", "level": "前沿", "year": "2022", "category": "AI安全", "analogy": "像好医生的三个标准：看得好病(有用)、不伤人(无害)、不忽悠(诚实)", "explain": "评估 AI 助手质量的三个维度：Helpful、Harmless、Honest。", "related": [] }
+    {
+      "term": "Transformer",
+      "en": "Transformer",
+      "level": "入门",
+      "year": "2017",
+      "category": "架构基础",
+      "explain": "2017 年提出的注意力架构，几乎所有现代大模型的底层结构。",
+      "related": []
+    },
+    {
+      "term": "自注意力",
+      "en": "Self-attention",
+      "level": "进阶",
+      "year": "2017",
+      "category": "架构基础",
+      "explain": "模型内部让每个词关注句子中所有其他词，计算彼此关联度。",
+      "related": []
+    },
+    {
+      "term": "注意力机制",
+      "en": "Attention",
+      "level": "进阶",
+      "year": "2014",
+      "category": "架构基础",
+      "explain": "让模型在处理时动态分配权重，聚焦重要信息而非等量对待。",
+      "related": []
+    },
+    {
+      "term": "预训练",
+      "en": "Pre-training",
+      "level": "入门",
+      "year": "2018",
+      "category": "架构基础",
+      "explain": "用海量无标注文本训练模型理解语言规律，是所有大模型的起点。",
+      "related": [
+        "gpt-4o",
+        "bert"
+      ]
+    },
+    {
+      "term": "Token",
+      "en": "Token",
+      "level": "入门",
+      "year": "2020",
+      "category": "架构基础",
+      "explain": "模型处理文本的最小单位，约 1 个汉字或 0.75 个英文单词。",
+      "related": []
+    },
+    {
+      "term": "参数量",
+      "en": "Parameters",
+      "level": "入门",
+      "year": "2020",
+      "category": "架构基础",
+      "explain": "模型里可学习的权重数量，B=十亿。参数越多通常能力越强但越贵。",
+      "related": []
+    },
+    {
+      "term": "上下文长度",
+      "en": "Context length",
+      "level": "入门",
+      "year": "2020",
+      "category": "架构基础",
+      "explain": "模型一次能读入的最大 token 数，决定能处理多长的文档/对话。",
+      "related": [
+        "kimi",
+        "gemini-2.5-pro"
+      ]
+    },
+    {
+      "term": "嵌入",
+      "en": "Embedding",
+      "level": "进阶",
+      "year": "2013",
+      "category": "架构基础",
+      "explain": "把文本/图像转成一组数字向量，让机器能量化相似度。",
+      "related": []
+    },
+    {
+      "term": "位置编码",
+      "en": "Positional encoding",
+      "level": "进阶",
+      "year": "2017",
+      "category": "架构基础",
+      "explain": "Transformer 没有顺序概念，位置编码告诉模型每个词在句中的位置。",
+      "related": []
+    },
+    {
+      "term": "规模法则",
+      "en": "Scaling laws",
+      "level": "前沿",
+      "year": "2020",
+      "category": "架构基础",
+      "explain": "OpenAI 发现模型能力与参数量、数据量、算力呈幂律关系，指导了后续大模型发展。",
+      "related": []
+    },
+    {
+      "term": "涌现能力",
+      "en": "Emergent abilities",
+      "level": "前沿",
+      "year": "2022",
+      "category": "架构基础",
+      "explain": "模型规模超过某阈值后突然出现小模型完全没有的能力，如复杂推理。",
+      "related": [
+        "gpt-4o"
+      ]
+    },
+    {
+      "term": "大语言模型",
+      "en": "LLM",
+      "level": "入门",
+      "year": "2020",
+      "category": "应用范式",
+      "explain": "用海量文本训练、能理解和生成人类语言的神经网络，GPT/文心一言都是。",
+      "related": [
+        "gpt-4o",
+        "ernie-4"
+      ]
+    },
+    {
+      "term": "多模态",
+      "en": "Multimodal",
+      "level": "入门",
+      "year": "2023",
+      "category": "应用范式",
+      "explain": "模型能同时处理文本、图像、音频、视频等多种输入。",
+      "related": [
+        "gpt-4o",
+        "gemini-2.5-pro"
+      ]
+    },
+    {
+      "term": "提示词工程",
+      "en": "Prompt engineering",
+      "level": "入门",
+      "year": "2022",
+      "category": "应用范式",
+      "explain": "通过设计输入文本，引导模型给出更好的回答。",
+      "related": []
+    },
+    {
+      "term": "系统提示词",
+      "en": "System prompt",
+      "level": "入门",
+      "year": "2022",
+      "category": "应用范式",
+      "explain": "在对话开始前给模型设定的角色和规则，影响后续所有回答的风格和边界。",
+      "related": []
+    },
+    {
+      "term": "温度",
+      "en": "Temperature",
+      "level": "入门",
+      "year": "2020",
+      "category": "应用范式",
+      "explain": "控制模型输出随机性的参数。0=最确定，1=更随机多样。",
+      "related": []
+    },
+    {
+      "term": "Top-p 采样",
+      "en": "Top-p sampling",
+      "level": "进阶",
+      "year": "2020",
+      "category": "应用范式",
+      "explain": "只从累计概率达到 p 的候选词中采样，平衡多样性和质量。",
+      "related": []
+    },
+    {
+      "term": "幻觉",
+      "en": "Hallucination",
+      "level": "入门",
+      "year": "2022",
+      "category": "应用范式",
+      "explain": "模型一本正经地编造不存在的事实，是当前大模型的常见问题。",
+      "related": []
+    },
+    {
+      "term": "智能体",
+      "en": "Agent",
+      "level": "进阶",
+      "year": "2023",
+      "category": "应用范式",
+      "explain": "能自主规划、调用工具、多步执行任务完成目标的 AI 系统。",
+      "related": [
+        "manus",
+        "operator"
+      ]
+    },
+    {
+      "term": "工具调用",
+      "en": "Function calling",
+      "level": "进阶",
+      "year": "2023",
+      "category": "应用范式",
+      "explain": "模型根据需要调用外部函数/工具（搜索、计算、代码执行等）。",
+      "related": [
+        "kimi-k2",
+        "glm-4.5"
+      ]
+    },
+    {
+      "term": "RAG 检索增强",
+      "en": "RAG",
+      "level": "进阶",
+      "year": "2023",
+      "category": "应用范式",
+      "explain": "先从知识库检索相关内容，再让模型基于检索结果回答，降低幻觉。",
+      "related": [
+        "command-r-plus",
+        "llamaindex"
+      ]
+    },
+    {
+      "term": "向量数据库",
+      "en": "Vector database",
+      "level": "进阶",
+      "year": "2023",
+      "category": "部署优化",
+      "explain": "存储文本/图片的向量表示，支持相似度检索，是 RAG 的基础。",
+      "related": []
+    },
+    {
+      "term": "思维链",
+      "en": "Chain-of-thought",
+      "level": "进阶",
+      "year": "2022",
+      "category": "应用范式",
+      "explain": "让模型把推理过程一步步写出来，能显著提升复杂题准确率。",
+      "related": [
+        "o3",
+        "deepseek-r1"
+      ]
+    },
+    {
+      "term": "推理模型",
+      "en": "Reasoning model",
+      "level": "进阶",
+      "year": "2024",
+      "category": "应用范式",
+      "explain": "专门强化多步推理的模型，如 o3、DeepSeek-R1，擅长数学/编程。",
+      "related": [
+        "o3",
+        "deepseek-r1",
+        "glm-4.5"
+      ]
+    },
+    {
+      "term": "MCP 协议",
+      "en": "Model Context Protocol",
+      "level": "进阶",
+      "year": "2024",
+      "category": "应用范式",
+      "explain": "Anthropic 提出的模型连接外部工具/数据的开放标准。",
+      "related": [
+        "workbuddy"
+      ]
+    },
+    {
+      "term": "ReAct",
+      "en": "ReAct",
+      "level": "前沿",
+      "year": "2022",
+      "category": "应用范式",
+      "explain": "让模型交替推理(Reason)和行动(Act)的 Agent 范式，边想边用工具。",
+      "related": [
+        "langgraph"
+      ]
+    },
+    {
+      "term": "多智能体",
+      "en": "Multi-agent",
+      "level": "前沿",
+      "year": "2023",
+      "category": "应用范式",
+      "explain": "多个分工不同的 Agent 协作完成复杂任务，如 CrewAI/AutoGen。",
+      "related": [
+        "crewai",
+        "autogen"
+      ]
+    },
+    {
+      "term": "视觉语言模型",
+      "en": "VLM",
+      "level": "进阶",
+      "year": "2023",
+      "category": "应用范式",
+      "explain": "能理解图像并生成文字描述的模型，GPT-4o/Gemini 都属于此类。",
+      "related": [
+        "gpt-4o",
+        "qwen-vl"
+      ]
+    },
+    {
+      "term": "扩散模型",
+      "en": "Diffusion",
+      "level": "前沿",
+      "year": "2020",
+      "category": "应用范式",
+      "explain": "通过逐步去噪生成图像/视频的模型，Stable Diffusion 即是。",
+      "related": []
+    },
+    {
+      "term": "文生图",
+      "en": "Text-to-image",
+      "level": "入门",
+      "year": "2022",
+      "category": "应用范式",
+      "explain": "输入文字描述，AI 自动生成对应图片，如 Midjourney/DALL-E。",
+      "related": []
+    },
+    {
+      "term": "文生视频",
+      "en": "Text-to-video",
+      "level": "前沿",
+      "year": "2024",
+      "category": "应用范式",
+      "explain": "输入文字描述，AI 生成动态视频，如 Sora/可灵。",
+      "related": [
+        "sora"
+      ]
+    },
+    {
+      "term": "语音合成",
+      "en": "TTS",
+      "level": "入门",
+      "year": "2023",
+      "category": "应用范式",
+      "explain": "将文字转成自然语音的技术，现代 TTS 已接近真人水平。",
+      "related": []
+    },
+    {
+      "term": "思维树",
+      "en": "Tree of thoughts",
+      "level": "前沿",
+      "year": "2023",
+      "category": "应用范式",
+      "explain": "让模型探索多条推理路径再选最优，比线性思维链更强。",
+      "related": []
+    },
+    {
+      "term": "微调",
+      "en": "Fine-tuning",
+      "level": "进阶",
+      "year": "2018",
+      "category": "训练方法",
+      "explain": "在基础模型上用特定数据继续训练，使其更擅长某类任务。",
+      "related": []
+    },
+    {
+      "term": "SFT 监督微调",
+      "en": "Supervised fine-tuning",
+      "level": "进阶",
+      "year": "2022",
+      "category": "训练方法",
+      "explain": "用高质量问答对直接训练模型模仿回答风格，RLHF 的前置步骤。",
+      "related": []
+    },
+    {
+      "term": "RLHF 人类反馈强化学习",
+      "en": "RLHF",
+      "level": "进阶",
+      "year": "2022",
+      "category": "训练方法",
+      "explain": "用人类对回答的偏好做奖励信号训练模型，使其更符合期望。",
+      "related": []
+    },
+    {
+      "term": "奖励模型",
+      "en": "Reward model",
+      "level": "前沿",
+      "year": "2022",
+      "category": "训练方法",
+      "explain": "用人类标注训练的打分模型，替代人工对模型输出进行批量评估。",
+      "related": []
+    },
+    {
+      "term": "DPO 直接偏好优化",
+      "en": "DPO",
+      "level": "前沿",
+      "year": "2023",
+      "category": "训练方法",
+      "explain": "不需要单独训练奖励模型，直接用偏好数据优化模型，更简单高效。",
+      "related": []
+    },
+    {
+      "term": "GRPO",
+      "en": "Group Relative Policy Optimization",
+      "level": "前沿",
+      "year": "2024",
+      "category": "训练方法",
+      "explain": "DeepSeek 提出的强化学习算法，无需奖励模型，用组内相对优势训练推理能力。",
+      "related": [
+        "deepseek-r1"
+      ]
+    },
+    {
+      "term": "LoRA 低秩微调",
+      "en": "LoRA",
+      "level": "前沿",
+      "year": "2021",
+      "category": "训练方法",
+      "explain": "只训练极少量参数就能高效微调大模型，显存友好。",
+      "related": []
+    },
+    {
+      "term": "量化",
+      "en": "Quantization",
+      "level": "前沿",
+      "year": "2022",
+      "category": "部署优化",
+      "explain": "把模型参数从高精度压成低精度，显存占用大降，便于本地跑。",
+      "related": []
+    },
+    {
+      "term": "蒸馏",
+      "en": "Distillation",
+      "level": "前沿",
+      "year": "2015",
+      "category": "训练方法",
+      "explain": "用大模型教小模型，让小模型接近大模型能力，成本更低。",
+      "related": []
+    },
+    {
+      "term": "少样本学习",
+      "en": "Few-shot",
+      "level": "入门",
+      "year": "2020",
+      "category": "训练方法",
+      "explain": "在提示词中给几个示例，模型就能模仿格式完成任务，无需训练。",
+      "related": []
+    },
+    {
+      "term": "零样本",
+      "en": "Zero-shot",
+      "level": "入门",
+      "year": "2020",
+      "category": "训练方法",
+      "explain": "不给任何示例，直接让模型完成任务，靠预训练知识应对。",
+      "related": []
+    },
+    {
+      "term": "MoE 混合专家",
+      "en": "Mixture of Experts",
+      "level": "前沿",
+      "year": "2024",
+      "category": "架构基础",
+      "explain": "模型由多个专家子网组成，每次只激活一部分，用更少算力达到更强效果。",
+      "related": [
+        "deepseek-v3",
+        "llama-4"
+      ]
+    },
+    {
+      "term": "数据增强",
+      "en": "Data augmentation",
+      "level": "进阶",
+      "year": "2018",
+      "category": "训练方法",
+      "explain": "通过对训练数据做变换（同义替换、回译等）扩充数据量，提升泛化能力。",
+      "related": []
+    },
+    {
+      "term": "开源权重",
+      "en": "Open weights",
+      "level": "入门",
+      "year": "2022",
+      "category": "部署优化",
+      "explain": "模型参数公开可下载，可本地部署和修改，如 Llama、DeepSeek。",
+      "related": [
+        "llama-3.3-70b",
+        "deepseek-v3"
+      ]
+    },
+    {
+      "term": "API",
+      "en": "API",
+      "level": "入门",
+      "year": "2020",
+      "category": "部署优化",
+      "explain": "应用程序接口，开发者通过它调用模型能力，按用量计费。",
+      "related": []
+    },
+    {
+      "term": "推理优化",
+      "en": "Inference optimization",
+      "level": "前沿",
+      "year": "2023",
+      "category": "部署优化",
+      "explain": "通过算子融合、批处理等技术加速模型推理速度，降低延迟和成本。",
+      "related": []
+    },
+    {
+      "term": "KV Cache",
+      "en": "KV Cache",
+      "level": "前沿",
+      "year": "2023",
+      "category": "部署优化",
+      "explain": "缓存已处理 token 的键值对，避免重复计算，大幅加速自回归生成。",
+      "related": []
+    },
+    {
+      "term": "投机解码",
+      "en": "Speculative decoding",
+      "level": "前沿",
+      "year": "2023",
+      "category": "部署优化",
+      "explain": "用小模型快速生成草稿，大模型并行验证，减少大模型计算次数。",
+      "related": []
+    },
+    {
+      "term": "模型压缩",
+      "en": "Model compression",
+      "level": "前沿",
+      "year": "2022",
+      "category": "部署优化",
+      "explain": "通过剪枝、量化、蒸馏等技术缩小模型体积，适配资源受限设备。",
+      "related": []
+    },
+    {
+      "term": "本地部署",
+      "en": "Local deployment",
+      "level": "进阶",
+      "year": "2022",
+      "category": "部署优化",
+      "explain": "把模型下载到本地机器运行，数据不出本地，隐私可控。",
+      "related": [
+        "ollama"
+      ]
+    },
+    {
+      "term": "GGUF 格式",
+      "en": "GGUF",
+      "level": "前沿",
+      "year": "2023",
+      "category": "部署优化",
+      "explain": "llama.cpp 使用的模型文件格式，支持量化，方便在消费级 GPU/CPU 上运行。",
+      "related": [
+        "ollama"
+      ]
+    },
+    {
+      "term": "对齐",
+      "en": "Alignment",
+      "level": "前沿",
+      "year": "2022",
+      "category": "AI安全",
+      "explain": "让模型行为符合人类价值观和安全要求，是 AI 安全的核心议题。",
+      "related": []
+    },
+    {
+      "term": "红队测试",
+      "en": "Red teaming",
+      "level": "前沿",
+      "year": "2023",
+      "category": "AI安全",
+      "explain": "专门团队模拟恶意用户攻击模型，找出安全漏洞和有害输出。",
+      "related": []
+    },
+    {
+      "term": "水印",
+      "en": "Watermarking",
+      "level": "前沿",
+      "year": "2023",
+      "category": "AI安全",
+      "explain": "在 AI 生成内容中嵌入不可见标记，便于后续检测是否为 AI 生成。",
+      "related": []
+    },
+    {
+      "term": "Constitutional AI",
+      "en": "Constitutional AI",
+      "level": "前沿",
+      "year": "2022",
+      "category": "AI安全",
+      "explain": "Anthropic 提出的方法，让模型根据预设原则自我评估和改进回答。",
+      "related": [
+        "claude-opus-4"
+      ]
+    },
+    {
+      "term": "有用性·无害性·诚实性",
+      "en": "HHH",
+      "level": "前沿",
+      "year": "2022",
+      "category": "AI安全",
+      "explain": "评估 AI 助手质量的三个维度：Helpful、Harmless、Honest。",
+      "related": []
+    }
   ]
 }

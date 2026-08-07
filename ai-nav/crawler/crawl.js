@@ -24,11 +24,12 @@ const CHINA_ORGS = new Set([
 
 // AI 资讯 RSS 源 — 仅国内源（解析失败或 404 自动跳过）
 const RSS_FEEDS = [
-  { source: "机器之心", url: "https://www.jiqizhixin.com/rss" },
   { source: "量子位", url: "https://www.qbitai.com/feed" },
-  { source: "雷锋网", url: "https://www.leiphone.com/feed/" },
   { source: "36氪", url: "https://36kr.com/feed" },
-  { source: "少数派AI", url: "https://rsshub.app/sspai/ai" },
+  { source: "IT之家", url: "https://www.ithome.com/rss/" },
+  { source: "极客公园", url: "https://www.geekpark.net/rss" },
+  { source: "爱范儿", url: "https://www.ifanr.com/feed" },
+  { source: "少数派", url: "https://sspai.com/feed" },
 ];
 
 function today() {

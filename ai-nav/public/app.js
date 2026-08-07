@@ -11,6 +11,10 @@ const state = {
   glevel: "all", gq: "", gcat: "all", gsort: "level",
   cq: "", compare: new Set(),
   ttype: "all",
+  newsRange: 30,
+  newsFilter: "ai",
+  newsSource: "all",
+  newsSort: "hot",
   tab: "nav",
 };
 
@@ -217,29 +221,165 @@ function closeModal() {
 }
 
 /* ---------- 资讯 ---------- */
+const AI_KEYWORDS = [
+  "AI","人工智能","GPT","Claude","Gemini","LLM","大模型","大语言模型","ChatGPT",
+  "OpenAI","Anthropic","DeepMind","通义","文心","豆包","DeepSeek","Llama","Mistral",
+  "Qwen","GLM","智谱","Kimi","月之暗面","百川","零一万物","MiniMax","阶跃星辰",
+  "Agent","智能体","Copilot","多模态","multimodal","视觉模型","语音模型","TTS","ASR",
+  "OCR","图像生成","视频生成","文生图","文生视频","图生视频","transformer","diffusion",
+  "RLHF","微调","fine-tune","RAG","向量数据库","embedding","token","上下文窗口",
+  "推理","inference","训练","training","预训练","pretrain","Sora","Midjourney",
+  "Stable Diffusion","DALL-E","Whisper","Seedance","CosyVoice","FLUX","可灵","Wan",
+  "GPU","英伟达","NVIDIA","H100","H200","B200","AI芯片","算力","数据中心",
+  "机器人","具身智能","自动驾驶","AGI","AIGC","开源模型","对齐","alignment",
+  "AI安全","幻觉","hallucination","提示词","prompt","o1","o3","GPT-5",
+  "Reasoning","思维链","CoT","MoE","混合专家","蒸馏","distill","量化","quantiz",
+  "MCP","Function Call","工具调用","多智能体","Agentic","Workflow","LangChain",
+  "Dify","Coze","HuggingFace","开源权重","benchmark","评测","Scaling Law",
+  "涌现","emergent","参数","parameter","训练数据","合成数据","scaling",
+];
+
+function isAIRelated(title, summary) {
+  const text = (title + " " + (summary || "")).toLowerCase();
+  return AI_KEYWORDS.some((kw) => text.includes(kw.toLowerCase()));
+}
+
+function extractAITags(title, summary) {
+  const text = (title + " " + (summary || "")).toLowerCase();
+  const tags = [];
+  const tagMap = {
+    "大模型": ["gpt","claude","gemini","llm","大模型","大语言模型","chatgpt","通义","文心","豆包","deepseek","llama","qwen","glm","kimi","minimax","o1","o3","gpt-5","百亿","千亿","参数"],
+    "Agent": ["agent","智能体","copilot","多智能体","agentic","workflow","工具调用","function call","mcp"],
+    "多模态": ["多模态","multimodal","视觉","语音","tts","asr","ocr","图像理解"],
+    "视频生成": ["sora","seedance","视频生成","文生视频","图生视频","可灵","wan","flux"],
+    "图像生成": ["midjourney","stable diffusion","dall-e","图像生成","文生图","diffusion"],
+    "开源": ["开源","open source","llama","mistral","qwen","huggingface","权重开放"],
+    "算力": ["gpu","英伟达","nvidia","h100","h200","b200","算力","ai芯片","数据中心","云计算"],
+    "机器人": ["机器人","具身智能","自动驾驶","robot","embodied"],
+    "安全": ["对齐","alignment","ai安全","幻觉","hallucination","监管","安全"],
+  };
+  for (const [tag, kws] of Object.entries(tagMap)) {
+    if (kws.some((kw) => text.includes(kw))) tags.push(tag);
+  }
+  return tags.slice(0, 3);
+}
+
+function parseRSSDate(s) {
+  if (!s) return "";
+  const d = new Date(s);
+  if (!isNaN(d.getTime())) return d.toISOString().slice(0, 10);
+  return s.slice(0, 10);
+}
+
+const SOURCE_WEIGHT = { "量子位": 5, "极客公园": 3, "36氪": 2, "IT之家": 2, "爱范儿": 2, "少数派": 1 };
+const HOT_KEYWORDS = ["GPT","Claude","Gemini","DeepSeek","OpenAI","Anthropic","Sora","Llama","大模型","开源","发布","突破","震撼","革命","里程碑","首个","第一"];
+
+function newsHeatScore(n) {
+  let score = 10;
+  const text = (n.title + " " + (n.summary || "")).toLowerCase();
+  // 来源权重
+  score += SOURCE_WEIGHT[n.source] || 1;
+  // AI 关键词密度
+  const aiHits = AI_KEYWORDS.filter((kw) => text.includes(kw.toLowerCase())).length;
+  score += Math.min(aiHits * 2, 12);
+  // 热门关键词加权
+  HOT_KEYWORDS.forEach((kw) => { if (text.includes(kw.toLowerCase())) score += 3; });
+  // 近期加成
+  if (n.date) {
+    const daysAgo = Math.floor((Date.now() - new Date(n.date).getTime()) / 86400000);
+    if (daysAgo <= 3) score += 8;
+    else if (daysAgo <= 7) score += 5;
+    else if (daysAgo <= 14) score += 3;
+    else if (daysAgo <= 30) score += 1;
+  }
+  return score;
+}
+
 function renderNews() {
   const list = $("#newsList");
   if (!DB.news.length) { list.innerHTML = `<div class="empty">资讯将在爬虫运行后自动填充。</div>`; return; }
-  // 按日期倒序排列
-  const sorted = [...DB.news].sort((a, b) => (b.date || "").localeCompare(a.date || ""));
-  $("#newsMeta").textContent = `${sorted.length} 条 · 更新于 ${DB.newsUpdated || "—"}`;
-  list.innerHTML = sorted.map((n) => `
+  let sorted = [...DB.news];
+
+  // AI 过滤
+  if (state.newsFilter === "ai") {
+    const filtered = sorted.filter((n) => isAIRelated(n.title, n.summary));
+    if (filtered.length) sorted = filtered;
+  }
+
+  // 来源筛选
+  if (state.newsSource !== "all") {
+    sorted = sorted.filter((n) => n.source === state.newsSource);
+  }
+
+  // 时间范围筛选
+  if (state.newsRange !== "all") {
+    const days = parseInt(state.newsRange);
+    const cutoff = new Date();
+    cutoff.setDate(cutoff.getDate() - days);
+    const cutoffStr = cutoff.toISOString().slice(0, 10);
+    const filtered = sorted.filter((n) => (n.date || "") >= cutoffStr);
+    if (filtered.length) sorted = filtered;
+  }
+
+  // 排序
+  if (state.newsSort === "hot") {
+    sorted.sort((a, b) => newsHeatScore(b) - newsHeatScore(a));
+  } else {
+    sorted.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+  }
+
+  // 更新来源下拉
+  const sel = $("#sourceSelect");
+  if (sel) {
+    const sources = [...new Set(DB.news.map((n) => n.source))].sort();
+    const cur = state.newsSource;
+    sel.innerHTML = '<option value="all">全部来源</option>' +
+      sources.map((s) => `<option value="${esc(s)}" ${s === cur ? "selected" : ""}>${esc(s)}</option>`).join("");
+  }
+
+  $("#newsMeta").textContent = `${sorted.length} 条${state.newsFilter === "ai" ? "（仅AI）" : ""} · ${state.newsSort === "hot" ? "热度排序" : "最新排序"} · 更新于 ${DB.newsUpdated || "—"}`;
+
+  list.innerHTML = sorted.map((n) => {
+    const tags = extractAITags(n.title, n.summary);
+    const tagHTML = tags.length ? `<div class="news-tags">${tags.map((t) => `<span class="news-tag">${esc(t)}</span>`).join("")}</div>` : "";
+    return `
     <article class="news-item">
-      <div class="news-meta"><span class="news-source">${esc(n.source)}</span><span class="news-date">${esc(n.date || "")}</span></div>
+      <div class="news-meta">
+        <span class="news-source">${esc(n.source)}</span>
+        <span class="news-date">${esc(n.date || "")}</span>
+      </div>
       <a class="news-title" href="${esc(n.url)}" target="_blank" rel="noopener">${esc(n.title)}</a>
       ${n.summary ? `<div class="news-summary">${esc(n.summary)}</div>` : ""}
-    </article>`).join("");
+      ${tagHTML}
+    </article>`;
+  }).join("");
 }
 
-/* ---------- 资讯实时更新（客户端 RSS → JSON） ---------- */
+/* ---------- 资讯实时更新（CORS 代理 + 客户端 XML 解析） ---------- */
 const RSS_FEEDS_CN = [
-  { url: "https://www.jiqizhixin.com/rss", source: "机器之心" },
   { url: "https://www.qbitai.com/feed", source: "量子位" },
-  { url: "https://www.leiphone.com/feed/", source: "雷锋网" },
   { url: "https://36kr.com/feed", source: "36氪" },
-  { url: "https://rsshub.app/sspai/ai", source: "少数派AI" },
+  { url: "https://www.ithome.com/rss/", source: "IT之家" },
+  { url: "https://www.geekpark.net/rss", source: "极客公园" },
+  { url: "https://www.ifanr.com/feed", source: "爱范儿" },
+  { url: "https://sspai.com/feed", source: "少数派" },
 ];
-const RSS2JSON = "https://api.rss2json.com/v1/api/feed.json";
+const CORS_PROXY = "https://api.allorigins.win/raw?url=";
+
+function parseRSSXML(xmlText, sourceName) {
+  const doc = new DOMParser().parseFromString(xmlText, "text/xml");
+  const items = [...doc.querySelectorAll("item")];
+  return items.slice(0, 50).map((item) => {
+    const get = (tag) => item.querySelector(tag)?.textContent?.trim() || "";
+    return {
+      title: get("title"),
+      url: get("link"),
+      date: parseRSSDate(get("pubDate")),
+      source: sourceName,
+      summary: get("description").replace(/<[^>]*>/g, "").slice(0, 120),
+    };
+  });
+}
 
 function fetchLiveNews() {
   const badge = $("#liveBadge");
@@ -247,38 +387,44 @@ function fetchLiveNews() {
   if (badge) { badge.textContent = "更新中…"; badge.className = "live-badge updating"; }
 
   const tasks = RSS_FEEDS_CN.map((f) =>
-    fetch(`${RSS2JSON}?rss_url=${encodeURIComponent(f.url)}`)
-      .then((r) => r.json())
-      .then((d) => {
-        if (d.status !== "ok" || !d.items) return [];
-        return d.items.slice(0, 20).map((it) => ({
-          title: it.title || "",
-          url: it.link || "",
-          date: it.pubDate ? it.pubDate.slice(0, 10) : "",
-          source: f.source,
-          summary: (it.description || "").replace(/<[^>]*>/g, "").slice(0, 120),
-        }));
+    fetch(`${CORS_PROXY}${encodeURIComponent(f.url)}`)
+      .then((r) => r.text())
+      .then((xml) => parseRSSXML(xml, f.source))
+      .catch(() => {
+        // 备用：rss2json.com
+        return fetch(`https://api.rss2json.com/v1/api/feed.json?rss_url=${encodeURIComponent(f.url)}`)
+          .then((r) => r.json())
+          .then((d) => {
+            if (d.status !== "ok" || !d.items) return [];
+            return d.items.slice(0, 50).map((it) => ({
+              title: it.title || "",
+              url: it.link || "",
+              date: parseRSSDate(it.pubDate),
+              source: f.source,
+              summary: (it.description || "").replace(/<[^>]*>/g, "").slice(0, 120),
+            }));
+          })
+          .catch(() => []);
       })
-      .catch(() => [])
   );
 
   Promise.all(tasks).then((arrays) => {
     const merged = arrays.flat();
-    // 去重（按标题）
     const seen = new Set();
     const deduped = merged.filter((n) => {
-      if (seen.has(n.title)) return false;
-      seen.add(n.title);
+      const key = n.title.slice(0, 40);
+      if (seen.has(key)) return false;
+      seen.add(key);
       return true;
     });
-    // 按日期倒序
     deduped.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
 
     if (deduped.length) {
       DB.news = deduped;
       DB.newsUpdated = new Date().toISOString().slice(0, 10);
       renderNews();
-      if (badge) { badge.textContent = "✓ 实时更新"; badge.className = "live-badge live"; }
+      const aiCount = deduped.filter((n) => isAIRelated(n.title, n.summary)).length;
+      if (badge) { badge.textContent = `✓ ${deduped.length} 条 · AI ${aiCount} 条`; badge.className = "live-badge live"; }
     } else {
       if (badge) { badge.textContent = "使用缓存数据"; badge.className = "live-badge"; }
     }
@@ -293,7 +439,7 @@ function filteredTerms() {
     if (state.glevel !== "all" && t.level !== state.glevel) return false;
     if (state.gcat !== "all" && t.category !== state.gcat) return false;
     if (q) {
-      const hay = [t.term, t.en, t.explain, t.analogy || ""].join(" ").toLowerCase();
+      const hay = [t.term, t.en, t.explain].join(" ").toLowerCase();
       if (!hay.includes(q)) return false;
     }
     return true;
@@ -319,7 +465,6 @@ function renderGlossary() {
         ${t.category ? `<span class="g-category g-cat-${esc(t.category)}">${esc(t.category)}</span>` : ""}
       </div>
       <div class="g-explain">${esc(t.explain)}</div>
-      ${t.analogy ? `<div class="g-analogy"><span class="g-analogy-label">教学类比</span>${esc(t.analogy)}</div>` : ""}
     </article>`).join("");
 }
 
@@ -517,6 +662,41 @@ $("#refreshNews") && $("#refreshNews").addEventListener("click", () => {
   $("#refreshNews").disabled = true;
   fetchLiveNews();
 });
+
+// 资讯 AI 过滤开关
+$("#aiToggle") && $("#aiToggle").addEventListener("click", () => {
+  const btn = $("#aiToggle");
+  const isAI = btn.classList.toggle("active");
+  btn.textContent = isAI ? "仅AI" : "全部";
+  state.newsFilter = isAI ? "ai" : "all";
+  renderNews();
+});
+
+// 资讯来源筛选
+$("#sourceSelect") && $("#sourceSelect").addEventListener("change", (e) => {
+  state.newsSource = e.target.value;
+  renderNews();
+});
+
+// 资讯排序切换
+$("#sortToggle") && $("#sortToggle").addEventListener("click", () => {
+  const btn = $("#sortToggle");
+  const isHot = btn.classList.toggle("active");
+  btn.textContent = isHot ? "热度" : "最新";
+  state.newsSort = isHot ? "hot" : "date";
+  renderNews();
+});
+
+// 资讯时间范围筛选
+$("#newsRangeFilter") && $("#newsRangeFilter").addEventListener("click", (e) => {
+  const btn = e.target.closest(".range-btn");
+  if (!btn) return;
+  document.querySelectorAll(".range-btn").forEach((b) => b.classList.remove("active"));
+  btn.classList.add("active");
+  state.newsRange = btn.dataset.range === "all" ? "all" : parseInt(btn.dataset.range);
+  renderNews();
+});
+
 const saved = localStorage.getItem("ai-nav-theme");
 if (saved) applyTheme(saved);
 else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) applyTheme("dark");

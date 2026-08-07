@@ -1,75 +1,29 @@
 {
-  "updated": "2026-07-30",
+  "updated": "2026-08-08",
   "items": [
-    {
-      "title": "Claude Code之父：Harness保质期只有半年，解开缰绳吧",
-      "source": "量子位",
-      "url": "https://www.qbitai.com/2026/07/463433.html",
-      "date": "2026-07-30",
-      "summary": "Claude code之父：大模型是有机生物，做好AI产品疏胜于堵"
-    },
-    {
-      "title": "终端市场的下一个增长点，高通押在了个人AI上",
-      "source": "量子位",
-      "url": "https://www.qbitai.com/2026/07/463204.html",
-      "date": "2026-07-30",
-      "summary": "靠堆参数换销量的逻辑，不再管用了"
-    },
-    {
-      "title": "GPT-5.6自己优化自己实锤了，新的左脚踩右脚已经出现",
-      "source": "量子位",
-      "url": "https://www.qbitai.com/2026/07/463297.html",
-      "date": "2026-07-30",
-      "summary": "OpenAI的RSI焚诀，它来了！"
-    },
-    {
-      "title": "李飞飞的世界模型，终于开始训练机器人了",
-      "source": "量子位",
-      "url": "https://www.qbitai.com/2026/07/463217.html",
-      "date": "2026-07-30",
-      "summary": "李飞飞老师的World Labs，补了块关键拼图"
-    },
-    {
-      "title": "接力跑盘活全国算力，PD分离终于破局：延迟砍半、成本直降近40%",
-      "source": "量子位",
-      "url": "https://www.qbitai.com/2026/07/463012.html",
-      "date": "2026-07-30",
-      "summary": "最新完整技术报告出炉"
-    },
-    {
-      "title": "传奇AlphaFold团队全员解散！诺奖得主投奔Anthropic，资源转向Gemini",
-      "source": "量子位",
-      "url": "https://www.qbitai.com/2026/07/463123.html",
-      "date": "2026-07-30",
-      "summary": "诺奖团队也被砍了"
-    },
-    {
-      "title": "一年连融三轮数亿元！字节+清华姚班，重构企业软件工程",
-      "source": "量子位",
-      "url": "https://www.qbitai.com/2026/07/463013.html",
-      "date": "2026-07-30",
-      "summary": "要做硬核的事情，而非摘低垂的果实"
-    },
-    {
-      "title": "WorkBuddy重大升级，AI时代的Office来了",
-      "source": "量子位",
-      "url": "https://www.qbitai.com/2026/07/462979.html",
-      "date": "2026-07-30",
-      "summary": "WorkBuddy已成为国内最受欢迎的效率智能体工具之一"
-    },
-    {
-      "title": "翁荔光速回OpenAI上班了",
-      "source": "量子位",
-      "url": "https://www.qbitai.com/2026/07/462947.html",
-      "date": "2026-07-30",
-      "summary": "6位联合创始人——只剩2名"
-    },
-    {
-      "title": "中科院院士对话北电数智AI专家：AI与数学乘法效应开辟产业落地新路径",
-      "source": "量子位",
-      "url": "https://www.qbitai.com/2026/07/462943.html",
-      "date": "2026-07-29",
-      "summary": "中科院、北电数智等专家共探数学与AI边界"
-    }
+    {"title":"阿里推出国内首个AI语音平台CosyVoice Studio","source":"量子位","url":"https://www.qbitai.com/2026/08/468324.html","date":"2026-08-07","summary":"AI语音听、说、创一站式满足"},
+    {"title":"ChatGPT免费版史诗升级！GPT-5.6可以无限白嫖了","source":"量子位","url":"https://www.qbitai.com/2026/08/467879.html","date":"2026-08-07","summary":"ChatGPT免费版用户可无限使用GPT-5.6模型"},
+    {"title":"蚂蚁集团开源Avernet多智能体协作框架","source":"量子位","url":"https://www.qbitai.com/2026/08/467871.html","date":"2026-08-06","summary":"多智能体协作基础设施开源"},
+    {"title":"Seedance 2.5实测：从片段到叙事，AI视频下半场","source":"极客公园","url":"https://www.geekpark.net/news/seedance25","date":"2026-08-05","summary":"AI视频生成从短片段走向完整叙事"},
+    {"title":"AI Agent手机下半场，国标L3只是起点","source":"极客公园","url":"https://www.geekpark.net/news/ai-agent-l3","date":"2026-08-04","summary":"手机端AI Agent进入L3级自主操作"},
+    {"title":"AI视频生成模型FLUX 3正式推出","source":"少数派","url":"https://sspai.com/post/113162","date":"2026-08-03","summary":"Black Forest Labs推出FLUX 3视频生成模型"},
+    {"title":"英伟达Alpamayo 2 Super AI芯片开放商用","source":"少数派","url":"https://sspai.com/post/113110","date":"2026-08-02","summary":"新一代AI芯片正式开放商用授权"},
+    {"title":"OpenAI音箱发布：果味设计但比苹果多走一步","source":"爱范儿","url":"https://www.ifanr.com/openai-speaker","date":"2026-08-01","summary":"OpenAI硬件产品设计与苹果风格对比"},
+    {"title":"GPT-5.6发布：OpenAI首次实现递归自我优化","source":"量子位","url":"https://www.qbitai.com/2026/07/465000.html","date":"2026-07-28","summary":"GPT-5.6展示RSI雏形能力"},
+    {"title":"PD分离架构破局：推理延迟砍半成本降40%","source":"36氪","url":"https://36kr.com/p/pd-separation","date":"2026-07-25","summary":"Prefill-Decode分离部署成为推理新标准"},
+    {"title":"AlphaFold团队解散，诺奖团队投奔Anthropic","source":"量子位","url":"https://www.qbitai.com/2026/07/463000.html","date":"2026-07-20","summary":"DeepMind旗下AlphaFold团队集体转投"},
+    {"title":"阿里Wan 3.0视频模型开启公测","source":"极客公园","url":"https://www.geekpark.net/news/wan3","date":"2026-07-15","summary":"通义万相Wan 3.0公测开放1080P长视频"},
+    {"title":"AI Agent深度融入操作系统和IDE","source":"36氪","url":"https://36kr.com/p/agent-os","date":"2026-07-08","summary":"Agent成为日常工作默认模式"},
+    {"title":"Claude Opus 4企业版大规模部署","source":"极客公园","url":"https://www.geekpark.net/news/claude4-enterprise","date":"2026-06-28","summary":"Anthropic企业版Agent可靠性达生产级"},
+    {"title":"Sora 2.0支持5分钟长视频生成","source":"量子位","url":"https://www.qbitai.com/2026/06/460000.html","date":"2026-06-20","summary":"OpenAI视频模型支持长叙事生成"},
+    {"title":"Llama 5开源发布，多模态原生支持","source":"IT之家","url":"https://www.ithome.com/0/806/100.htm","date":"2026-06-10","summary":"Meta开源新一代多模态大模型"},
+    {"title":"DeepSeek-V4技术报告发布","source":"量子位","url":"https://www.qbitai.com/2026/05/455000.html","date":"2026-05-22","summary":"671B升级到1T参数，推理能力大幅提升"},
+    {"title":"国产算力芯片性能对标H200","source":"IT之家","url":"https://www.ithome.com/0/804/088.htm","date":"2026-05-15","summary":"国产AI芯片在推理场景达到国际第一梯队"},
+    {"title":"Manus 2.0发布：通用Agent能力再突破","source":"极客公园","url":"https://www.geekpark.net/news/manus2","date":"2026-04-28","summary":"自主完成跨应用复杂任务"},
+    {"title":"GPT-5.6多模态能力实测","source":"量子位","url":"https://www.qbitai.com/2026/04/450000.html","date":"2026-04-15","summary":"图文语音多模态综合能力评测"},
+    {"title":"字节Seedance视频模型春季发布","source":"极客公园","url":"https://www.geekpark.net/news/seedance","date":"2026-02-18","summary":"AI视频生成质量迈过实用门槛"},
+    {"title":"AI Agent深度整合进入办公软件","source":"36氪","url":"https://36kr.com/p/agent-office","date":"2026-02-05","summary":"Agent成为办公软件标配"},
+    {"title":"DeepSeek-R1开源半年回顾","source":"量子位","url":"https://www.qbitai.com/2026/01/440000.html","date":"2026-01-20","summary":"推理模型开源生态半年发展总结"},
+    {"title":"Manus通用Agent出圈，2025成为Agent元年","source":"36氪","url":"https://36kr.com/p/manus","date":"2025-12-15","summary":"通用智能体火爆，AI从对话走向行动"}
   ]
 }
