@@ -22,15 +22,13 @@ const CHINA_ORGS = new Set([
   "stepfun-ai", "inclusionAI",
 ]);
 
-// AI 资讯 RSS 源（解析失败或 404 自动跳过）
+// AI 资讯 RSS 源 — 仅国内源（解析失败或 404 自动跳过）
 const RSS_FEEDS = [
   { source: "机器之心", url: "https://www.jiqizhixin.com/rss" },
   { source: "量子位", url: "https://www.qbitai.com/feed" },
-  { source: "Hacker News", url: "https://hnrss.org/newest?q=AI+OR+LLM+OR+GPT" },
-  { source: "OpenAI", url: "https://openai.com/blog/rss.xml" },
-  { source: "Hugging Face", url: "https://huggingface.co/blog/feed.xml" },
-  { source: "Google DeepMind", url: "https://deepmind.google/blog/rss.xml" },
-  { source: "Anthropic", url: "https://www.anthropic.com/news/rss.xml" },
+  { source: "雷锋网", url: "https://www.leiphone.com/feed/" },
+  { source: "36氪", url: "https://36kr.com/feed" },
+  { source: "少数派AI", url: "https://rsshub.app/sspai/ai" },
 ];
 
 function today() {

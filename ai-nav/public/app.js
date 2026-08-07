@@ -26,7 +26,7 @@ const avatarText = (it) => (it.vendor || it.name || "?").slice(0, 1);
 function faviconURL(it) {
   try {
     const h = new URL(it.url).hostname;
-    return `https://www.google.com/s2/favicons?domain=${h}&sz=64`;
+    return `https://icons.duckduckgo.com/ip3/${h}.ico`;
   } catch {
     return "";
   }
@@ -36,7 +36,8 @@ function avatarHTML(it, size) {
   const letter = esc(avatarText(it));
   const fav = faviconURL(it);
   const cls = size ? `avatar c-${it.category} ${size}` : `avatar c-${it.category}`;
-  return `<div class="${cls}">${fav ? `<img class="avatar-img" src="${fav}" alt="" loading="lazy" onerror="this.style.display='none'">` : ""}<span class="avatar-letter">${letter}</span></div>`;
+  // onerror 直接移除 img 元素，让底下的字母显示出来
+  return `<div class="${cls}">${fav ? `<img class="avatar-img" src="${fav}" alt="" loading="lazy" onerror="this.remove()">` : ""}<span class="avatar-letter">${letter}</span></div>`;
 }
 
 /* ---------- 数据加载 + 骨架屏 ---------- */
@@ -65,6 +66,8 @@ function loadAll() {
       renderGlossary();
       renderTimeline();
       renderCompare();
+      // 页面加载后自动抓取实时资讯（延迟 1 秒，不阻塞首屏）
+      setTimeout(fetchLiveNews, 1000);
     })
     .catch((e) => {
       console.error(e);
@@ -215,15 +218,72 @@ function closeModal() {
 
 /* ---------- 资讯 ---------- */
 function renderNews() {
-  $("#newsMeta").textContent = DB.news.length ? `${DB.news.length} 条 · 更新于 ${DB.newsUpdated || "—"}` : "暂无资讯";
   const list = $("#newsList");
   if (!DB.news.length) { list.innerHTML = `<div class="empty">资讯将在爬虫运行后自动填充。</div>`; return; }
-  list.innerHTML = DB.news.map((n) => `
+  // 按日期倒序排列
+  const sorted = [...DB.news].sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+  $("#newsMeta").textContent = `${sorted.length} 条 · 更新于 ${DB.newsUpdated || "—"}`;
+  list.innerHTML = sorted.map((n) => `
     <article class="news-item">
       <div class="news-meta"><span class="news-source">${esc(n.source)}</span><span class="news-date">${esc(n.date || "")}</span></div>
       <a class="news-title" href="${esc(n.url)}" target="_blank" rel="noopener">${esc(n.title)}</a>
       ${n.summary ? `<div class="news-summary">${esc(n.summary)}</div>` : ""}
     </article>`).join("");
+}
+
+/* ---------- 资讯实时更新（客户端 RSS → JSON） ---------- */
+const RSS_FEEDS_CN = [
+  { url: "https://www.jiqizhixin.com/rss", source: "机器之心" },
+  { url: "https://www.qbitai.com/feed", source: "量子位" },
+  { url: "https://www.leiphone.com/feed/", source: "雷锋网" },
+  { url: "https://36kr.com/feed", source: "36氪" },
+  { url: "https://rsshub.app/sspai/ai", source: "少数派AI" },
+];
+const RSS2JSON = "https://api.rss2json.com/v1/api/feed.json";
+
+function fetchLiveNews() {
+  const badge = $("#liveBadge");
+  const btn = $("#refreshNews");
+  if (badge) { badge.textContent = "更新中…"; badge.className = "live-badge updating"; }
+
+  const tasks = RSS_FEEDS_CN.map((f) =>
+    fetch(`${RSS2JSON}?rss_url=${encodeURIComponent(f.url)}`)
+      .then((r) => r.json())
+      .then((d) => {
+        if (d.status !== "ok" || !d.items) return [];
+        return d.items.slice(0, 20).map((it) => ({
+          title: it.title || "",
+          url: it.link || "",
+          date: it.pubDate ? it.pubDate.slice(0, 10) : "",
+          source: f.source,
+          summary: (it.description || "").replace(/<[^>]*>/g, "").slice(0, 120),
+        }));
+      })
+      .catch(() => [])
+  );
+
+  Promise.all(tasks).then((arrays) => {
+    const merged = arrays.flat();
+    // 去重（按标题）
+    const seen = new Set();
+    const deduped = merged.filter((n) => {
+      if (seen.has(n.title)) return false;
+      seen.add(n.title);
+      return true;
+    });
+    // 按日期倒序
+    deduped.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+
+    if (deduped.length) {
+      DB.news = deduped;
+      DB.newsUpdated = new Date().toISOString().slice(0, 10);
+      renderNews();
+      if (badge) { badge.textContent = "✓ 实时更新"; badge.className = "live-badge live"; }
+    } else {
+      if (badge) { badge.textContent = "使用缓存数据"; badge.className = "live-badge"; }
+    }
+    if (btn) btn.disabled = false;
+  });
 }
 
 /* ---------- 术语词典 ---------- */
@@ -269,7 +329,7 @@ function filteredEvents() {
     if (state.ttype !== "all" && e.type !== state.ttype) return false;
     return true;
   });
-  list.sort((a, b) => (a.date || "").localeCompare(b.date || ""));
+  list.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
   return list;
 }
 
@@ -451,6 +511,12 @@ backTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smo
 const themeToggle = $("#themeToggle");
 function applyTheme(t) { document.documentElement.dataset.theme = t; localStorage.setItem("ai-nav-theme", t); }
 themeToggle.addEventListener("click", () => applyTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark"));
+
+// 资讯刷新按钮
+$("#refreshNews") && $("#refreshNews").addEventListener("click", () => {
+  $("#refreshNews").disabled = true;
+  fetchLiveNews();
+});
 const saved = localStorage.getItem("ai-nav-theme");
 if (saved) applyTheme(saved);
 else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) applyTheme("dark");

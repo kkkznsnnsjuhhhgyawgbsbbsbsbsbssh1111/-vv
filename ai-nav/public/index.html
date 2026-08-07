@@ -84,8 +84,14 @@
     <!-- 资讯 -->
     <section class="view" id="view-news">
       <div class="view-head">
-        <h2>资讯流</h2>
-        <span class="view-sub" id="newsMeta"></span>
+        <h2>资讯流 <span class="live-badge" id="liveBadge">加载中…</span></h2>
+        <div class="view-head-right">
+          <span class="view-sub" id="newsMeta"></span>
+          <button class="refresh-btn" id="refreshNews" title="刷新资讯">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+            刷新
+          </button>
+        </div>
       </div>
       <div class="news-list" id="newsList"></div>
     </section>
