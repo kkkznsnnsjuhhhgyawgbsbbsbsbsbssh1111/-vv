@@ -710,7 +710,6 @@
       "released": "2025-02-24",
       "description": "终端编码 Agent，自主读写文件、改代码、跑测试。",
       "url": "https://www.anthropic.com",
-<<<<<<< HEAD
       "tags": ["编程Agent"],
       "hot": true,
       "pricing": "按量计费 / 订阅制",
@@ -718,11 +717,6 @@
       "license": "闭源",
       "api": false,
       "modal": "—"
-=======
-      "tags": [
-        "编程Agent"
-      ],
-      "hot": true
     },
     {
       "id": "hf-qwen-qwen3-0-6b",
@@ -1368,7 +1362,6 @@
         "text-ranking"
       ],
       "auto": true
->>>>>>> 6e473726f2ef8c94e037627c03bff62fada133f7
     }
   ]
 }
