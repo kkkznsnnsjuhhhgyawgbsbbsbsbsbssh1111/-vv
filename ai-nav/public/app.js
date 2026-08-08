@@ -26,22 +26,11 @@ const debounce = (fn, ms = 160) => {
 };
 const avatarText = (it) => (it.vendor || it.name || "?").slice(0, 1);
 
-/* ---------- Favicon 头像 ---------- */
-function faviconURL(it) {
-  try {
-    const h = new URL(it.url).hostname;
-    return `https://icons.duckduckgo.com/ip3/${h}.ico`;
-  } catch {
-    return "";
-  }
-}
-
+/* ---------- 字母头像（纯 CSS，零外部依赖） ---------- */
 function avatarHTML(it, size) {
   const letter = esc(avatarText(it));
-  const fav = faviconURL(it);
   const cls = size ? `avatar c-${it.category} ${size}` : `avatar c-${it.category}`;
-  // onerror 直接移除 img 元素，让底下的字母显示出来
-  return `<div class="${cls}">${fav ? `<img class="avatar-img" src="${fav}" alt="" loading="lazy" onerror="this.remove()">` : ""}<span class="avatar-letter">${letter}</span></div>`;
+  return `<div class="${cls}"><span class="avatar-letter">${letter}</span></div>`;
 }
 
 /* ---------- 数据加载 + 骨架屏 ---------- */
