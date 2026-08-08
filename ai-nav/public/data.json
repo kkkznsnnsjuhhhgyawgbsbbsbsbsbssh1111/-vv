@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-07",
+  "updated": "2026-08-08",
   "items": [
     {
       "id": "gpt-4o",
@@ -1652,6 +1652,26 @@
       "license": "开源",
       "modal": "文本",
       "api": false
+    },
+    {
+      "id": "hf-prism-ml-bonsai-27b-gguf",
+      "name": "Bonsai-27B-gguf",
+      "vendor": "prism-ml",
+      "region": "global",
+      "category": "model",
+      "released": "2026-07-17",
+      "description": "开源模型 · 2.7M 下载 · 753 喜欢",
+      "url": "https://huggingface.co/prism-ml/Bonsai-27B-gguf",
+      "tags": [
+        "开源",
+        "text-generation"
+      ],
+      "pricing": "—",
+      "context": "—",
+      "license": "apache-2.0",
+      "api": false,
+      "modal": "文本",
+      "auto": true
     }
   ]
 }
