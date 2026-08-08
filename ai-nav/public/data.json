@@ -10,7 +10,10 @@
       "released": "2024-05-13",
       "description": "OpenAI 多模态旗舰模型，支持图文语音实时交互，响应延迟近人类。",
       "url": "https://openai.com/gpt-4o",
-      "tags": ["多模态", "闭源"],
+      "tags": [
+        "多模态",
+        "闭源"
+      ],
       "hot": true,
       "pricing": "输入 $2.5 / 输出 $10",
       "context": "128K",
@@ -27,7 +30,10 @@
       "released": "2025-04-14",
       "description": "编码与指令遵循显著提升，面向开发者与 Agent 场景优化。",
       "url": "https://openai.com",
-      "tags": ["闭源", "Agent优化"],
+      "tags": [
+        "闭源",
+        "Agent优化"
+      ],
       "pricing": "输入 $2 / 输出 $8",
       "context": "1M",
       "license": "闭源",
@@ -43,7 +49,10 @@
       "released": "2024-12-20",
       "description": "强推理模型，在数学与编程基准上大幅突破，擅长复杂多步推理。",
       "url": "https://openai.com/o3",
-      "tags": ["推理", "闭源"],
+      "tags": [
+        "推理",
+        "闭源"
+      ],
       "hot": true,
       "pricing": "输入 $15 / 输出 $60",
       "context": "200K",
@@ -60,7 +69,10 @@
       "released": "2024-06-20",
       "description": "编码与逻辑能力出色，性价比高，长期占据编码榜单前列。",
       "url": "https://www.anthropic.com/claude",
-      "tags": ["闭源", "编码强"],
+      "tags": [
+        "闭源",
+        "编码强"
+      ],
       "pricing": "输入 $3 / 输出 $15",
       "context": "200K",
       "license": "闭源",
@@ -76,7 +88,10 @@
       "released": "2025-05-22",
       "description": "Anthropic 旗舰推理与编码模型，支持长时 Agent 任务与代码工程。",
       "url": "https://www.anthropic.com",
-      "tags": ["推理", "闭源"],
+      "tags": [
+        "推理",
+        "闭源"
+      ],
       "hot": true,
       "pricing": "输入 $15 / 输出 $75",
       "context": "200K",
@@ -93,7 +108,10 @@
       "released": "2025-03-25",
       "description": "Google 旗舰多模态推理模型，原生支持超长上下文与工具调用。",
       "url": "https://deepmind.google",
-      "tags": ["多模态", "长上下文"],
+      "tags": [
+        "多模态",
+        "长上下文"
+      ],
       "hot": true,
       "pricing": "输入 $1.25 / 输出 $10",
       "context": "1M",
@@ -110,7 +128,10 @@
       "released": "2024-12-11",
       "description": "低延迟多模态模型，速度快成本低，适合高并发实时场景。",
       "url": "https://deepmind.google",
-      "tags": ["多模态", "低延迟"],
+      "tags": [
+        "多模态",
+        "低延迟"
+      ],
       "pricing": "输入 $0.075 / 输出 $0.30",
       "context": "1M",
       "license": "闭源",
@@ -126,7 +147,9 @@
       "released": "2024-12-06",
       "description": "开源权重模型，性能对标 405B 但参数更小，社区生态最活跃。",
       "url": "https://llama.meta.com",
-      "tags": ["开源"],
+      "tags": [
+        "开源"
+      ],
       "pricing": "权重免费 / API 按量",
       "context": "128K",
       "license": "Llama Community License",
@@ -142,7 +165,10 @@
       "released": "2025-04-05",
       "description": "Meta 多模态原生开源模型，引入早期融合架构与 MoE。",
       "url": "https://llama.meta.com",
-      "tags": ["开源", "多模态"],
+      "tags": [
+        "开源",
+        "多模态"
+      ],
       "pricing": "权重免费 / API 按量",
       "context": "10M",
       "license": "Llama Community License",
@@ -158,7 +184,10 @@
       "released": "2024-07-24",
       "description": "欧洲旗舰开源权重模型，128K 上下文，多语言与编码能力强。",
       "url": "https://mistral.ai",
-      "tags": ["开源", "长上下文"],
+      "tags": [
+        "开源",
+        "长上下文"
+      ],
       "pricing": "输入 $2 / 输出 $6",
       "context": "128K",
       "license": "Mistral Research License",
@@ -174,7 +203,10 @@
       "released": "2025-02-18",
       "description": "xAI 旗舰模型，接入 X 实时数据，推理与数学表现突出。",
       "url": "https://x.ai",
-      "tags": ["闭源", "实时数据"],
+      "tags": [
+        "闭源",
+        "实时数据"
+      ],
       "hot": true,
       "pricing": "输入 $3 / 输出 $15",
       "context": "128K",
@@ -191,7 +223,10 @@
       "released": "2024-08-22",
       "description": "面向企业 RAG 与工具调用的模型，多语言检索能力强。",
       "url": "https://cohere.com",
-      "tags": ["企业", "RAG"],
+      "tags": [
+        "企业",
+        "RAG"
+      ],
       "pricing": "输入 $2.5 / 输出 $10",
       "context": "128K",
       "license": "CC-BY-NC-4.0",
@@ -207,7 +242,10 @@
       "released": "2025-01-20",
       "description": "开源推理模型，以极低成本对标 o1，引发行业震动。",
       "url": "https://www.deepseek.com",
-      "tags": ["开源", "推理"],
+      "tags": [
+        "开源",
+        "推理"
+      ],
       "hot": true,
       "pricing": "输入 ¥1 / 输出 ¥4",
       "context": "64K",
@@ -224,7 +262,10 @@
       "released": "2024-12-26",
       "description": "671B 参数 MoE 开源模型，训练成本极低，性能对标闭源旗舰。",
       "url": "https://www.deepseek.com",
-      "tags": ["开源", "MoE"],
+      "tags": [
+        "开源",
+        "MoE"
+      ],
       "pricing": "输入 ¥0.5 / 输出 ¥2",
       "context": "64K",
       "license": "MIT",
@@ -240,7 +281,10 @@
       "released": "2025-04-29",
       "description": "开源混合推理模型，支持思考模式切换，全尺寸开源。",
       "url": "https://tongyi.aliyun.com",
-      "tags": ["开源", "推理"],
+      "tags": [
+        "开源",
+        "推理"
+      ],
       "hot": true,
       "pricing": "权重免费 / API 按量",
       "context": "128K",
@@ -257,7 +301,9 @@
       "released": "2024-09-19",
       "description": "开源全尺寸模型族，中英与编码能力均衡，社区部署广泛。",
       "url": "https://tongyi.aliyun.com",
-      "tags": ["开源"],
+      "tags": [
+        "开源"
+      ],
       "pricing": "权重免费 / API 按量",
       "context": "128K",
       "license": "Apache-2.0",
@@ -273,7 +319,10 @@
       "released": "2025-07-02",
       "description": "开源混合推理模型，思考与非思考模式统一，Agent 能力强。",
       "url": "https://www.zhipuai.cn",
-      "tags": ["开源", "推理"],
+      "tags": [
+        "开源",
+        "推理"
+      ],
       "hot": true,
       "pricing": "输入 $0.5 / 输出 $2",
       "context": "128K",
@@ -290,7 +339,9 @@
       "released": "2024-01-15",
       "description": "智谱基座模型，支持长上下文与工具调用，开源生态活跃。",
       "url": "https://www.zhipuai.cn",
-      "tags": ["开源"],
+      "tags": [
+        "开源"
+      ],
       "pricing": "输入 ¥0.1 / 输出 ¥0.1",
       "context": "128K",
       "license": "开源",
@@ -306,7 +357,10 @@
       "released": "2025-07-10",
       "description": "开源 Agent 模型，专为工具调用与自主任务设计。",
       "url": "https://kimi.moonshot.cn",
-      "tags": ["开源", "Agent"],
+      "tags": [
+        "开源",
+        "Agent"
+      ],
       "hot": true,
       "pricing": "输入 $0.15 / 输出 $2.50",
       "context": "128K",
@@ -323,7 +377,9 @@
       "released": "2023-10-09",
       "description": "以超长上下文著称的对话助手，支持百万字文档解析。",
       "url": "https://kimi.moonshot.cn",
-      "tags": ["长上下文"],
+      "tags": [
+        "长上下文"
+      ],
       "pricing": "免费 / API 按量",
       "context": "2M",
       "license": "闭源",
@@ -339,7 +395,10 @@
       "released": "2023-10-17",
       "description": "百度旗舰大模型，深度集成搜索与知识增强。",
       "url": "https://yiyan.baidu.com",
-      "tags": ["闭源", "知识增强"],
+      "tags": [
+        "闭源",
+        "知识增强"
+      ],
       "pricing": "输入 ¥8 / 输出 ¥24",
       "context": "8K",
       "license": "闭源",
@@ -355,7 +414,9 @@
       "released": "2023-08-17",
       "description": "字节大模型，主打低价格高吞吐，内置多模态能力。",
       "url": "https://www.doubao.com",
-      "tags": ["多模态"],
+      "tags": [
+        "多模态"
+      ],
       "pricing": "输入 ¥0.8 / 输出 ¥2",
       "context": "128K",
       "license": "闭源",
@@ -371,7 +432,9 @@
       "released": "2023-10-24",
       "description": "讯飞认知大模型，语音与教育场景优势明显。",
       "url": "https://xinghuo.xfyun.cn",
-      "tags": ["语音"],
+      "tags": [
+        "语音"
+      ],
       "pricing": "定制报价",
       "context": "8K",
       "license": "闭源",
@@ -387,7 +450,9 @@
       "released": "2023-06-15",
       "description": "王小川创立，中文理解与搜索增强为特色。",
       "url": "https://www.baichuan-ai.com",
-      "tags": ["中文"],
+      "tags": [
+        "中文"
+      ],
       "pricing": "输入 ¥6 / 输出 ¥6",
       "context": "32K",
       "license": "闭源",
@@ -403,7 +468,9 @@
       "released": "2023-11-04",
       "description": "李开复创立，开源权重模型族，性能与效率兼顾。",
       "url": "https://www.01.ai",
-      "tags": ["开源"],
+      "tags": [
+        "开源"
+      ],
       "pricing": "权重免费 / API 按量",
       "context": "32K",
       "license": "Apache-2.0",
@@ -419,7 +486,10 @@
       "released": "2025-01-15",
       "description": "456B MoE 模型，原生支持百万 token 超长上下文。",
       "url": "https://www.minimax.io",
-      "tags": ["长上下文", "MoE"],
+      "tags": [
+        "长上下文",
+        "MoE"
+      ],
       "pricing": "输入 ¥0.8 / 输出 ¥8",
       "context": "1M",
       "license": "开源",
@@ -435,7 +505,9 @@
       "released": "2023-09-07",
       "description": "腾讯全链路自研大模型，开源多个尺寸权重。",
       "url": "https://hunyuan.tencent.com",
-      "tags": ["开源"],
+      "tags": [
+        "开源"
+      ],
       "pricing": "输入 ¥0.5 / 输出 ¥0.5",
       "context": "256K",
       "license": "开源",
@@ -451,7 +523,9 @@
       "released": "2023-11-15",
       "description": "多模态为特色，主打图像理解与视频生成能力。",
       "url": "https://platform.stepfun.com",
-      "tags": ["多模态"],
+      "tags": [
+        "多模态"
+      ],
       "pricing": "定制报价",
       "context": "32K",
       "license": "闭源",
@@ -467,7 +541,10 @@
       "released": "2025-01-01",
       "description": "腾讯出品的 AI 智能体助手，可读文件、跑命令、接 MCP，国内 Agent 代表。",
       "url": "https://www.codebuddy.cn",
-      "tags": ["Agent", "国内热门"],
+      "tags": [
+        "Agent",
+        "国内热门"
+      ],
       "hot": true,
       "pricing": "免费 / 订阅制",
       "context": "—",
@@ -484,7 +561,10 @@
       "released": "2024-02-01",
       "description": "可视化 Bot 搭建平台，低代码构建专属 AI 智能体并多平台发布。",
       "url": "https://www.coze.cn",
-      "tags": ["低代码", "Agent"],
+      "tags": [
+        "低代码",
+        "Agent"
+      ],
       "pricing": "免费 / 按量",
       "context": "—",
       "license": "闭源",
@@ -500,7 +580,10 @@
       "released": "2023-05-01",
       "description": "开源 LLMOps 平台，可视化编排工作流、RAG 与 Agent。",
       "url": "https://dify.ai",
-      "tags": ["开源", "LLMOps"],
+      "tags": [
+        "开源",
+        "LLMOps"
+      ],
       "hot": true,
       "pricing": "开源免费 / 云版按量",
       "context": "—",
@@ -517,12 +600,15 @@
       "released": "2023-08-01",
       "description": "开源知识库问答系统，基于工作流编排，国内部署广泛。",
       "url": "https://fastgpt.in",
-      "tags": ["开源", "知识库"],
+      "tags": [
+        "开源",
+        "知识库"
+      ],
       "pricing": "开源免费 / 商用授权",
-      "context": "—",
+      "context": "1M",
       "license": "Apache-2.0",
       "api": true,
-      "modal": "—"
+      "modal": "文本+图像+PDF"
     },
     {
       "id": "langchain",
@@ -533,7 +619,10 @@
       "released": "2022-10-25",
       "description": "最流行的 LLM 应用开发框架，串联模型、记忆与工具。",
       "url": "https://www.langchain.com",
-      "tags": ["框架", "开源"],
+      "tags": [
+        "框架",
+        "开源"
+      ],
       "pricing": "开源免费 / 云版订阅",
       "context": "—",
       "license": "MIT",
@@ -549,7 +638,10 @@
       "released": "2024-01-08",
       "description": "基于状态图的 Agent 编排框架，支持复杂多步与多智能体。",
       "url": "https://www.langchain.com/langgraph",
-      "tags": ["框架", "Agent"],
+      "tags": [
+        "框架",
+        "Agent"
+      ],
       "pricing": "开源免费 / 云版订阅",
       "context": "—",
       "license": "MIT",
@@ -565,7 +657,10 @@
       "released": "2022-11-08",
       "description": "专注数据连接与 RAG 的框架，企业知识检索首选。",
       "url": "https://www.llamaindex.ai",
-      "tags": ["框架", "RAG"],
+      "tags": [
+        "框架",
+        "RAG"
+      ],
       "pricing": "开源免费 / 云版按量",
       "context": "—",
       "license": "MIT",
@@ -581,12 +676,15 @@
       "released": "2023-09-01",
       "description": "微软开源多智能体对话框架，擅长角色协作与任务分解。",
       "url": "https://microsoft.github.io/autogen",
-      "tags": ["开源", "多Agent"],
+      "tags": [
+        "开源",
+        "多Agent"
+      ],
       "pricing": "开源免费",
-      "context": "—",
+      "context": "131K",
       "license": "MIT",
       "api": false,
-      "modal": "—"
+      "modal": "文本"
     },
     {
       "id": "crewai",
@@ -597,7 +695,10 @@
       "released": "2024-01-15",
       "description": "以角色驱动多智能体协作的轻量框架，上手简单。",
       "url": "https://www.crewai.com",
-      "tags": ["开源", "多Agent"],
+      "tags": [
+        "开源",
+        "多Agent"
+      ],
       "pricing": "开源免费 / 云版订阅",
       "context": "—",
       "license": "MIT",
@@ -613,7 +714,10 @@
       "released": "2019-06-01",
       "description": "可自托管的工作流自动化平台，已深度集成 AI 节点。",
       "url": "https://n8n.io",
-      "tags": ["开源", "自动化"],
+      "tags": [
+        "开源",
+        "自动化"
+      ],
       "pricing": "自托管免费 / 云版订阅",
       "context": "—",
       "license": "Apache-2.0",
@@ -629,7 +733,10 @@
       "released": "2023-04-01",
       "description": "拖拽式 LLM 应用构建器，可视化编排链与 Agent。",
       "url": "https://flowiseai.com",
-      "tags": ["开源", "可视化"],
+      "tags": [
+        "开源",
+        "可视化"
+      ],
       "pricing": "开源免费 / 云版按量",
       "context": "—",
       "license": "Apache-2.0",
@@ -645,7 +752,9 @@
       "released": "2025-03-06",
       "description": "通用自主智能体，能自主规划并执行复杂任务，火爆出圈。",
       "url": "https://manus.im",
-      "tags": ["通用Agent"],
+      "tags": [
+        "通用Agent"
+      ],
       "hot": true,
       "pricing": "免费 / 邀请制",
       "context": "—",
@@ -662,7 +771,9 @@
       "released": "2025-01-23",
       "description": "OpenAI 浏览器操作 Agent，可代你完成网页交互任务。",
       "url": "https://openai.com",
-      "tags": ["浏览器Agent"],
+      "tags": [
+        "浏览器Agent"
+      ],
       "pricing": "ChatGPT Pro 订阅",
       "context": "—",
       "license": "闭源",
@@ -678,7 +789,9 @@
       "released": "2024-03-12",
       "description": "号称首个 AI 软件工程师，可端到端完成开发任务。",
       "url": "https://devin.ai",
-      "tags": ["编程Agent"],
+      "tags": [
+        "编程Agent"
+      ],
       "pricing": "$500/月起",
       "context": "—",
       "license": "闭源",
@@ -694,12 +807,14 @@
       "released": "2025-05-16",
       "description": "OpenAI 编码 Agent，支持 CLI 与云端并行执行多任务。",
       "url": "https://openai.com",
-      "tags": ["编程Agent"],
+      "tags": [
+        "编程Agent"
+      ],
       "pricing": "ChatGPT 订阅",
-      "context": "—",
+      "context": "400K",
       "license": "闭源",
       "api": false,
-      "modal": "—"
+      "modal": "文本+图像"
     },
     {
       "id": "claude-code",
@@ -710,13 +825,15 @@
       "released": "2025-02-24",
       "description": "终端编码 Agent，自主读写文件、改代码、跑测试。",
       "url": "https://www.anthropic.com",
-      "tags": ["编程Agent"],
+      "tags": [
+        "编程Agent"
+      ],
       "hot": true,
       "pricing": "按量计费 / 订阅制",
       "context": "—",
       "license": "闭源",
       "api": false,
-      "modal": "—"
+      "modal": "文本"
     },
     {
       "id": "hf-qwen-qwen3-0-6b",
@@ -746,7 +863,12 @@
         "开源",
         "text-generation"
       ],
-      "auto": true
+      "auto": true,
+      "pricing": "输入 $0.8 / 输出 $3.5",
+      "context": "190K",
+      "license": "闭源",
+      "modal": "文本",
+      "api": true
     },
     {
       "id": "hf-trl-internal-testing-tiny-qwen2forcausallm-2-5",
@@ -761,7 +883,12 @@
         "开源",
         "text-generation"
       ],
-      "auto": true
+      "auto": true,
+      "pricing": "免费",
+      "context": "205K",
+      "license": "开源",
+      "modal": "文本",
+      "api": true
     },
     {
       "id": "hf-qwen-qwen3-8b",
@@ -776,7 +903,12 @@
         "开源",
         "text-generation"
       ],
-      "auto": true
+      "auto": true,
+      "pricing": "输入 $0.117 / 输出 $0.455",
+      "context": "131K",
+      "license": "开源",
+      "modal": "文本",
+      "api": true
     },
     {
       "id": "hf-qwen-qwen2-5-1-5b-instruct",
@@ -791,7 +923,12 @@
         "开源",
         "text-generation"
       ],
-      "auto": true
+      "auto": true,
+      "pricing": "输入 $0.8 / 输出 $3.5",
+      "context": "190K",
+      "license": "闭源",
+      "modal": "文本",
+      "api": true
     },
     {
       "id": "hf-openai-community-gpt2",
@@ -821,7 +958,12 @@
         "开源",
         "text-generation"
       ],
-      "auto": true
+      "auto": true,
+      "pricing": "输入 $0.1 / 输出 $0.2",
+      "context": "33K",
+      "license": "开源",
+      "modal": "文本",
+      "api": true
     },
     {
       "id": "hf-meta-llama-llama-3-2-1b-instruct",
@@ -836,7 +978,12 @@
         "开源",
         "text-generation"
       ],
-      "auto": true
+      "auto": true,
+      "pricing": "输入 $0.027 / 输出 $0.2",
+      "context": "128K",
+      "license": "闭源",
+      "modal": "文本",
+      "api": false
     },
     {
       "id": "hf-qwen-qwen3-embedding-0-6b",
@@ -851,7 +998,12 @@
         "开源",
         "feature-extraction"
       ],
-      "auto": true
+      "auto": true,
+      "pricing": "输入 $0.012 / 输出 $0",
+      "context": "128K",
+      "license": "闭源",
+      "modal": "文本",
+      "api": false
     },
     {
       "id": "hf-nvidia-qwen3-6-35b-a3b-nvfp4",
@@ -866,7 +1018,12 @@
         "开源",
         "text-generation"
       ],
-      "auto": true
+      "auto": true,
+      "pricing": "输入 $0.167 / 输出 $0.557",
+      "context": "262K",
+      "license": "开源",
+      "modal": "文本+图像",
+      "api": true
     },
     {
       "id": "hf-qwen-qwen3-32b",
@@ -881,7 +1038,12 @@
         "开源",
         "text-generation"
       ],
-      "auto": true
+      "auto": true,
+      "pricing": "输入 $0.099 / 输出 $0.299",
+      "context": "40K",
+      "license": "开源",
+      "modal": "文本",
+      "api": true
     },
     {
       "id": "hf-openai-gpt-oss-20b",
@@ -896,7 +1058,12 @@
         "开源",
         "text-generation"
       ],
-      "auto": true
+      "auto": true,
+      "pricing": "输入 $0.05 / 输出 $0.2",
+      "context": "131K",
+      "license": "开源",
+      "modal": "文本",
+      "api": true
     },
     {
       "id": "hf-meta-llama-llama-3-1-8b-instruct",
@@ -911,7 +1078,12 @@
         "开源",
         "text-generation"
       ],
-      "auto": true
+      "auto": true,
+      "pricing": "输入 $0.167 / 输出 $0.167",
+      "context": "128K",
+      "license": "闭源",
+      "modal": "文本",
+      "api": true
     },
     {
       "id": "hf-qwen-qwen3-1-7b",
@@ -926,7 +1098,12 @@
         "开源",
         "text-generation"
       ],
-      "auto": true
+      "auto": true,
+      "pricing": "输入 $0.1 / 输出 $0.1",
+      "context": "33K",
+      "license": "闭源",
+      "modal": "文本",
+      "api": true
     },
     {
       "id": "hf-qwen-qwen2-5-3b-instruct",
@@ -941,7 +1118,12 @@
         "开源",
         "text-generation"
       ],
-      "auto": true
+      "auto": true,
+      "pricing": "输入 $0.8 / 输出 $3.5",
+      "context": "190K",
+      "license": "闭源",
+      "modal": "文本",
+      "api": true
     },
     {
       "id": "hf-farbodtavakkoli-otel-llm-e4b-it",
@@ -971,7 +1153,12 @@
         "开源",
         "text-generation"
       ],
-      "auto": true
+      "auto": true,
+      "pricing": "输入 $0.8 / 输出 $3.5",
+      "context": "190K",
+      "license": "闭源",
+      "modal": "文本",
+      "api": true
     },
     {
       "id": "hf-hmellor-tiny-random-llamaforcausallm",
@@ -1001,7 +1188,12 @@
         "开源",
         "text-generation"
       ],
-      "auto": true
+      "auto": true,
+      "pricing": "输入 $0.03 / 输出 $0.03",
+      "context": "128K",
+      "license": "开源",
+      "modal": "文本",
+      "api": false
     },
     {
       "id": "hf-qwen-qwen2-5-7b-instruct-awq",
@@ -1016,7 +1208,12 @@
         "开源",
         "text-generation"
       ],
-      "auto": true
+      "auto": true,
+      "pricing": "输入 $0.8 / 输出 $3.5",
+      "context": "190K",
+      "license": "闭源",
+      "modal": "文本",
+      "api": true
     },
     {
       "id": "hf-deepreinforce-ai-ornith-1-0-9b-gguf",
@@ -1046,7 +1243,12 @@
         "开源",
         "text-generation"
       ],
-      "auto": true
+      "auto": true,
+      "pricing": "输入 $0.03 / 输出 $0.03",
+      "context": "128K",
+      "license": "开源",
+      "modal": "文本",
+      "api": false
     },
     {
       "id": "hf-openai-gpt-oss-120b",
@@ -1061,7 +1263,12 @@
         "开源",
         "text-generation"
       ],
-      "auto": true
+      "auto": true,
+      "pricing": "输入 $0.072 / 输出 $0.28",
+      "context": "131K",
+      "license": "开源",
+      "modal": "文本",
+      "api": true
     },
     {
       "id": "hf-google-gemma-3-1b-it",
@@ -1076,7 +1283,12 @@
         "开源",
         "text-generation"
       ],
-      "auto": true
+      "auto": true,
+      "pricing": "输入 $0.15 / 输出 $0.3",
+      "context": "125K",
+      "license": "开源",
+      "modal": "文本+图像",
+      "api": true
     },
     {
       "id": "hf-ibm-granite-granite-4-1-8b",
@@ -1091,7 +1303,12 @@
         "开源",
         "text-generation"
       ],
-      "auto": true
+      "auto": true,
+      "pricing": "输入 $0.05 / 输出 $0.1",
+      "context": "131K",
+      "license": "开源",
+      "modal": "文本",
+      "api": true
     },
     {
       "id": "hf-qwen-qwen3-embedding-8b",
@@ -1106,7 +1323,12 @@
         "开源",
         "feature-extraction"
       ],
-      "auto": true
+      "auto": true,
+      "pricing": "输入 $0.01 / 输出 $0",
+      "context": "32K",
+      "license": "开源",
+      "modal": "文本",
+      "api": false
     },
     {
       "id": "hf-qwen-qwen3-4b-instruct-2507",
@@ -1121,7 +1343,12 @@
         "开源",
         "text-generation"
       ],
-      "auto": true
+      "auto": true,
+      "pricing": "输入 $0.8 / 输出 $3.5",
+      "context": "190K",
+      "license": "闭源",
+      "modal": "文本",
+      "api": true
     },
     {
       "id": "hf-qwen-qwen2-5-14b-instruct",
@@ -1136,7 +1363,12 @@
         "开源",
         "text-generation"
       ],
-      "auto": true
+      "auto": true,
+      "pricing": "输入 $0.144 / 输出 $0.431",
+      "context": "131K",
+      "license": "开源",
+      "modal": "文本",
+      "api": true
     },
     {
       "id": "hf-deepreinforce-ai-ornith-1-0-35b-gguf",
@@ -1181,7 +1413,12 @@
         "开源",
         "text-generation"
       ],
-      "auto": true
+      "auto": true,
+      "pricing": "输入 $0.09 / 输出 $0.45",
+      "context": "41K",
+      "license": "开源",
+      "modal": "文本",
+      "api": false
     },
     {
       "id": "hf-zai-org-glm-5-2-fp8",
@@ -1196,7 +1433,12 @@
         "开源",
         "text-generation"
       ],
-      "auto": true
+      "auto": true,
+      "pricing": "输入 $0.988 / 输出 $3.164",
+      "context": "203K",
+      "license": "开源",
+      "modal": "文本",
+      "api": true
     },
     {
       "id": "hf-qwen-qwen3-14b",
@@ -1211,7 +1453,12 @@
         "开源",
         "text-generation"
       ],
-      "auto": true
+      "auto": true,
+      "pricing": "输入 $0.2275 / 输出 $0.91",
+      "context": "131K",
+      "license": "开源",
+      "modal": "文本",
+      "api": true
     },
     {
       "id": "hf-qwen-qwen3-embedding-4b",
@@ -1226,7 +1473,12 @@
         "开源",
         "feature-extraction"
       ],
-      "auto": true
+      "auto": true,
+      "pricing": "输入 $0.01 / 输出 $0",
+      "context": "32K",
+      "license": "开源",
+      "modal": "文本",
+      "api": false
     },
     {
       "id": "hf-qwen-qwen2-5-coder-14b-instruct",
@@ -1241,7 +1493,11 @@
         "开源",
         "text-generation"
       ],
-      "auto": true
+      "auto": true,
+      "context": "128K",
+      "license": "闭源",
+      "modal": "文本",
+      "api": true
     },
     {
       "id": "hf-nvidia-nvidia-nemotron-3-super-120b-a12b-nvfp4",
@@ -1256,7 +1512,11 @@
         "开源",
         "text-generation"
       ],
-      "auto": true
+      "auto": true,
+      "context": "262K",
+      "license": "开源",
+      "modal": "文本",
+      "api": true
     },
     {
       "id": "hf-deepseek-ai-deepseek-v4-flash",
@@ -1271,7 +1531,12 @@
         "开源",
         "text-generation"
       ],
-      "auto": true
+      "auto": true,
+      "pricing": "输入 $0.143 / 输出 $0.2857",
+      "context": "1M",
+      "license": "开源",
+      "modal": "文本",
+      "api": true
     },
     {
       "id": "hf-nvidia-gemma-4-31b-it-nvfp4",
@@ -1286,7 +1551,12 @@
         "开源",
         "text-generation"
       ],
-      "auto": true
+      "auto": true,
+      "pricing": "输入 $0.18 / 输出 $0.5",
+      "context": "256K",
+      "license": "开源",
+      "modal": "文本+图像+视频",
+      "api": true
     },
     {
       "id": "hf-qwen-qwen3-reranker-0-6b",
@@ -1301,7 +1571,12 @@
         "开源",
         "text-ranking"
       ],
-      "auto": true
+      "auto": true,
+      "pricing": "输入 $0.01 / 输出 $0.01",
+      "context": "41K",
+      "license": "开源",
+      "modal": "文本",
+      "api": false
     },
     {
       "id": "hf-unsloth-qwen3-coder-30b-a3b-instruct-gguf",
@@ -1316,7 +1591,12 @@
         "开源",
         "text-generation"
       ],
-      "auto": true
+      "auto": true,
+      "pricing": "输入 $0.067 / 输出 $0.245",
+      "context": "262K",
+      "license": "开源",
+      "modal": "文本",
+      "api": true
     },
     {
       "id": "hf-farbodtavakkoli-otel-2-0-llm-31b-it",
@@ -1331,7 +1611,12 @@
         "开源",
         "text-generation"
       ],
-      "auto": true
+      "auto": true,
+      "pricing": "免费",
+      "context": "1M",
+      "license": "开源",
+      "modal": "文本+图像+视频",
+      "api": true
     },
     {
       "id": "hf-deepreinforce-ai-ornith-1-0-35b",
@@ -1361,7 +1646,12 @@
         "开源",
         "text-ranking"
       ],
-      "auto": true
+      "auto": true,
+      "pricing": "输入 $0.0575 / 输出 $0",
+      "context": "32K",
+      "license": "开源",
+      "modal": "文本",
+      "api": false
     }
   ]
 }
