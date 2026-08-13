@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-12",
+  "updated": "2026-08-13",
   "items": [
     {
       "id": "gpt-4o",
@@ -1689,6 +1689,46 @@
       "pricing": "输入 $1.4 / 输出 $4.4",
       "context": "1M",
       "license": "mit",
+      "api": false,
+      "modal": "文本",
+      "auto": true
+    },
+    {
+      "id": "hf-qwen-qwen-72b",
+      "name": "Qwen-72B",
+      "vendor": "Qwen",
+      "region": "china",
+      "category": "model",
+      "released": "2024-10-09",
+      "description": "开源模型 · 2.6M 下载 · 360 喜欢",
+      "url": "https://huggingface.co/Qwen/Qwen-72B",
+      "tags": [
+        "开源",
+        "text-generation"
+      ],
+      "pricing": "—",
+      "context": "—",
+      "license": "other",
+      "api": false,
+      "modal": "文本",
+      "auto": true
+    },
+    {
+      "id": "hf-eleutherai-pythia-160m",
+      "name": "pythia-160m",
+      "vendor": "EleutherAI",
+      "region": "global",
+      "category": "model",
+      "released": "2023-07-09",
+      "description": "开源模型 · 2.6M 下载 · 45 喜欢",
+      "url": "https://huggingface.co/EleutherAI/pythia-160m",
+      "tags": [
+        "开源",
+        "text-generation"
+      ],
+      "pricing": "—",
+      "context": "—",
+      "license": "apache-2.0",
       "api": false,
       "modal": "文本",
       "auto": true
