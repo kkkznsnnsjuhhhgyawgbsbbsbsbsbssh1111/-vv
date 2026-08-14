@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-13",
+  "updated": "2026-08-14",
   "items": [
     {
       "id": "gpt-4o",
@@ -1497,7 +1497,8 @@
       "context": "128K",
       "license": "闭源",
       "modal": "文本",
-      "api": true
+      "api": true,
+      "pricing": "输入 $3 / 输出 $7"
     },
     {
       "id": "hf-nvidia-nvidia-nemotron-3-super-120b-a12b-nvfp4",
@@ -1516,7 +1517,8 @@
       "context": "262K",
       "license": "开源",
       "modal": "文本",
-      "api": true
+      "api": true,
+      "pricing": "输入 $3 / 输出 $7"
     },
     {
       "id": "hf-deepseek-ai-deepseek-v4-flash",
