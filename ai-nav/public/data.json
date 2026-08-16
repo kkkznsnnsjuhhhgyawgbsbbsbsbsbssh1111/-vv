@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-14",
+  "updated": "2026-08-16",
   "items": [
     {
       "id": "gpt-4o",
@@ -1731,6 +1731,46 @@
       "pricing": "—",
       "context": "—",
       "license": "apache-2.0",
+      "api": false,
+      "modal": "文本",
+      "auto": true
+    },
+    {
+      "id": "hf-qwen-qwen2-5-0-5b",
+      "name": "Qwen2.5-0.5B",
+      "vendor": "Qwen",
+      "region": "china",
+      "category": "model",
+      "released": "2024-09-25",
+      "description": "开源模型 · 2.5M 下载 · 436 喜欢",
+      "url": "https://huggingface.co/Qwen/Qwen2.5-0.5B",
+      "tags": [
+        "开源",
+        "text-generation"
+      ],
+      "pricing": "—",
+      "context": "—",
+      "license": "apache-2.0",
+      "api": false,
+      "modal": "文本",
+      "auto": true
+    },
+    {
+      "id": "hf-radixark-kimi-k3-dspark",
+      "name": "Kimi-K3-DSpark",
+      "vendor": "RadixArk",
+      "region": "global",
+      "category": "model",
+      "released": "2026-08-16",
+      "description": "开源模型 · 2.5M 下载 · 49 喜欢",
+      "url": "https://huggingface.co/RadixArk/Kimi-K3-DSpark",
+      "tags": [
+        "开源",
+        "text-generation"
+      ],
+      "pricing": "—",
+      "context": "—",
+      "license": "开源",
       "api": false,
       "modal": "文本",
       "auto": true
