@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-16",
+  "updated": "2026-08-17",
   "items": [
     {
       "id": "gpt-4o",
@@ -1633,7 +1633,12 @@
         "开源",
         "text-generation"
       ],
-      "auto": true
+      "auto": true,
+      "pricing": "免费",
+      "context": "262K",
+      "license": "开源",
+      "modal": "文本+图像",
+      "api": true
     },
     {
       "id": "hf-qwen-qwen3-reranker-4b",
@@ -1768,8 +1773,8 @@
         "开源",
         "text-generation"
       ],
-      "pricing": "—",
-      "context": "—",
+      "pricing": "输入 $3 / 输出 $15",
+      "context": "1.048576M",
       "license": "开源",
       "api": false,
       "modal": "文本",
