@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-21",
+  "updated": "2026-08-22",
   "items": [
     {
       "id": "gpt-4o",
@@ -1796,6 +1796,26 @@
       "pricing": "输入 $0.13 / 输出 $0.28",
       "context": "262K",
       "license": "mit",
+      "api": false,
+      "modal": "文本",
+      "auto": true
+    },
+    {
+      "id": "hf-huggingfacetb-smollm2-135m",
+      "name": "SmolLM2-135M",
+      "vendor": "HuggingFaceTB",
+      "region": "global",
+      "category": "model",
+      "released": "2025-02-06",
+      "description": "开源模型 · 2.4M 下载 · 227 喜欢",
+      "url": "https://huggingface.co/HuggingFaceTB/SmolLM2-135M",
+      "tags": [
+        "开源",
+        "text-generation"
+      ],
+      "pricing": "—",
+      "context": "—",
+      "license": "apache-2.0",
       "api": false,
       "modal": "文本",
       "auto": true
