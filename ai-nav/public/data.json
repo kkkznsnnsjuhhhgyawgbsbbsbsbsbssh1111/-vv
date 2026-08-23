@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-22",
+  "updated": "2026-08-23",
   "items": [
     {
       "id": "gpt-4o",
@@ -1809,6 +1809,26 @@
       "released": "2025-02-06",
       "description": "开源模型 · 2.4M 下载 · 227 喜欢",
       "url": "https://huggingface.co/HuggingFaceTB/SmolLM2-135M",
+      "tags": [
+        "开源",
+        "text-generation"
+      ],
+      "pricing": "输入 $0.3 / 输出 $1.2",
+      "context": "205K",
+      "license": "apache-2.0",
+      "api": false,
+      "modal": "文本",
+      "auto": true
+    },
+    {
+      "id": "hf-qwen-qwen2-5-coder-7b-instruct",
+      "name": "Qwen2.5-Coder-7B-Instruct",
+      "vendor": "Qwen",
+      "region": "china",
+      "category": "model",
+      "released": "2025-01-12",
+      "description": "开源模型 · 2.4M 下载 · 779 喜欢",
+      "url": "https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct",
       "tags": [
         "开源",
         "text-generation"
