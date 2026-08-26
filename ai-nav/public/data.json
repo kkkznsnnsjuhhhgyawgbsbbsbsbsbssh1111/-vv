@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-24",
+  "updated": "2026-08-26",
   "items": [
     {
       "id": "gpt-4o",
@@ -1835,6 +1835,26 @@
       ],
       "pricing": "输入 $0.144 / 输出 $0.287",
       "context": "131K",
+      "license": "apache-2.0",
+      "api": false,
+      "modal": "文本",
+      "auto": true
+    },
+    {
+      "id": "hf-qwen-qwen3-14b-awq",
+      "name": "Qwen3-14B-AWQ",
+      "vendor": "Qwen",
+      "region": "china",
+      "category": "model",
+      "released": "2025-05-21",
+      "description": "开源模型 · 2.3M 下载 · 74 喜欢",
+      "url": "https://huggingface.co/Qwen/Qwen3-14B-AWQ",
+      "tags": [
+        "开源",
+        "text-generation"
+      ],
+      "pricing": "—",
+      "context": "—",
       "license": "apache-2.0",
       "api": false,
       "modal": "文本",
