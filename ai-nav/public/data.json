@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-26",
+  "updated": "2026-08-28",
   "items": [
     {
       "id": "gpt-4o",
@@ -1849,6 +1849,26 @@
       "released": "2025-05-21",
       "description": "开源模型 · 2.3M 下载 · 74 喜欢",
       "url": "https://huggingface.co/Qwen/Qwen3-14B-AWQ",
+      "tags": [
+        "开源",
+        "text-generation"
+      ],
+      "pricing": "输入 $0.12 / 输出 $0.24",
+      "context": "41K",
+      "license": "apache-2.0",
+      "api": false,
+      "modal": "文本",
+      "auto": true
+    },
+    {
+      "id": "hf-distilbert-distilgpt2",
+      "name": "distilgpt2",
+      "vendor": "distilbert",
+      "region": "global",
+      "category": "model",
+      "released": "2024-02-19",
+      "description": "开源模型 · 2.2M 下载 · 637 喜欢",
+      "url": "https://huggingface.co/distilbert/distilgpt2",
       "tags": [
         "开源",
         "text-generation"
