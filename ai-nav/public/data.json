@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-28",
+  "updated": "2026-08-30",
   "items": [
     {
       "id": "gpt-4o",
@@ -1876,6 +1876,26 @@
       "pricing": "—",
       "context": "—",
       "license": "apache-2.0",
+      "api": false,
+      "modal": "文本",
+      "auto": true
+    },
+    {
+      "id": "hf-ornith-ai-ornith-1-5-9b-gguf",
+      "name": "Ornith-1.5-9B-GGUF",
+      "vendor": "ornith-ai",
+      "region": "global",
+      "category": "model",
+      "released": "2026-08-24",
+      "description": "开源模型 · 2.3M 下载 · 260 喜欢",
+      "url": "https://huggingface.co/ornith-ai/Ornith-1.5-9B-GGUF",
+      "tags": [
+        "开源",
+        "text-generation"
+      ],
+      "pricing": "—",
+      "context": "—",
+      "license": "mit",
       "api": false,
       "modal": "文本",
       "auto": true
