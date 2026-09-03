@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-02",
+  "updated": "2026-09-03",
   "items": [
     {
       "id": "gpt-4o",
@@ -1916,6 +1916,26 @@
       "pricing": "输入 $0.1 / 输出 $0.4",
       "context": "262K",
       "license": "mit",
+      "api": false,
+      "modal": "文本",
+      "auto": true
+    },
+    {
+      "id": "hf-jonathancoletti-qwen3-8-27b-uncensored-gguf",
+      "name": "Qwen3.8-27B-Uncensored-GGUF",
+      "vendor": "JonathanColetti",
+      "region": "global",
+      "category": "model",
+      "released": "2026-08-29",
+      "description": "开源模型 · 2.2M 下载 · 940 喜欢",
+      "url": "https://huggingface.co/JonathanColetti/Qwen3.8-27B-Uncensored-GGUF",
+      "tags": [
+        "开源",
+        "text-generation"
+      ],
+      "pricing": "—",
+      "context": "—",
+      "license": "apache-2.0",
       "api": false,
       "modal": "文本",
       "auto": true
