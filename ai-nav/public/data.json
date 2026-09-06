@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-04",
+  "updated": "2026-09-06",
   "items": [
     {
       "id": "gpt-4o",
@@ -1936,6 +1936,26 @@
       "pricing": "输入 $0.5 / 输出 $3",
       "context": "1M",
       "license": "apache-2.0",
+      "api": false,
+      "modal": "文本",
+      "auto": true
+    },
+    {
+      "id": "hf-nvidia-nvidia-nemotron-3-nano-4b-bf16",
+      "name": "NVIDIA-Nemotron-3-Nano-4B-BF16",
+      "vendor": "nvidia",
+      "region": "global",
+      "category": "model",
+      "released": "2026-03-20",
+      "description": "开源模型 · 2.3M 下载 · 116 喜欢",
+      "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Nano-4B-BF16",
+      "tags": [
+        "开源",
+        "text-generation"
+      ],
+      "pricing": "—",
+      "context": "—",
+      "license": "other",
       "api": false,
       "modal": "文本",
       "auto": true
