@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-06",
+  "updated": "2026-09-07",
   "items": [
     {
       "id": "gpt-4o",
@@ -1953,8 +1953,8 @@
         "开源",
         "text-generation"
       ],
-      "pricing": "—",
-      "context": "—",
+      "pricing": "输入 $0.15 / 输出 $0.15",
+      "context": "128K",
       "license": "other",
       "api": false,
       "modal": "文本",
