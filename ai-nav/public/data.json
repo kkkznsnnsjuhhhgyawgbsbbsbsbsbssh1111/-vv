@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-07",
+  "updated": "2026-09-17",
   "items": [
     {
       "id": "gpt-4o",
@@ -1956,6 +1956,26 @@
       "pricing": "输入 $0.15 / 输出 $0.15",
       "context": "128K",
       "license": "other",
+      "api": false,
+      "modal": "文本",
+      "auto": true
+    },
+    {
+      "id": "hf-qwen-qwen2-5-32b-instruct",
+      "name": "Qwen2.5-32B-Instruct",
+      "vendor": "Qwen",
+      "region": "china",
+      "category": "model",
+      "released": "2024-09-25",
+      "description": "开源模型 · 2.2M 下载 · 361 喜欢",
+      "url": "https://huggingface.co/Qwen/Qwen2.5-32B-Instruct",
+      "tags": [
+        "开源",
+        "text-generation"
+      ],
+      "pricing": "—",
+      "context": "—",
+      "license": "apache-2.0",
       "api": false,
       "modal": "文本",
       "auto": true
