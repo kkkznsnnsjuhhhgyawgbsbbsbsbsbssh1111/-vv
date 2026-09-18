@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-17",
+  "updated": "2026-09-18",
   "items": [
     {
       "id": "gpt-4o",
@@ -1973,9 +1973,29 @@
         "开源",
         "text-generation"
       ],
+      "pricing": "输入 $0.7 / 输出 $2.8",
+      "context": "131K",
+      "license": "apache-2.0",
+      "api": false,
+      "modal": "文本",
+      "auto": true
+    },
+    {
+      "id": "hf-deepseek-ai-deepseek-v3-2",
+      "name": "DeepSeek-V3.2",
+      "vendor": "deepseek-ai",
+      "region": "china",
+      "category": "model",
+      "released": "2025-12-01",
+      "description": "开源模型 · 2.3M 下载 · 1488 喜欢",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V3.2",
+      "tags": [
+        "开源",
+        "text-generation"
+      ],
       "pricing": "—",
       "context": "—",
-      "license": "apache-2.0",
+      "license": "mit",
       "api": false,
       "modal": "文本",
       "auto": true
