@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-22",
+  "updated": "2026-09-29",
   "items": [
     {
       "id": "gpt-4o",
@@ -2016,6 +2016,26 @@
       "pricing": "输入 $0.075 / 输出 $0.5",
       "context": "262K",
       "license": "apache-2.0",
+      "api": false,
+      "modal": "文本",
+      "auto": true
+    },
+    {
+      "id": "hf-cmsmanhattan-jirackultra-1b",
+      "name": "JiRackUltra_1b",
+      "vendor": "CMSManhattan",
+      "region": "global",
+      "category": "model",
+      "released": "2026-09-27",
+      "description": "开源模型 · 2.5M 下载 · 0 喜欢",
+      "url": "https://huggingface.co/CMSManhattan/JiRackUltra_1b",
+      "tags": [
+        "开源",
+        "text-generation"
+      ],
+      "pricing": "—",
+      "context": "—",
+      "license": "mit",
       "api": false,
       "modal": "文本",
       "auto": true
