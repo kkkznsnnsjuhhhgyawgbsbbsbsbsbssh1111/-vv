@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-04",
+  "updated": "2026-10-08",
   "items": [
     {
       "id": "gpt-4o",
@@ -2055,6 +2055,26 @@
       ],
       "pricing": "输入 $0.072 / 输出 $0.287",
       "context": "131K",
+      "license": "apache-2.0",
+      "api": false,
+      "modal": "文本",
+      "auto": true
+    },
+    {
+      "id": "hf-vikhyatk-moondream2",
+      "name": "moondream2",
+      "vendor": "vikhyatk",
+      "region": "global",
+      "category": "model",
+      "released": "2026-09-23",
+      "description": "开源模型 · 2.2M 下载 · 1437 喜欢",
+      "url": "https://huggingface.co/vikhyatk/moondream2",
+      "tags": [
+        "开源",
+        "image-text-to-text"
+      ],
+      "pricing": "—",
+      "context": "—",
       "license": "apache-2.0",
       "api": false,
       "modal": "文本",
