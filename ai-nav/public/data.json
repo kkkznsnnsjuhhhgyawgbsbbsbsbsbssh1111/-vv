@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-09",
+  "updated": "2026-10-17",
   "items": [
     {
       "id": "gpt-4o",
@@ -2076,6 +2076,26 @@
       "pricing": "输入 $0.349 / 输出 $1.405",
       "context": "400K",
       "license": "apache-2.0",
+      "api": false,
+      "modal": "文本",
+      "auto": true
+    },
+    {
+      "id": "hf-zai-org-glm-5-3",
+      "name": "GLM-5.3",
+      "vendor": "zai-org",
+      "region": "global",
+      "category": "model",
+      "released": "2026-10-14",
+      "description": "开源模型 · 1.9M 下载 · 2248 喜欢",
+      "url": "https://huggingface.co/zai-org/GLM-5.3",
+      "tags": [
+        "开源",
+        "text-generation"
+      ],
+      "pricing": "—",
+      "context": "—",
+      "license": "other",
       "api": false,
       "modal": "文本",
       "auto": true
