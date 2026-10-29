@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-18",
+  "updated": "2026-10-29",
   "items": [
     {
       "id": "gpt-4o",
@@ -2096,6 +2096,26 @@
       "pricing": "输入 $1.1 / 输出 $3.851",
       "context": "1M",
       "license": "other",
+      "api": false,
+      "modal": "文本",
+      "auto": true
+    },
+    {
+      "id": "hf-deepseek-ai-deepseek-v4-1-flash",
+      "name": "DeepSeek-V4.1-Flash",
+      "vendor": "deepseek-ai",
+      "region": "china",
+      "category": "model",
+      "released": "2026-10-16",
+      "description": "开源模型 · 1.9M 下载 · 4791 喜欢",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash",
+      "tags": [
+        "开源",
+        "image-text-to-text"
+      ],
+      "pricing": "—",
+      "context": "—",
+      "license": "mit",
       "api": false,
       "modal": "文本",
       "auto": true
