@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-29",
+  "updated": "2026-10-30",
   "items": [
     {
       "id": "gpt-4o",
@@ -2113,8 +2113,8 @@
         "开源",
         "image-text-to-text"
       ],
-      "pricing": "—",
-      "context": "—",
+      "pricing": "输入 $0.31 / 输出 $1.23",
+      "context": "1M",
       "license": "mit",
       "api": false,
       "modal": "文本",
