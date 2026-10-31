@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-30",
+  "updated": "2026-10-31",
   "items": [
     {
       "id": "gpt-4o",
@@ -2115,6 +2115,26 @@
       ],
       "pricing": "输入 $0.31 / 输出 $1.23",
       "context": "1M",
+      "license": "mit",
+      "api": false,
+      "modal": "文本",
+      "auto": true
+    },
+    {
+      "id": "hf-ista-daslab-deepseek-v4-1-flash-1017-gsq-rco-gguf",
+      "name": "DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
+      "vendor": "ISTA-DASLab",
+      "region": "global",
+      "category": "model",
+      "released": "2026-10-28",
+      "description": "开源模型 · 2.1M 下载 · 514 喜欢",
+      "url": "https://huggingface.co/ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
+      "tags": [
+        "开源",
+        "text-generation"
+      ],
+      "pricing": "—",
+      "context": "—",
       "license": "mit",
       "api": false,
       "modal": "文本",
