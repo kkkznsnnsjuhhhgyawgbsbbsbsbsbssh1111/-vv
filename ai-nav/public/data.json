@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-31",
+  "updated": "2026-11-01",
   "items": [
     {
       "id": "gpt-4o",
@@ -2133,9 +2133,29 @@
         "开源",
         "text-generation"
       ],
+      "pricing": "输入 $0.3 / 输出 $1.2",
+      "context": "1.048576M",
+      "license": "mit",
+      "api": false,
+      "modal": "文本",
+      "auto": true
+    },
+    {
+      "id": "hf-farbodtavakkoli-otel-2-0-decision-26b-a4b-4bit",
+      "name": "OTel-2.0-Decision-26B-A4B-4bit",
+      "vendor": "farbodtavakkoli",
+      "region": "global",
+      "category": "model",
+      "released": "2026-11-01",
+      "description": "开源模型 · 2.1M 下载 · 6 喜欢",
+      "url": "https://huggingface.co/farbodtavakkoli/OTel-2.0-Decision-26B-A4B-4bit",
+      "tags": [
+        "开源",
+        "text-generation"
+      ],
       "pricing": "—",
       "context": "—",
-      "license": "mit",
+      "license": "apache-2.0",
       "api": false,
       "modal": "文本",
       "auto": true
