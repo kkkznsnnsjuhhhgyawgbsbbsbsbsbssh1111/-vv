@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-01",
+  "updated": "2026-11-04",
   "items": [
     {
       "id": "gpt-4o",
@@ -2156,6 +2156,26 @@
       "pricing": "—",
       "context": "—",
       "license": "apache-2.0",
+      "api": false,
+      "modal": "文本",
+      "auto": true
+    },
+    {
+      "id": "hf-trl-internal-testing-tiny-qwen3forcausallm",
+      "name": "tiny-Qwen3ForCausalLM",
+      "vendor": "trl-internal-testing",
+      "region": "global",
+      "category": "model",
+      "released": "2026-09-08",
+      "description": "开源模型 · 1.9M 下载 · 13 喜欢",
+      "url": "https://huggingface.co/trl-internal-testing/tiny-Qwen3ForCausalLM",
+      "tags": [
+        "开源",
+        "text-generation"
+      ],
+      "pricing": "—",
+      "context": "—",
+      "license": "开源",
       "api": false,
       "modal": "文本",
       "auto": true
