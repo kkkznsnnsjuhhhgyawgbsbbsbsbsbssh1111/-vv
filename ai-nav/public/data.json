@@ -2193,8 +2193,8 @@
         "开源",
         "text-generation"
       ],
-      "pricing": "—",
-      "context": "—",
+      "pricing": "输入 $0.05 / 输出 $0.29",
+      "context": "262K",
       "license": "apache-2.0",
       "api": false,
       "modal": "文本",
