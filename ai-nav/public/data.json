@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-12",
+  "updated": "2026-11-14",
   "items": [
     {
       "id": "gpt-4o",
@@ -2195,6 +2195,26 @@
       ],
       "pricing": "输入 $0.05 / 输出 $0.29",
       "context": "262K",
+      "license": "apache-2.0",
+      "api": false,
+      "modal": "文本",
+      "auto": true
+    },
+    {
+      "id": "hf-qwen-qwen3-coder-30b-a3b-instruct",
+      "name": "Qwen3-Coder-30B-A3B-Instruct",
+      "vendor": "Qwen",
+      "region": "china",
+      "category": "model",
+      "released": "2025-12-03",
+      "description": "开源模型 · 1.8M 下载 · 1336 喜欢",
+      "url": "https://huggingface.co/Qwen/Qwen3-Coder-30B-A3B-Instruct",
+      "tags": [
+        "开源",
+        "text-generation"
+      ],
+      "pricing": "—",
+      "context": "—",
       "license": "apache-2.0",
       "api": false,
       "modal": "文本",
